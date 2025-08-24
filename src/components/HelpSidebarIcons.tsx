@@ -256,30 +256,6 @@ export function HelpSidebarIcons(props: Props) {
               </Tippy>
             )}
 
-            <Tippy
-              duration={0}
-              content={t('contact_us')}
-              className="rounded-md text-xs p-2 bg-[#F2F2F2]"
-            >
-              {isHosted() ? (
-                <div
-                  className="cursor-pointer"
-                  onClick={() => setIsContactVisible(true)}
-                >
-                  <Mail size={21.5} />
-                </div>
-              ) : (
-                <div
-                  className="cursor-pointer"
-                  onClick={() =>
-                    window.open('https://slack.invoiceninja.com', '_blank')
-                  }
-                >
-                  <Icon element={FaSlack} color="white" size={21.5} />
-                </div>
-              )}
-            </Tippy>
-
             {!isUpdateAvailable && (
               <Tippy
                 duration={0}
