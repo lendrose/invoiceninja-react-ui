@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global font override - using utilities layer for higher priority */
+@layer utilities {
+  .font-montserrat-default {
+    font-family: "Montserrat", sans-serif !important;
+    font-optical-sizing: auto;
+  }
+}
+
+/* Force Montserrat on all elements */
+html, body, #root, 
+body *, div *, p *, h1 *, h2 *, h3 *, h4 *, h5 *, h6 *, 
+span *, a *, button *, input *, textarea *, select *, label * {
+  font-family: "Montserrat", sans-serif !important;
+}
+
 @keyframes jiggle {
   0%,
   100% {

@@ -484,7 +484,7 @@ export default function Kanban() {
                               borderColor: colors.$4,
                             }}
                           >
-                            <h3 className="leading-6 font-medium">
+                            <h3 className="leading-6 font-bold">
                               {column.title}
                             </h3>
 
