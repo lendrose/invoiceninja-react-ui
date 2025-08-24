@@ -140,6 +140,8 @@ export function HelpSidebarIcons(props: Props) {
     });
   };
 
+  return null;
+
   return (
     <>
       <Modal
