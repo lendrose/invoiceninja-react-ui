@@ -236,7 +236,7 @@ export function Settings() {
           />
         </Element>
 
-        <Element
+        {/* <Element
           leftSide={
             <PropertyCheckbox
               propertyKey="enable_rappen_rounding"
@@ -258,7 +258,7 @@ export function Settings() {
             }
             disabled={disableSettingsField('enable_rappen_rounding')}
           />
-        </Element>
+        </Element> */}
 
         {isCompanySettingsActive && (
           <Element
