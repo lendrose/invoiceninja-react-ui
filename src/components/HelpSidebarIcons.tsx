@@ -9,7 +9,7 @@
  */
 
 import Tippy from '@tippyjs/react';
-import { endpoint, isHosted, isSelfHosted } from '$app/common/helpers';
+import { endpoint, isSelfHosted } from '$app/common/helpers';
 import { request } from '$app/common/helpers/request';
 import { useCurrentAccount } from '$app/common/hooks/useCurrentAccount';
 import {
