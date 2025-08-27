@@ -427,7 +427,7 @@ export function Totals() {
               >
                 <span className="text-gray-500">{t('invoices')}</span>
 
-                <Badge style={{ backgroundColor: '#2176FF26' }}>
+                <Badge style={{ backgroundColor: '#A1A1AA26' }}>
                   <span
                     className="text-base font-mono"
                     style={{ color: '#2176FF' }}
@@ -448,7 +448,7 @@ export function Totals() {
               >
                 <span className="text-gray-500">{t('payments')}</span>
 
-                <Badge style={{ backgroundColor: '#22C55E26' }}>
+                <Badge style={{ backgroundColor: '#A1A1AA26' }}>
                   <span
                     className="text-base font-mono"
                     style={{ color: '#22C55E' }}
@@ -490,7 +490,7 @@ export function Totals() {
               >
                 <span className="text-gray-500">{t('outstanding')}</span>
 
-                <Badge style={{ backgroundColor: '#EF444426' }}>
+                <Badge style={{ backgroundColor: '#A1A1AA26' }}>
                   <span
                     className="text-base font-mono"
                     style={{ color: '#EF4444' }}

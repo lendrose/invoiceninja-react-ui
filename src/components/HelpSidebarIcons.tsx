@@ -18,7 +18,7 @@ import {
 } from '$app/common/stores/slices/company-users';
 import { useFormik } from 'formik';
 import { useState } from 'react';
-import { Mail } from 'react-feather';
+/* import { Mail } from 'react-feather'; */
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { Button, InputField } from './forms';
@@ -29,8 +29,8 @@ import { useColorScheme } from '$app/common/colors';
 import { useInjectUserChanges } from '$app/common/hooks/useInjectUserChanges';
 import classNames from 'classnames';
 import { AboutModal } from './AboutModal';
-import { Icon } from './icons/Icon';
-import { FaSlack } from 'react-icons/fa';
+/* import { Icon } from './icons/Icon';
+import { FaSlack } from 'react-icons/fa'; */
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { UpdateAppModal } from './UpdateAppModal';
@@ -140,7 +140,38 @@ export function HelpSidebarIcons(props: Props) {
     });
   };
 
-  return null;
+  
+
+  return (
+    <nav
+      style={{ borderColor: colors.$5 }}
+      className={classNames('flex space-x-2.5 py-4 text-white border-t', {
+        'justify-end': true,
+        'px-2': !isUpdateAvailable,
+      })}
+    >
+      <Tippy
+        duration={0}
+        content={
+          <span style={{ fontSize: isMiniSidebar ? '0.6rem' : '0.75rem' }}>
+            {isMiniSidebar ? t('show_menu') : t('hide_menu')}
+          </span>
+        }
+        className="rounded-md text-xs p-2 bg-[#F2F2F2]"
+      >
+        <div
+          className="cursor-pointer"
+          onClick={() => handleCollapseExpandSidebar(!isMiniSidebar)}
+        >
+          {isMiniSidebar ? (
+            <OpenNavbarArrow color="#e5e7eb" size="1.5rem" />
+          ) : (
+            <CloseNavbarArrow color="#e5e7eb" size="1.35rem" />
+          )}
+        </div>
+      </Tippy>
+    </nav>
+  );
 
   return (
     <>

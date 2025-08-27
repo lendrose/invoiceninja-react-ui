@@ -53,12 +53,12 @@ export const $2 = {
   name: 'invoiceninja.light',
   $0: 'light',
   $1: '#ffffff', // Primary background
-  $2: '#f7f7f7', // Secondary background
+  $2: '#f4f4f5', // Secondary background
   $3: '#2a303d', // Primary text
-  $4: '#f7f7f7', // Primary border
+  $4: '#f4f4f5', // Primary border
   $5: '#d1d5db', // Secondary border (sidebar)
   $6: '#242930', // Secondary background
-  $7: '#f7f7f7', // Primary hover
+  $7: '#f4f4f5', // Primary hover
   $8: '#363D47', // Secondary hover
   $9: '#ffffff', // Accent color text
   $10: 1, // High emphasis text
