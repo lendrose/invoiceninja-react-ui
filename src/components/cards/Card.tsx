@@ -120,7 +120,7 @@ export function Card(props: Props) {
             >
               <div>
                 <h3
-                  className={classNames('leading-6 font-medium', {
+                  className={classNames('leading-6 font-bold', {
                     'text-lg': padding == 'regular',
                     'text-md': padding == 'small',
                   })}

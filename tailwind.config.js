@@ -6,7 +6,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Montserrat', 'sans-serif'],
+        inter: ['Inter var', ...defaultTheme.fontFamily.sans],
+        montserrat: ['Montserrat', 'sans-serif'],
       },
       colors: {
         ninja: {

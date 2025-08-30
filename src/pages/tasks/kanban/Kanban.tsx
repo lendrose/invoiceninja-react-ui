@@ -529,7 +529,7 @@ export default function Kanban() {
                               borderColor: colors.$20,
                             }}
                           >
-                            <h3 className="leading-6 font-medium">
+                            <h3 className="leading-6 font-bold">
                               {column.title.slice(0, 25)}
                               {column.title.length > 25 && '...'}
                             </h3>
