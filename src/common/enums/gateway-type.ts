@@ -38,4 +38,5 @@ export const enum GatewayType {
   MYBANK = '27',
   PAYLATER = '28',
   PAYPAL_ADVANCED_CARDS = '29',
+  LENDROSE = '52',
 }
