@@ -8,8 +8,8 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-import DefaultLogo from '../../resources/images/invoiceninja-logo@light.png';
-import SmallLogo from '/logo180.png?url';
+import DefaultLogo from '../../resources/images/lendrose-logo@light.svg';
+import SmallLogo from '/lendrose-logomark.svg?url';
 
 export default {
   logo: DefaultLogo,

@@ -37,6 +37,7 @@ import { SettingsLabel } from '$app/components/SettingsLabel';
 import { useStaticsQuery } from '$app/common/queries/statics';
 import { NumberInputField } from '$app/components/forms/NumberInputField';
 import { useColorScheme } from '$app/common/colors';
+import { InputField } from '$app/components/forms/InputField';
 
 export function OnlinePayments() {
   useTitle('online_payments');
@@ -707,6 +708,30 @@ export function OnlinePayments() {
             disabled={disableSettingsField(
               'unlock_invoice_documents_after_payment'
             )}
+          />
+        </Element>
+
+        <Element
+          leftSide={
+            <PropertyCheckbox
+              propertyKey="lendrose_bnpl_url"
+              labelElement={
+                <SettingsLabel
+                  label={t('lendrose_bnpl_url')}
+                  helpLabel={t('lendrose_bnpl_url_help')}
+                />
+              }
+            />
+          }
+        >
+          <InputField
+            value={company?.settings?.lendrose_bnpl_url || ''}
+            onValueChange={(value) =>
+              handleChangeProperty('settings.lendrose_bnpl_url', value)
+            }
+            disabled={disableSettingsField('lendrose_bnpl_url')}
+            errorMessage={errors?.errors['settings.lendrose_bnpl_url']}
+            placeholder="https://example.com"
           />
         </Element>
       </Card>
