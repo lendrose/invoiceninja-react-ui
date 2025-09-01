@@ -185,7 +185,7 @@ export function Login() {
           </>
         )}
 
-        <p className="mt-4 text-xs">{version}</p>
+        {/* <p className="mt-4 text-xs">{version}</p> */}
       </div>
 
       <Disable2faModal

@@ -24,7 +24,7 @@ export function Header() {
       <div className="py-1" style={css}></div>
       <div className="flex justify-center py-8">
         <Link to="/">
-          <img src={Logo} alt="Invoice Ninja Logo" className="h-12" />
+          <img src={Logo} alt="Lendrose Logo" className="h-12" />
         </Link>
       </div>
     </>

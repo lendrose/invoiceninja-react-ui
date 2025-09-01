@@ -28,7 +28,7 @@ interface SettingsState {
 
 const initialState: SettingsState = {
   colors: {
-    primary: '#117DC0',
+    primary: '#116DF4',
   },
   darkMode: false,
   activeSettings: {
