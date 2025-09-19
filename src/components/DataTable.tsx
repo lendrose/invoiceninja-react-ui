@@ -157,6 +157,7 @@ interface Props<T> extends CommonProps {
   disableQuery?: boolean;
   footerColumns?: FooterColumns;
   withoutPerPageAsPreference?: boolean;
+  withoutPageAsPreference?: boolean;
   withoutSortQueryParameter?: boolean;
   showRestoreBulk?: (selectedResources: T[]) => boolean;
   enableSavingFilterPreference?: boolean;
@@ -230,6 +231,7 @@ export function DataTable<T extends object>(props: Props<T>) {
     showRestoreBulk,
     enableSavingFilterPreference = false,
     onDeleteBulkAction,
+    withoutPageAsPreference = false,
   } = props;
 
   const companyUpdateTimeOut = useRef<NodeJS.Timeout | undefined>(undefined);
@@ -275,6 +277,7 @@ export function DataTable<T extends object>(props: Props<T>) {
     tableKey: `${props.resource}s`,
     customFilters,
     withoutStoringPerPage: withoutPerPageAsPreference,
+    withoutStoringPage: withoutPageAsPreference,
     enableSavingFilterPreference,
   });
 
@@ -325,14 +328,12 @@ export function DataTable<T extends object>(props: Props<T>) {
 
     apiEndpoint.searchParams.set('status', status as unknown as string);
 
-    if (dateRangeColumns.length && dateRangeQueryParameter) {
-      const startDate = dateRange?.split(',')[0];
-      const endDate = dateRange?.split(',')[1];
-
-      apiEndpoint.searchParams.set(
-        dateRangeQueryParameter,
-        startDate && endDate ? dateRange : ''
-      );
+    if (
+      dateRangeColumns.length &&
+      dateRangeQueryParameter &&
+      dateRange?.split(',').every((date) => date.length > 1)
+    ) {
+      apiEndpoint.searchParams.set(dateRangeQueryParameter, dateRange);
     }
 
     setApiEndpoint(apiEndpoint);
@@ -395,8 +396,13 @@ export function DataTable<T extends object>(props: Props<T>) {
       sort,
       status,
       customFilter,
-      dateRange,
-      dateRangeQueryParameter,
+      ...(dateRange?.split(',').every((date) => date.length > 1)
+        ? [dateRange]
+        : []),
+      ...(dateRange?.split(',').every((date) => date.length > 1) &&
+      dateRangeQueryParameter
+        ? [dateRangeQueryParameter]
+        : []),
     ],
     () => request(methodType, apiEndpoint.href),
     {

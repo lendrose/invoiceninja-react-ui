@@ -345,6 +345,7 @@ export interface Settings {
   ses_region: string;
   ses_topic_arn: string;
   lendrose_bnpl_url: string;
+  ses_from_address: string;
 }
 
 export interface TaxData {

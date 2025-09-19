@@ -9,9 +9,8 @@
  */
 
 
-import { useNavigate, useOutletContext } from 'react-router-dom';
+import { useOutletContext } from 'react-router-dom';
 import { Context } from '../Edit';
-import { useDisableNavigation } from '$app/common/hooks/useDisableNavigation';
 import { useTranslation } from 'react-i18next';
 import { useFormatMoney } from '$app/common/hooks/money/useFormatMoney';
 import { Card } from '$app/components/cards';
@@ -59,11 +58,9 @@ function PaymentSchedule() {
   const { invoice } = context;
 
   const colors = useColorScheme();
-
-  const navigate = useNavigate();
-  const formatMoney = useFormatMoney();
-  const disableNavigation = useDisableNavigation();
   const queryClient = useQueryClient();
+
+  const formatMoney = useFormatMoney();
 
   // Wizard state
   const [currentStep, setCurrentStep] = useState<WizardStep>('initial-choice');
@@ -481,6 +478,8 @@ function PaymentSchedule() {
             {/* Remove Schedule Button */}
             <div className="flex justify-end">
               <Button 
+                behavior='button'
+                disableWithoutIcon
                 onClick={handleRemoveSchedule}
                 disabled={isRemovingSchedule}
                 className="text-red-600 border-red-600 hover:bg-red-50 border"
@@ -574,6 +573,7 @@ function PaymentSchedule() {
                     errorMessage={undefined}
                     customSelector
                     dismissable={false}
+                    menuPosition='fixed'
                 >
                     {Object.keys(frequencies).map((frequency, index) => (
                         <option key={index} value={frequency}>
@@ -707,13 +707,15 @@ function PaymentSchedule() {
           {!localInvoice?.schedule?.length && (
             <>
               {currentStep !== 'initial-choice' && (
-                <Button onClick={handleBack}>
+                <Button behavior='button' onClick={handleBack}>
                   {t('back')}
                 </Button>
               )}
               
               {currentStep === 'auto-bill' && (
                 <Button 
+                  behavior='button'
+                  disableWithoutIcon
                   onClick={handleCreateNumberPaymentsSchedule}
                   disabled={!canProceed() || isCreatingSchedule}
                   className="ml-auto"
@@ -724,6 +726,8 @@ function PaymentSchedule() {
               
               {currentStep === 'custom-schedule' && (
                 <Button 
+                  behavior='button'
+                  disableWithoutIcon
                   onClick={handleCreateCustomSchedule}
                   disabled={isCreatingSchedule || !isComplete}
                   className="ml-auto"
@@ -734,6 +738,8 @@ function PaymentSchedule() {
               
               {currentStep !== 'auto-bill' && currentStep !== 'custom-schedule' && (
                 <Button 
+                  behavior='button'
+                  disableWithoutIcon
                   onClick={handleNext}
                   disabled={!canProceed()}
                   className="ml-auto"
