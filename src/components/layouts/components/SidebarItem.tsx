@@ -62,8 +62,8 @@ export function SidebarItem(props: Props) {
       className={classNames(
         'flex items-center justify-between group px-1.5 text-sm font-medium rounded-md',
         {
-          'text-white border-l-4 border-transparent': item.current,
-          'text-gray-300 border-l-4 border-transparent': !item.current,
+          'text-white border-l-4 border-primary-500 bg-primary-500/20': item.current,
+          'text-gray-300 border-l-4 border-transparent hover:bg-white/10': !item.current,
         }
       )}
     >
@@ -78,8 +78,8 @@ export function SidebarItem(props: Props) {
             size="1.275rem"
             color={
               item.current
-                ? themeColors.$2 || 'white'
-                : themeColors.$4 || '#74747C'
+                ? 'white'
+                : '#94a3b8'
             }
           />
 

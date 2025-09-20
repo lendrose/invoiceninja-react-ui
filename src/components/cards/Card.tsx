@@ -76,16 +76,14 @@ export function Card(props: Props) {
     <div
       ref={props.innerRef}
       className={classNames(
-        `border rounded-md overflow-visible ${props.className}`,
+        `backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl overflow-visible ${props.className}`,
         {
           'overflow-y-auto': props.withScrollableBody,
           'h-full': height === 'full',
         }
       )}
       style={{
-        backgroundColor: colors.$1,
-        color: colors.$3,
-        borderColor: colors.$4,
+        color: 'white',
         ...props.style,
       }}
     >
@@ -97,12 +95,12 @@ export function Card(props: Props) {
           <div
             className={classNames(
               {
-                'bg-white sticky top-0': props.withScrollableBody,
+                'bg-white/5 sticky top-0': props.withScrollableBody,
                 'px-4 sm:px-6 py-3':
                   padding == 'small' && !props.withoutHeaderPadding,
                 'px-4 sm:px-6 py-5':
                   padding == 'regular' && !props.withoutHeaderPadding,
-                'border-b': !props.withoutHeaderBorder,
+                'border-b border-white/20': !props.withoutHeaderBorder,
               },
               props.headerClassName
             )}
@@ -110,7 +108,7 @@ export function Card(props: Props) {
               typeof props.collapsed !== 'undefined' &&
               setIsCollpased(!isCollapsed)
             }
-            style={{ borderColor: colors.$4, ...props.headerStyle }}
+            style={{ ...props.headerStyle }}
           >
             <div
               className={classNames('flex items-center justify-between', {

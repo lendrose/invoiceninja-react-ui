@@ -272,9 +272,20 @@ export function App() {
 
   return (
     <>
-      <div className="App">
-        <Toaster position="top-center" />
-        {routes}
+      <div className="min-h-screen bg-dark-bg relative">
+        {/* Fixed Background SVG */}
+        <img 
+          src="/dark-grey-background.svg" 
+          alt="Background" 
+          className="bg-fixed-full-width"
+        />
+        
+        <div className="relative z-20">
+          <div className="App">
+            <Toaster position="top-center" />
+            {routes}
+          </div>
+        </div>
       </div>
 
       <CompanyEdit

@@ -18,32 +18,32 @@ import { Button } from '../../components/forms/Button';
 import { Link } from '../../components/forms/Link';
 import { InputLabel } from '../../components/forms/InputLabel';
 import { HostedLinks } from './components/HostedLinks';
-import { Header } from './components/Header';
 import { useTitle } from '$app/common/hooks/useTitle';
 import { request } from '$app/common/helpers/request';
 import { SignInProviders } from './components/SignInProviders';
 import { useLogin } from './common/hooks';
 import { GenericValidationBag } from '$app/common/interfaces/validation-bag';
-import { useAccentColor } from '$app/common/hooks/useAccentColor';
-import { Disable2faModal } from './components/Disable2faModal';
 import { useColorScheme } from '$app/common/colors';
 import { version } from '$app/common/helpers/version';
 import { toast } from '$app/common/helpers/toast/toast';
-import classNames from 'classnames';
 import { ErrorMessage } from '$app/components/ErrorMessage';
+import { Disable2faModal } from './components/Disable2faModal';
+import { useAccentColor } from '$app/common/hooks/useAccentColor';
+import classNames from 'classnames';
 
 export function Login() {
   useTitle('login');
 
-  const accentColor = useAccentColor();
 
   const [message, setMessage] = useState<string | undefined>(undefined);
   const [errors, setErrors] = useState<LoginValidation | undefined>(undefined);
   const [isFormBusy, setIsFormBusy] = useState(false);
-  const [t] = useTranslation();
-
   const [isDisable2faModalOpen, setIsDisable2faModalOpen] =
     useState<boolean>(false);
+  const [t] = useTranslation();
+
+  const accentColor = useAccentColor();
+
 
   const login = useLogin();
 
@@ -79,23 +79,32 @@ export function Login() {
   const colors = useColorScheme();
 
   return (
-    <div className="h-screen">
-      <Header />
-      <div className="flex flex-col items-center">
-        <div
-          className="mx-4 max-w-md w-full p-8 rounded md:shadow-lg border"
-          style={{ backgroundColor: colors.$1, borderColor: colors.$5 }}
-        >
-          <h2 className="text-2xl" style={{ color: colors.$3 }}>
-            {t('login')}
-          </h2>
+    <div className="min-h-screen bg-dark-bg relative">
+      {/* Fixed Background SVG */}
+      <img 
+        src="/dark-grey-background.svg" 
+        alt="Background" 
+        className="bg-fixed-full-width"
+      />
+      
+      <div className="relative z-20">
+        <div className="flex flex-col items-center justify-center min-h-screen py-12">
+          <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl mx-4 max-w-md w-full p-8">
+            {/* Logo at the top of the login card */}
+            <div className="flex justify-center mb-6">
+              <Link to="/">
+                <img src="/lendrose-logo.svg" alt="Lendrose Logo" className="h-10" />
+              </Link>
+            </div>
+            
+            <h2 className="text-2xl font-heading text-white text-center mb-6">LendrosePay Login</h2>
 
           <form
             onSubmit={(e) => {
               e.preventDefault();
               handleSubmit(e.currentTarget);
             }}
-            className="my-6 space-y-4"
+            className="my-6 space-y-4 login-form"
           >
             <InputField
               type="email"
@@ -177,15 +186,18 @@ export function Login() {
 
         {isHosted() && (
           <>
-            <SignInProviders />
+            <div className="mt-6">
+              <SignInProviders />
+            </div>
 
-            <div className="mx-4 max-w-md w-full rounded md:shadow-lg mt-4">
+            <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl mx-4 max-w-md w-full mt-4">
               <HostedLinks />
             </div>
           </>
         )}
 
         {/* <p className="mt-4 text-xs">{version}</p> */}
+        </div>
       </div>
 
       <Disable2faModal

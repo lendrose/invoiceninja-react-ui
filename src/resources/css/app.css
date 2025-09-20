@@ -1,6 +1,299 @@
+/* Helvetica Now Font Faces */
+@font-face {
+  font-family: 'helvetica-now';
+  src: url('../../assets/fonts/helvetica-now/HelveticaNowText-Regular.woff2') format('woff2'),
+       url('../../assets/fonts/helvetica-now/HelveticaNowText-Regular.woff') format('woff'),
+       url('../../assets/fonts/helvetica-now/HelveticaNowText-Regular.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'helvetica-now';
+  src: url('../../assets/fonts/helvetica-now/HelveticaNowText-RegIta.woff2') format('woff2'),
+       url('../../assets/fonts/helvetica-now/HelveticaNowText-RegIta.woff') format('woff'),
+       url('../../assets/fonts/helvetica-now/HelveticaNowText-RegIta.otf') format('otf');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'helvetica-now';
+  src: url('../../assets/fonts/helvetica-now/HelveticaNowText-Bold.woff2') format('woff2'),
+       url('../../assets/fonts/helvetica-now/HelveticaNowText-Bold.woff') format('woff'),
+       url('../../assets/fonts/helvetica-now/HelveticaNowText-Bold.otf') format('otf');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'helvetica-now';
+  src: url('../../assets/fonts/helvetica-now/HelveticaNowText-BoldItalic.woff2') format('woff2'),
+       url('../../assets/fonts/helvetica-now/HelveticaNowText-BoldItalic.woff') format('woff'),
+       url('../../assets/fonts/helvetica-now/HelveticaNowText-BoldItalic.otf') format('otf');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Integral CF Font Faces */
+@font-face {
+  font-family: 'integral-cf';
+  src: url('../../assets/fonts/integral-cf/integralcf-regular.woff2') format('woff2'),
+       url('../../assets/fonts/integral-cf/integralcf-regular.woff') format('woff'),
+       url('../../assets/fonts/integral-cf/integralcf-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'integral-cf';
+  src: url('../../assets/fonts/integral-cf/integralcf-regularoblique.woff2') format('woff2'),
+       url('../../assets/fonts/integral-cf/integralcf-regularoblique.woff') format('woff'),
+       url('../../assets/fonts/integral-cf/integralcf-regularoblique.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme colors */
+    --ui-background: #ffffff;
+    --ui-foreground: #0f172a;
+    --ui-muted: #f1f5f9;
+    --ui-muted-foreground: #64748b;
+    --ui-border: #e2e8f0;
+    --ui-input: #ffffff;
+    --ui-ring: #116DF4;
+    --ui-card: #ffffff;
+    --ui-card-foreground: #0f172a;
+  }
+
+  .dark {
+    /* Dark theme colors from SVG */
+    --ui-background: #241F21; /* Main dark background from SVG */
+    --ui-foreground: #f8fafc;
+    --ui-muted: #2A2527; /* Slightly lighter for muted elements */
+    --ui-muted-foreground: #94a3b8;
+    --ui-border: #3A3537; /* Subtle borders */
+    --ui-input: #2A2527;
+    --ui-ring: #3EDB93; /* Green accent from SVG */
+    --ui-card: #2A2527;
+    --ui-card-foreground: #f8fafc;
+  }
+
+  html {
+    font-family: 'Montserrat', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-dark-bg text-white font-sans text-lg;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+    letter-spacing: 1px;
+  }
+  
+  /* Ensure all headings use integral-cf */
+  h1, h2, h3, h4, h5, h6,
+  .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl,
+  .text-xl, .text-lg {
+    font-family: 'integral-cf', system-ui, sans-serif !important;
+  }
+  
+  html {
+    @apply dark;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2;
+  }
+  
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+  
+  .card {
+    @apply bg-ui-card rounded-lg shadow-md p-6;
+  }
+  
+  .glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl;
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-md bg-black/20 border border-white/10 rounded-2xl shadow-2xl;
+  }
+
+  /* Staggered Animation Utilities */
+  .animate-stagger-1 {
+    animation: slideInUp 0.6s ease-out 0.1s both;
+  }
+
+  .animate-stagger-2 {
+    animation: slideInUp 0.6s ease-out 0.2s both;
+  }
+
+  .animate-stagger-3 {
+    animation: slideInUp 0.6s ease-out 0.3s both;
+  }
+
+  .animate-stagger-4 {
+    animation: slideInUp 0.6s ease-out 0.4s both;
+  }
+
+  .animate-stagger-5 {
+    animation: slideInUp 0.6s ease-out 0.5s both;
+  }
+
+  .animate-stagger-6 {
+    animation: slideInUp 0.6s ease-out 0.6s both;
+  }
+
+  .animate-stagger-7 {
+    animation: slideInUp 0.6s ease-out 0.7s both;
+  }
+
+  .animate-stagger-8 {
+    animation: slideInUp 0.6s ease-out 0.8s both;
+  }
+
+  .animate-stagger-9 {
+    animation: slideInUp 0.6s ease-out 0.9s both;
+  }
+
+  .animate-stagger-10 {
+    animation: slideInUp 0.6s ease-out 1.0s both;
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Grid stagger animation for left-to-right, top-to-bottom */
+  .animate-grid-stagger-1 {
+    animation: slideInUp 0.6s ease-out 0.1s both;
+  }
+
+  .animate-grid-stagger-2 {
+    animation: slideInUp 0.6s ease-out 0.2s both;
+  }
+
+  .animate-grid-stagger-3 {
+    animation: slideInUp 0.6s ease-out 0.3s both;
+  }
+
+  .animate-grid-stagger-4 {
+    animation: slideInUp 0.6s ease-out 0.4s both;
+  }
+
+  .animate-grid-stagger-5 {
+    animation: slideInUp 0.6s ease-out 0.5s both;
+  }
+
+  .animate-grid-stagger-6 {
+    animation: slideInUp 0.6s ease-out 0.6s both;
+  }
+
+  .animate-grid-stagger-7 {
+    animation: slideInUp 0.6s ease-out 0.7s both;
+  }
+
+  .animate-grid-stagger-8 {
+    animation: slideInUp 0.6s ease-out 0.8s both;
+  }
+
+  .animate-grid-stagger-9 {
+    animation: slideInUp 0.6s ease-out 0.9s both;
+  }
+
+  .animate-grid-stagger-10 {
+    animation: slideInUp 0.6s ease-out 1.0s both;
+  }
+
+  /* Fixed Background Utilities */
+  .bg-fixed-full-width {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  .bg-fixed-full-width-contain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    object-fit: contain;
+    object-position: center;
+    z-index: 0;
+  }
+
+  /* Login Form Styling */
+  .login-form input {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: 0.5rem !important;
+  }
+  
+  .login-form input:focus {
+    border-color: #116DF4 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(17, 109, 244, 0.2) !important;
+  }
+  
+  .login-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+  
+  .login-form label {
+    color: white !important;
+  }
+  
+  .login-form a {
+    color: #3EDB93 !important;
+  }
+  
+  .login-form button {
+    background-color: #116DF4 !important;
+    border-color: #116DF4 !important;
+    color: white !important;
+    border-radius: 0.5rem !important;
+    padding: 0.75rem 1.5rem !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .login-form button:hover {
+    background-color: #0e5ad1 !important;
+    border-color: #0e5ad1 !important;
+  }
+  
+  .login-form button:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(17, 109, 244, 0.2) !important;
+  }
+}
 
 /* Global font override - using utilities layer for higher priority */
 @layer utilities {
