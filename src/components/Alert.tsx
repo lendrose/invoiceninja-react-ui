@@ -15,7 +15,7 @@ import { X } from 'react-feather';
 import { useColorScheme } from '$app/common/colors';
 
 interface Props extends CommonProps {
-  type?: string | 'success' | 'warning' | 'danger';
+  type?: 'success' | 'warning' | 'danger' | 'info';
   disableClosing?: boolean;
 }
 
