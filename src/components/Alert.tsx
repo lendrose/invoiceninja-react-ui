@@ -64,8 +64,12 @@ export function Alert(props: Props) {
             </div>
 
             {!props.disableClosing && (
-              <button type="button">
-                <X onClick={() => setVisible(false)} />
+              <button 
+                type="button"
+                onClick={() => setVisible(false)}
+                className="p-0.5 hover:bg-gray-200 rounded transition-colors"
+              >
+                <X className="w-3 h-3" />
               </button>
             )}
           </div>
