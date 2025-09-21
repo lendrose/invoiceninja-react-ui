@@ -434,7 +434,7 @@ export function Default(props: Props) {
         })}
       >
         <div
-          className="sticky top-0 z-10 flex-shrink-0 flex h-16 border-b shadow backdrop-blur-md bg-white/10 border-white/20"
+          className="sticky top-0 z-10 flex-shrink-0 flex h-16 border-b border-white/15 shadow backdrop-blur-md bg-white/10"
         >
           <button
             type="button"
@@ -590,7 +590,7 @@ export function Default(props: Props) {
             )}
 
           <div
-            className="p-4 xl:px-6 text-white"
+            className="p-8 2xl:p-12 text-white"
           >
             {props.children}
           </div>

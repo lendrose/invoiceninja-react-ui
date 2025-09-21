@@ -293,8 +293,7 @@ export function Totals() {
             )}
 
             <div
-              className="flex rounded-lg overflow-hidden border shadow-sm"
-              style={{ borderColor: colors.$24 }}
+              className="flex rounded-lg overflow-hidden backdrop-blur-md bg-white/10 border border-white/15 shadow-2xl"
             >
               <ChartScaleBox
                 className="flex items-center px-4 cursor-pointer text-sm"
@@ -302,12 +301,12 @@ export function Totals() {
                   update('preferences.dashboard_charts.default_view', 'day')
                 }
                 theme={{
-                  backgroundColor: chartScale === 'day' ? colors.$3 : colors.$1,
-                  hoverBgColor: chartScale === 'day' ? colors.$3 : colors.$4,
+                  backgroundColor: chartScale === 'day' ? '#3edb93' : 'transparent',
+                  hoverBgColor: chartScale === 'day' ? '#3edb93' : 'rgba(255, 255, 255, 0.1)',
                 }}
                 style={{
-                  borderColor: colors.$24,
-                  color: chartScale === 'day' ? colors.$1 : colors.$3,
+                  borderColor: 'rgba(255, 255, 255, 0.1)',
+                  color: chartScale === 'day' ? '#121212' : 'rgba(255, 255, 255, 0.9)',
                 }}
               >
                 {t('day')}
@@ -320,12 +319,12 @@ export function Totals() {
                 }
                 theme={{
                   backgroundColor:
-                    chartScale === 'week' ? colors.$3 : colors.$1,
-                  hoverBgColor: chartScale === 'week' ? colors.$3 : colors.$4,
+                    chartScale === 'week' ? '#3edb93' : 'transparent',
+                  hoverBgColor: chartScale === 'week' ? '#3edb93' : 'rgba(255, 255, 255, 0.1)',
                 }}
                 style={{
-                  borderColor: colors.$24,
-                  color: chartScale === 'week' ? colors.$1 : colors.$3,
+                  borderColor: 'rgba(255, 255, 255, 0.1)',
+                  color: chartScale === 'week' ? '#121212' : 'rgba(255, 255, 255, 0.9)',
                 }}
               >
                 {t('week')}
@@ -338,12 +337,12 @@ export function Totals() {
                 }
                 theme={{
                   backgroundColor:
-                    chartScale === 'month' ? colors.$3 : colors.$1,
-                  hoverBgColor: chartScale === 'month' ? colors.$3 : colors.$4,
+                    chartScale === 'month' ? '#3edb93' : 'transparent',
+                  hoverBgColor: chartScale === 'month' ? '#3edb93' : 'rgba(255, 255, 255, 0.1)',
                 }}
                 style={{
-                  borderColor: colors.$24,
-                  color: chartScale === 'month' ? colors.$1 : colors.$3,
+                  borderColor: 'rgba(255, 255, 255, 0.1)',
+                  color: chartScale === 'month' ? '#121212' : 'rgba(255, 255, 255, 0.9)',
                 }}
               >
                 {t('month')}
@@ -409,18 +408,16 @@ export function Totals() {
         </div>
       </div>
 
-      <div className="grid grid-cols-10 mt-4 gap-8">
+      <div className="grid grid-cols-10 mt-4 gap-8 2xl:gap-12">
         {company && (
           <Card
             title={t('recent_transactions')}
             className="col-span-10 xl:col-span-3 shadow-sm"
             headerClassName="px-3 sm:px-4 py-3 sm:py-4"
             withoutBodyPadding
-            style={{ borderColor: colors.$24 }}
-            headerStyle={{ borderColor: colors.$20 }}
             withoutHeaderPadding
           >
-            <div className="flex flex-col px-4">
+            <div className="flex flex-col px-8">
               <div
                 className="flex justify-between items-center border-b border-dashed py-5"
                 style={{ borderColor: colors.$21 }}
@@ -530,8 +527,6 @@ export function Totals() {
             className="col-span-10 xl:col-span-7 shadow-sm"
             headerClassName="px-3 sm:px-4 py-3 sm:py-4"
             childrenClassName="px-4"
-            style={{ borderColor: colors.$24 }}
-            headerStyle={{ borderColor: colors.$20 }}
             withoutHeaderPadding
           >
             <Chart

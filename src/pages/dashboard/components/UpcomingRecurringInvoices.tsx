@@ -107,8 +107,6 @@ export function UpcomingRecurringInvoices() {
       className="h-96 relative shadow-sm"
       headerClassName="px-3 sm:px-4 py-3 sm:py-4"
       withoutBodyPadding
-      style={{ borderColor: colors.$24 }}
-      headerStyle={{ borderColor: colors.$20 }}
       withoutHeaderPadding
     >
       <div className="px-4 pt-4">

@@ -66,12 +66,6 @@ export function Badge(props: Props) {
 
   return (
     <span
-      style={{
-        ...styles,
-        color: styles.backgroundColor
-          ? getTextContrastColor(styles.backgroundColor)
-          : undefined,
-      }}
       className={classNames(
         'text-xs px-2 py-1 rounded font-medium',
         {
@@ -98,6 +92,12 @@ export function Badge(props: Props) {
         },
         props.className
       )}
+      style={{
+        ...styles,
+        color: styles.backgroundColor
+          ? getTextContrastColor(styles.backgroundColor)
+          : undefined,
+      }}
     >
       {props.children}
     </span>

@@ -76,7 +76,7 @@ export function Card(props: Props) {
     <div
       ref={props.innerRef}
       className={classNames(
-        `backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl overflow-visible ${props.className}`,
+        `backdrop-blur-md border border-white/15 rounded-2xl shadow-2xl overflow-hidden m-2 ${props.className}`,
         {
           'overflow-y-auto': props.withScrollableBody,
           'h-full': height === 'full',
@@ -95,12 +95,13 @@ export function Card(props: Props) {
           <div
             className={classNames(
               {
-                'bg-white/5 sticky top-0': props.withScrollableBody,
-                'px-4 sm:px-6 py-3':
+                'backdrop-blur-md bg-gradient-to-r from-green-500/15 to-green-400/8 sticky top-0': props.withScrollableBody,
+                'backdrop-blur-md bg-gradient-to-r from-green-500/15 to-green-400/8': !props.withScrollableBody,
+                'px-8 sm:px-10 py-6':
                   padding == 'small' && !props.withoutHeaderPadding,
-                'px-4 sm:px-6 py-5':
+                'px-8 sm:px-10 py-8':
                   padding == 'regular' && !props.withoutHeaderPadding,
-                'border-b border-white/20': !props.withoutHeaderBorder,
+                'border-b border-white/15': !props.withoutHeaderBorder,
               },
               props.headerClassName
             )}
@@ -145,11 +146,11 @@ export function Card(props: Props) {
         )}
 
         <div
-          className={classNames(props.childrenClassName, {
+          className={classNames(props.childrenClassName, 'bg-white/10', {
             hidden: isCollapsed,
             'py-0': props.withoutBodyPadding,
-            'py-4': padding === 'regular' && !props.withoutBodyPadding,
-            'py-2': padding === 'small' && !props.withoutBodyPadding,
+            'py-8 px-8 sm:px-10': padding === 'regular' && !props.withoutBodyPadding,
+            'py-6 px-8 sm:px-10': padding === 'small' && !props.withoutBodyPadding,
             'h-full': height === 'full',
           })}
         >

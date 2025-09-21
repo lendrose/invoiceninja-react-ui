@@ -101,7 +101,7 @@ export function SidebarItem(props: Props) {
             color={
               item.current
                 ? themeColors.$2 || 'white'
-                : themeColors.$4 || '#116DF4'
+                : themeColors.$4 || '#3edb93'
             }
           />
         </LinkStyled>

@@ -374,7 +374,8 @@ export function Combobox<T = any>({
             className="w-full rounded-md py-1.5 pl-3 pr-10 shadow-sm sm:text-sm sm:leading-6 focus:outline-none focus:ring-0"
             ref={inputRef}
             style={{
-              backgroundColor: colors.$1,
+              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+              backdropFilter: 'blur(12px)',
               color: colors.$3,
               border: 'none',
             }}

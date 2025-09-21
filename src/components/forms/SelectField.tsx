@@ -93,22 +93,27 @@ export function SelectField(props: SelectProps) {
       return merge(base, {
         width: 'max-content',
         minWidth: '100%',
-        backgroundColor: colors.$4,
-        borderColor: colors.$4,
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        backdropFilter: 'blur(12px)',
+        borderColor: 'rgba(255, 255, 255, 0.2)',
+        borderRadius: '0.75rem',
+        border: '1px solid rgba(255, 255, 255, 0.15)',
+        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
         zIndex: 50,
       });
     },
     control: (base, { isDisabled, isFocused }) => {
       return merge(base, {
         borderRadius: '0.375rem',
-        backgroundColor: colors.$1,
+        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+        backdropFilter: 'blur(12px)',
         color: colors.$3,
-        borderColor: isFocused ? colors.$3 : colors.$24,
+        borderColor: isFocused ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.15)',
         cursor: isDisabled ? 'not-allowed' : 'pointer',
         pointerEvents: isDisabled ? 'auto' : 'unset',
         boxShadow: 'none',
         '&:hover': {
-          borderColor: isFocused ? colors.$3 : colors.$24,
+          borderColor: isFocused ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.2)',
         },
         ...controlStyle,
       });
@@ -117,10 +122,10 @@ export function SelectField(props: SelectProps) {
       return merge(base, {
         display: 'flex',
         alignItems: 'center',
-        color: colors.$3,
-        backgroundColor: isSelected || isFocused ? colors.$7 : colors.$1,
+        color: 'rgba(255, 255, 255, 0.9)',
+        backgroundColor: isSelected || isFocused ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
         ':hover': {
-          backgroundColor: colors.$7,
+          backgroundColor: 'rgba(255, 255, 255, 0.1)',
         },
         minHeight: '1.875rem',
       });

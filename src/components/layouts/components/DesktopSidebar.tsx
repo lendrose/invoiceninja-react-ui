@@ -55,11 +55,11 @@ export function DesktopSidebar(props: Props) {
       )}
     >
       <div
-        className="flex flex-col flex-grow overflow-y-auto backdrop-blur-md bg-white/10 border-r border-white/20 px-3"
+        className="flex flex-col flex-grow overflow-y-auto backdrop-blur-md bg-white/10 border-r border-white/15 px-3"
       >
         <div
           className={classNames(
-            'flex items-center flex-shrink-0 h-16 border-b border-white/20',
+            'flex items-center flex-shrink-0 h-16 border-b border-white/15',
             {
               'py-3': !isMiniSidebar,
               'justify-center': isMiniSidebar,

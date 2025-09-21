@@ -40,8 +40,6 @@ export function Activity() {
       withoutBodyPadding
       headerClassName="px-3 sm:px-4 py-3 sm:py-4"
       childrenClassName="px-0"
-      style={{ borderColor: colors.$24 }}
-      headerStyle={{ borderColor: colors.$20 }}
       withoutHeaderPadding
     >
       {isLoading && (

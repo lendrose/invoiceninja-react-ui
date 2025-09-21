@@ -331,8 +331,9 @@ export function CustomMultiSelect(props: Props) {
   const customStyles: StylesConfig<SelectOption, true> = {
     control: (base) => ({
       ...base,
-      backgroundColor: colors.$1,
-      borderColor: colors.$24,
+      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+      backdropFilter: 'blur(12px)',
+      borderColor: 'rgba(255, 255, 255, 0.15)',
       borderRadius: '0.375rem',
       padding: '0 6px',
     }),
@@ -342,23 +343,25 @@ export function CustomMultiSelect(props: Props) {
     }),
     placeholder: (base) => ({
       ...base,
-      color: '#6b7280',
+      color: 'rgba(255, 255, 255, 0.6)',
     }),
     indicatorSeparator: () => ({
       display: 'none',
     }),
     dropdownIndicator: (base) => ({
       ...base,
-      color: '#6b7280',
+      color: 'rgba(255, 255, 255, 0.6)',
       padding: '0 8px',
     }),
     menu: (base) => ({
       ...base,
-      backgroundColor: colors.$1,
-      border: `1px solid ${colors.$19}`,
+      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+      backdropFilter: 'blur(12px)',
+      border: '1px solid rgba(255, 255, 255, 0.15)',
+      borderRadius: '0.75rem',
       zIndex: 10,
       width: '16rem',
-      boxShadow: 'none',
+      boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
       padding: '0.25rem',
     }),
     option: (base) => ({
