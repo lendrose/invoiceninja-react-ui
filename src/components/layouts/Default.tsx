@@ -434,7 +434,7 @@ export function Default(props: Props) {
         })}
       >
         <div
-          className="sticky top-0 z-10 flex-shrink-0 flex h-16 border-b border-white/15 shadow backdrop-blur-md bg-white/10"
+          className="sticky top-0 z-10 flex-shrink-0 flex h-16 border-b border-white/15 shadow backdrop-blur-md bg-gradient-to-l from-blue-500/25 to-black/20"
         >
           <button
             type="button"

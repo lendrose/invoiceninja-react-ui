@@ -55,7 +55,7 @@ export function DesktopSidebar(props: Props) {
       )}
     >
       <div
-        className="flex flex-col flex-grow overflow-y-auto backdrop-blur-md bg-white/10 border-r border-white/15 px-3"
+        className="flex flex-col flex-grow overflow-y-auto backdrop-blur-md bg-gradient-to-b from-black/20 to-blue-500/15 border-r border-white/15 px-3"
       >
         <div
           className={classNames(

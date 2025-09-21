@@ -76,7 +76,7 @@ export function Card(props: Props) {
     <div
       ref={props.innerRef}
       className={classNames(
-        `backdrop-blur-md border border-white/15 rounded-2xl shadow-2xl overflow-hidden m-2 ${props.className}`,
+        `backdrop-blur-md bg-black/20 border border-white/15 rounded-2xl shadow-2xl overflow-hidden m-2 ${props.className}`,
         {
           'overflow-y-auto': props.withScrollableBody,
           'h-full': height === 'full',
@@ -146,7 +146,7 @@ export function Card(props: Props) {
         )}
 
         <div
-          className={classNames(props.childrenClassName, 'bg-white/10', {
+          className={classNames(props.childrenClassName, {
             hidden: isCollapsed,
             'py-0': props.withoutBodyPadding,
             'py-8 px-8 sm:px-10': padding === 'regular' && !props.withoutBodyPadding,

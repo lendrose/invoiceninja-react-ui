@@ -293,7 +293,7 @@ export function Totals() {
             )}
 
             <div
-              className="flex rounded-lg overflow-hidden backdrop-blur-md bg-white/10 border border-white/15 shadow-2xl"
+              className="flex rounded-lg overflow-hidden backdrop-blur-md bg-black/20 border border-white/15 shadow-2xl"
             >
               <ChartScaleBox
                 className="flex items-center px-4 cursor-pointer text-sm"
