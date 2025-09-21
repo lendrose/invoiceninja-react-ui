@@ -95,8 +95,8 @@ export function Card(props: Props) {
           <div
             className={classNames(
               {
-                'backdrop-blur-md bg-gradient-to-r from-green-500/15 to-green-400/8 sticky top-0': props.withScrollableBody,
-                'backdrop-blur-md bg-gradient-to-r from-green-500/15 to-green-400/8': !props.withScrollableBody,
+                'backdrop-blur-md bg-gradient-to-r from-green-500/20 to-green-400/12 sticky top-0': props.withScrollableBody,
+                'backdrop-blur-md bg-gradient-to-r from-green-500/20 to-green-400/12': !props.withScrollableBody,
                 'px-8 sm:px-10 py-6':
                   padding == 'small' && !props.withoutHeaderPadding,
                 'px-8 sm:px-10 py-8':

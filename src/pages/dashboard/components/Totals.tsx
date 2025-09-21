@@ -411,7 +411,7 @@ export function Totals() {
       <div className="grid grid-cols-10 mt-4 gap-8 2xl:gap-12">
         {company && (
           <Card
-            title={t('recent_transactions')}
+            title={<span className="uppercase font-heading text-lg">{t('recent_transactions')}</span>}
             className="col-span-10 xl:col-span-3 shadow-sm"
             headerClassName="px-3 sm:px-4 py-3 sm:py-4"
             withoutBodyPadding
@@ -523,7 +523,7 @@ export function Totals() {
 
         {chartData && (
           <Card
-            title={t('overview')}
+            title={<span className="uppercase font-heading text-lg">{t('overview')}</span>}
             className="col-span-10 xl:col-span-7 shadow-sm"
             headerClassName="px-3 sm:px-4 py-3 sm:py-4"
             childrenClassName="px-4"

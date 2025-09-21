@@ -104,7 +104,7 @@ export function RecentPayments() {
         <div className="flex items-center gap-2">
           <CreditCardChecked size="1.4rem" color="#22C55E" />
 
-          <span>{t('recent_payments')}</span>
+          <span className="uppercase font-heading text-lg">{t('recent_payments')}</span>
         </div>
       }
       className="h-96 relative shadow-sm"

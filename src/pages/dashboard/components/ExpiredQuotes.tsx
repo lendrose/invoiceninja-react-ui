@@ -82,7 +82,7 @@ export function ExpiredQuotes() {
         <div className="flex items-center gap-2">
           <CalendarClock size="1.4rem" color="#F5B041" clockColor="#E74C3C" />
 
-          <span>{t('expired_quotes')}</span>
+          <span className="uppercase font-heading text-lg">{t('expired_quotes')}</span>
         </div>
       }
       className="h-96 relative shadow-sm"

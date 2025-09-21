@@ -82,7 +82,7 @@ export function UpcomingQuotes() {
         <div className="flex items-center gap-2">
           <CalendarCheckOut size="1.4rem" color="#66B2FF" />
 
-          <span>{t('upcoming_quotes')}</span>
+          <span className="uppercase font-heading text-lg">{t('upcoming_quotes')}</span>
         </div>
       }
       className="h-96 relative shadow-sm"

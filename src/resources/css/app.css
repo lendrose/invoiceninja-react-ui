@@ -101,6 +101,11 @@
     font-family: 'integral-cf', system-ui, sans-serif !important;
   }
   
+  /* Force font-heading class to use integral-cf */
+  .font-heading, .font-heading * {
+    font-family: 'integral-cf', system-ui, sans-serif !important;
+  }
+  
   html {
     @apply dark;
   }
@@ -242,6 +247,7 @@
     object-fit: cover;
     object-position: center;
     z-index: 0;
+    opacity: 0.6;
   }
 
   .bg-fixed-full-width-contain {

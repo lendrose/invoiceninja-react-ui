@@ -93,7 +93,7 @@ export function PastDueInvoices() {
             exclamationMarkColor="#E74C3C"
           />
 
-          <span>{t('past_due_invoices')}</span>
+          <span className="uppercase font-heading text-lg">{t('past_due_invoices')}</span>
         </div>
       }
       className="h-96 relative shadow-sm"
