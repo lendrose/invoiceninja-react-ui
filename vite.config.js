@@ -12,7 +12,7 @@ export default defineConfig(({ command, mode }) => {
     },
     base: isDev ? '/' : '/react/', // Different base for dev vs build
     build: {
-      outDir: '../../invoiceninja/public/react',  // <— output directly to sister repo
+      outDir: '../invoiceninja/public/react',  // <— output directly to sister repo
       assetsDir: 'assets',       // <— put chunks in /assets/ instead of /react/
       chunkSizeWarningLimit: 1500,
       rollupOptions: {
