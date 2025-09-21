@@ -136,15 +136,36 @@ export function usePreferences() {
             >
               {children}
 
-              <Button onClick={save}>{t('save')}</Button>
+              <button
+                onClick={() => save({ silent: false })}
+                className="inline-flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                style={{
+                  backgroundColor: '#22C55E',
+                  borderColor: '#22C55E',
+                  border: '1px solid #22C55E',
+                  color: 'white',
+                }}
+                onMouseEnter={(e) => {
+                  const target = e.target as HTMLButtonElement;
+                  target.style.backgroundColor = '#16A34A';
+                  target.style.borderColor = '#16A34A';
+                }}
+                onMouseLeave={(e) => {
+                  const target = e.target as HTMLButtonElement;
+                  target.style.backgroundColor = '#22C55E';
+                  target.style.borderColor = '#22C55E';
+                }}
+              >
+                {t('save')}
+              </button>
             </Modal>
 
             <div
               className="flex items-center justify-center p-2 cursor-pointer border rounded-md shadow-sm"
               onClick={() => setIsVisible(true)}
               style={{
-                backgroundColor: colors.$1,
-                borderColor: colors.$24,
+                backgroundColor: 'transparent',
+                borderColor: 'rgba(255, 255, 255, 0.3)',
               }}
             >
               <Gear color={colors.$3} />

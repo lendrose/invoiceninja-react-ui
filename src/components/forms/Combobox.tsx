@@ -374,9 +374,9 @@ export function Combobox<T = any>({
             className="w-full rounded-md py-1.5 pl-3 pr-10 shadow-sm sm:text-sm sm:leading-6 focus:outline-none focus:ring-0"
             ref={inputRef}
             style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+              backgroundColor: 'transparent',
               backdropFilter: 'blur(12px)',
-              color: colors.$3,
+              color: 'rgba(255, 255, 255, 0.95)',
               border: 'none',
             }}
             data-cy="comboboxInput"
@@ -419,14 +419,14 @@ export function Combobox<T = any>({
       {isOpen && (
         <ul
           className="border absolute z-10 mt-1 rounded-md text-base shadow-2xl focus:outline-none sm:text-sm"
-          style={{ backgroundColor: colors.$1, borderColor: colors.$24 }}
+          style={{ backgroundColor: 'transparent', borderColor: 'rgba(255, 255, 255, 0.3)' }}
           tabIndex={-1}
         >
           <div className="flex flex-col overflow-y-auto overflow-x-hidden max-h-60 p-1">
             {filteredOptions.map((option, index) => (
               <LiStyled
                 theme={{
-                  backgroundColor: colors.$1,
+                  backgroundColor: 'transparent',
                   hoverColor: colors.$20,
                 }}
                 key={option.id}
@@ -715,7 +715,7 @@ export function ComboboxStatic<T = any>({
           <HeadlessCombobox.Options
             static
             className="border absolute z-10 mt-1 rounded-md shadow-2xl focus:outline-none sm:text-sm"
-            style={{ backgroundColor: colors.$1, borderColor: colors.$24 }}
+            style={{ backgroundColor: 'transparent', borderColor: 'rgba(255, 255, 255, 0.3)' }}
           >
             <div className="flex flex-col overflow-y-auto overflow-x-hidden max-h-60 p-1">
               {Boolean(isDataLoading) && (

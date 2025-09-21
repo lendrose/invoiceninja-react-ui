@@ -75,7 +75,7 @@ export function Modal(props: Props) {
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed z-10 inset-0 overflow-y-auto"
+        className="fixed z-50 inset-0 overflow-y-auto"
         onClose={(value) => {
           (!disableClosing || enableCloseOnClickAway) && setOpen(value);
           (!disableClosing || enableCloseOnClickAway) && props.onClose(value);
@@ -92,7 +92,7 @@ export function Modal(props: Props) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+            <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-80 transition-opacity" />
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
@@ -109,12 +109,14 @@ export function Modal(props: Props) {
           >
             <div
               style={{
-                backgroundColor: colors.$1,
-                color: colors.$3,
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+                color: 'rgba(255, 255, 255, 0.95)',
                 colorScheme: colors.$0,
+                border: '1px solid rgba(255, 255, 255, 0.2)',
               }}
               className={classNames(
-                'inline-block align-bottom rounded-md text-left shadow-xl transform transition-all sm:my-8 sm:align-middle w-full',
+                'inline-block align-bottom rounded-lg text-left shadow-2xl transform transition-all sm:my-8 sm:align-middle w-full',
                 {
                   'max-w-xs': props.size === 'micro',
                   'max-w-sm':
@@ -143,10 +145,10 @@ export function Modal(props: Props) {
                     }
                   )}
                   style={{
-                    backgroundColor: colors.$1,
-                    color: colors.$3,
+                    backgroundColor: 'transparent',
+                    color: 'rgba(255, 255, 255, 0.95)',
                     colorScheme: colors.$0,
-                    borderColor: colors.$20,
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
                   }}
                 >
                   <div className="flex w-full justify-between isolate">
@@ -154,8 +156,8 @@ export function Modal(props: Props) {
                       as="h3"
                       className="text-lg leading-6 font-semibold"
                       style={{
-                        backgroundColor: colors.$1,
-                        color: colors.$3,
+                        backgroundColor: 'transparent',
+                        color: 'rgba(255, 255, 255, 0.95)',
                         colorScheme: colors.$0,
                       }}
                     >
@@ -168,7 +170,7 @@ export function Modal(props: Props) {
                         onClick={() => props.onClose(false)}
                         data-cy={props.closeButtonCypressRef}
                       >
-                        <XMark color={colors.$3} size="1rem" />
+                        <XMark color="rgba(255, 255, 255, 0.8)" size="1rem" />
                       </div>
                     )}
                   </div>
@@ -177,8 +179,8 @@ export function Modal(props: Props) {
                     <div className="mt-2">
                       <p
                         style={{
-                          backgroundColor: colors.$1,
-                          color: colors.$3,
+                          backgroundColor: 'transparent',
+                          color: 'rgba(255, 255, 255, 0.9)',
                           colorScheme: colors.$0,
                         }}
                         className="text-sm"
@@ -193,8 +195,8 @@ export function Modal(props: Props) {
               {props.children && (
                 <div
                   style={{
-                    backgroundColor: colors.$1,
-                    color: colors.$3,
+                    backgroundColor: 'transparent',
+                    color: 'rgba(255, 255, 255, 0.95)',
                     colorScheme: colors.$0,
                   }}
                   className={classNames('text-sm flex flex-col space-y-4', {

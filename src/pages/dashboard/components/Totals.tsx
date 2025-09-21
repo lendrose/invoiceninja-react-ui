@@ -380,6 +380,7 @@ export function Totals() {
                     value as ChartsDefaultView
                   )
                 }
+                customSelector
               >
                 <option value="day">{t('day')}</option>
                 <option value="week">{t('week')}</option>
@@ -392,6 +393,7 @@ export function Totals() {
                 onValueChange={(value) =>
                   update('preferences.dashboard_charts.range', value)
                 }
+                customSelector
               >
                 <option value="last7_days">{t('last_7_days')}</option>
                 <option value="last30_days">{t('last_30_days')}</option>
