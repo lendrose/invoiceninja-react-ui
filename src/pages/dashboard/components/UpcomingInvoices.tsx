@@ -122,7 +122,7 @@ export function UpcomingInvoices() {
             withoutThVerticalPadding: true,
             useOnlyCurrentSortDirectionIcon: true,
             headerBackgroundColor: 'transparent',
-            thChildrenClassName: 'text-gray-500',
+            thChildrenClassName: 'text-white/70',
             tdClassName: 'first:pl-2 py-3',
             thClassName: 'first:pl-2 py-3 border-r-0 text-sm',
             tBodyStyle: { border: 0 },
@@ -130,8 +130,8 @@ export function UpcomingInvoices() {
             thStyle: {
               borderBottom: `1px solid ${colors.$20}`,
             },
-            ascIcon: <ArrowUp size="1.1rem" color="#6b7280" />,
-            descIcon: <ArrowDown size="1.1rem" color="#6b7280" />,
+            ascIcon: <ArrowUp size="1.1rem" color="rgba(255, 255, 255, 0.6)" />,
+            descIcon: <ArrowDown size="1.1rem" color="rgba(255, 255, 255, 0.6)" />,
           }}
           style={{
             height: '18.9rem',

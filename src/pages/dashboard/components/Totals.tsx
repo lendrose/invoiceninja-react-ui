@@ -263,7 +263,7 @@ export function Totals() {
 
       {/* Quick date, currency & date picker. */}
       <div className="flex items-center justify-end lg:justify-between">
-        <span className="hidden lg:inline-block text-sm text-gray-500">
+        <span className="hidden lg:inline-block text-sm text-white/70">
           {t('account_login_text')}
         </span>
 
@@ -425,7 +425,7 @@ export function Totals() {
                 className="flex justify-between items-center border-b border-dashed py-5"
                 style={{ borderColor: colors.$21 }}
               >
-                <span className="text-gray-500">{t('invoices')}</span>
+                <span className="text-white/70">{t('invoices')}</span>
 
                 <Badge style={{ backgroundColor: '#A1A1AA26' }}>
                   <span
@@ -446,7 +446,7 @@ export function Totals() {
                 className="flex justify-between items-center border-b border-dashed py-5"
                 style={{ borderColor: colors.$21 }}
               >
-                <span className="text-gray-500">{t('payments')}</span>
+                <span className="text-white/70">{t('payments')}</span>
 
                 <Badge style={{ backgroundColor: '#A1A1AA26' }}>
                   <span
@@ -467,7 +467,7 @@ export function Totals() {
                 className="flex justify-between items-center border-b border-dashed py-5"
                 style={{ borderColor: colors.$21 }}
               >
-                <span className="text-gray-500">{t('expenses')}</span>
+                <span className="text-white/70">{t('expenses')}</span>
 
                 <Badge style={{ backgroundColor: '#A1A1AA26' }}>
                   <span
@@ -488,7 +488,7 @@ export function Totals() {
                 className="flex justify-between items-center border-b border-dashed py-5"
                 style={{ borderColor: colors.$21 }}
               >
-                <span className="text-gray-500">{t('outstanding')}</span>
+                <span className="text-white/70">{t('outstanding')}</span>
 
                 <Badge style={{ backgroundColor: '#A1A1AA26' }}>
                   <span
@@ -506,7 +506,7 @@ export function Totals() {
               </div>
 
               <div className="flex justify-between items-center py-5">
-                <span className="text-gray-500">
+                <span className="text-white/70">
                   {t('total_invoices_outstanding')}
                 </span>
 

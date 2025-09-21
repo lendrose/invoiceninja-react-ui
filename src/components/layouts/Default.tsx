@@ -434,8 +434,7 @@ export function Default(props: Props) {
         })}
       >
         <div
-          style={{ backgroundColor: colors.$1 }}
-          className="sticky top-0 z-10 flex-shrink-0 flex h-16 border-b shadow"
+          className="sticky top-0 z-10 flex-shrink-0 flex h-16 border-b shadow backdrop-blur-md bg-white/10 border-white/20"
         >
           <button
             type="button"
@@ -452,7 +451,7 @@ export function Default(props: Props) {
           >
             <div className="flex flex-1 items-center space-x-4">
               <h2
-                style={{ color: colors.$3 }}
+                style={{ color: 'rgba(255, 255, 255, 0.95)' }}
                 className="text-sm md:text-lg whitespace-nowrap"
               >
                 {props.title}
@@ -593,9 +592,7 @@ export function Default(props: Props) {
           <div
             className="p-4 xl:px-6 text-white"
           >
-            <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-6 shadow-2xl">
-              {props.children}
-            </div>
+            {props.children}
           </div>
         </main>
       </div>

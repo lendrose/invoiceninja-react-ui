@@ -318,7 +318,7 @@ export function Chart(props: Props) {
           strokeWidth={2}
         />
 
-        <CartesianGrid strokeDasharray="0" vertical={false} />
+        <CartesianGrid strokeDasharray="0" vertical={false} stroke="rgba(255, 255, 255, 0.1)" />
         <Tooltip
           content={<CustomTooltip />}
           wrapperStyle={{ outline: 'none' }}
@@ -327,8 +327,8 @@ export function Chart(props: Props) {
         <XAxis
           dataKey="date"
           tickMargin={8}
-          tick={{ fontSize: 14 }}
-          stroke={colors.$3}
+          tick={{ fontSize: 14, fill: 'rgba(255, 255, 255, 0.8)' }}
+          stroke="rgba(255, 255, 255, 0.3)"
         />
 
         <YAxis
@@ -337,9 +337,9 @@ export function Chart(props: Props) {
           tickFormatter={(value) =>
             formatTooltipValues(value).replace(/ /g, '\u00A0')
           }
-          tick={{ fontSize: 14 }}
+          tick={{ fontSize: 14, fill: 'rgba(255, 255, 255, 0.8)' }}
           width={yAxisWidth}
-          stroke={colors.$3}
+          stroke="rgba(255, 255, 255, 0.3)"
         />
       </LineChart>
     </ResponsiveContainer>

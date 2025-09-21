@@ -28,15 +28,14 @@ export function InfoCard(props: Props) {
   return (
     <div
       className={classNames(
-        'border shadow rounded overflow-auto space-y-2',
+        'backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl overflow-auto space-y-2',
         {
           'px-4 py-5 sm:p-6': !props.withoutPadding,
         },
         props.className
       )}
       style={{
-        backgroundColor: colors.$1,
-        borderColor: colors.$5,
+        color: 'white',
         ...props.style,
       }}
     >

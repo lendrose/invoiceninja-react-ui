@@ -40,7 +40,7 @@ export function Tr(props: Props) {
       style={{
         backgroundColor: withoutBackgroundColor
           ? undefined
-          : backgroundColor || colors.$1,
+          : backgroundColor || 'transparent',
         ...props.style,
       }}
       onClick={(event) =>

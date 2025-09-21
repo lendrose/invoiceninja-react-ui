@@ -16,12 +16,12 @@ export function ActionCard(props: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="mt-2 bg-white w-full p-8 rounded shadow my-4">
+    <div className="mt-2 backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl w-full p-8 my-4">
       <div className={`flex justify-between items-center`}>
         <section>
-          <h2 className="text-gray-800">{props.label}</h2>
+          <h2 className="text-white">{props.label}</h2>
           {props.help && (
-            <span className="text-xs text-gray-600">{props.help}</span>
+            <span className="text-xs text-white/70">{props.help}</span>
           )}
         </section>
         {props.children}

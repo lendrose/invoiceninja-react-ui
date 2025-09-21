@@ -39,18 +39,17 @@ export function Table(props: Props) {
       >
         <div
           className={classNames(
-            'overflow-hidden border rounded-md border-b border-t',
+            'overflow-hidden',
             {
-              'border-b-0': props.withoutBottomBorder,
-              'border-t-0': props.withoutTopBorder,
-              'border-l-0': props.withoutLeftBorder,
-              'border-r-0': props.withoutRightBorder,
+              'border-b': !props.withoutBottomBorder,
+              'border-t': !props.withoutTopBorder,
+              'border-l': !props.withoutLeftBorder,
+              'border-r': !props.withoutRightBorder,
             }
           )}
           style={{
-            backgroundColor: colors.$1,
             color: colors.$3,
-            borderColor: colors.$24,
+            borderColor: 'rgba(255, 255, 255, 0.1)',
           }}
         >
           <div
