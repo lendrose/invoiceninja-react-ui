@@ -56,7 +56,20 @@
 
 @layer base {
   :root {
-    /* Light theme colors */
+    /* Light theme colors - current UI configuration */
+    --ui-background: #241F21; /* Main dark background from SVG */
+    --ui-foreground: #f8fafc;
+    --ui-muted: #2A2527; /* Slightly lighter for muted elements */
+    --ui-muted-foreground: #94a3b8;
+    --ui-border: #3A3537; /* Subtle borders */
+    --ui-input: #2A2527;
+    --ui-ring: #3EDB93; /* Green accent from SVG */
+    --ui-card: #2A2527;
+    --ui-card-foreground: #f8fafc;
+  }
+
+  .light {
+    /* Light theme colors - cloned from current dark theme */
     --ui-background: #ffffff;
     --ui-foreground: #0f172a;
     --ui-muted: #f1f5f9;
@@ -69,7 +82,7 @@
   }
 
   .dark {
-    /* Dark theme colors from SVG */
+    /* Dark theme colors - current UI configuration */
     --ui-background: #241F21; /* Main dark background from SVG */
     --ui-foreground: #f8fafc;
     --ui-muted: #2A2527; /* Slightly lighter for muted elements */
@@ -86,7 +99,7 @@
   }
   
   body {
-    @apply bg-dark-bg text-white font-sans text-lg;
+    @apply bg-ui-background text-ui-foreground font-sans text-lg;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -106,9 +119,7 @@
     font-family: 'integral-cf', system-ui, sans-serif !important;
   }
   
-  html {
-    @apply dark;
-  }
+  /* Theme classes are now applied dynamically via JavaScript */
 }
 
 @layer components {

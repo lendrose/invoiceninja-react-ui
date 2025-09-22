@@ -130,6 +130,15 @@ export function App() {
         : lightColorScheme;
       document.body.style.backgroundColor = colorScheme.$23;
       document.body.style.colorScheme = colorScheme.$0;
+      
+      // Apply theme class to html element for CSS variables
+      if (reactSettings.dark_mode) {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+      } else {
+        document.documentElement.classList.add('light');
+        document.documentElement.classList.remove('dark');
+      }
     }
   }, [reactSettings]);
 

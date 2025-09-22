@@ -32,6 +32,8 @@ import { CloseNavbarArrow } from './icons/CloseNavbarArrow';
 import { useHandleDarkLightMode } from '$app/common/hooks/useHandleDarkLightMode';
 import { useReactSettings } from '$app/common/hooks/useReactSettings';
 import dayjs from 'dayjs';
+import { Sun } from './icons/Sun';
+import { MoonStars } from './icons/MoonStars';
 
 interface Props {
   docsLink?: string;
@@ -153,6 +155,22 @@ export function HelpSidebarIcons(props: Props) {
           )}
         </div>
       </Tippy>
+      <Tippy
+          duration={0}
+          content={t('dark_mode')}
+          className="rounded-md text-xs p-2 bg-[#F2F2F2]"
+        >
+          <div
+            className="cursor-pointer"
+            onClick={() => handleDarkLightMode(!reactSettings?.dark_mode)}
+          >
+            {reactSettings?.dark_mode ? (
+              <Sun color="white" size="1.3rem" />
+            ) : (
+              <MoonStars color="white" size="1.3rem" />
+            )}
+          </div>
+        </Tippy>
     </nav>
   );
 }

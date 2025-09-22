@@ -12,7 +12,13 @@ module.exports = {
         montserrat: ['Montserrat', 'sans-serif'],
       },
       colors: {
-        // Dark mode colors from SVG
+        // Light mode colors - cloned from current dark theme
+        light: {
+          bg: '#ffffff', // Main light background
+          surface: '#f1f5f9', // Slightly darker for cards/surfaces
+          border: '#e2e8f0', // Subtle borders
+        },
+        // Dark mode colors from SVG - current UI configuration
         dark: {
           bg: '#241F21', // Main dark background from SVG
           surface: '#2A2527', // Slightly lighter for cards/surfaces
