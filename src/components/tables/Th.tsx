@@ -79,8 +79,8 @@ export function Th$(props: Props) {
     <th
       ref={thRef}
       style={{
-        color: props.textColor || colors.$17,
-        borderColor: colors.$20,
+        color: props.textColor || 'rgba(255, 255, 255, 0.9)',
+        borderColor: 'rgba(255, 255, 255, 0.15)',
         width: currentWidth,
         ...props.style,
       }}

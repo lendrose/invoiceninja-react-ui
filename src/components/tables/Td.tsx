@@ -35,7 +35,7 @@ export function Td$(props: Props) {
 
   const color = customizeTextColor
     ? adjustColorDarkness(hex, darknessAmount)
-    : colors.$3;
+    : 'rgba(255, 255, 255, 0.95)';
 
   return <HtmlTd {...props} color={color} />;
 }

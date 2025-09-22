@@ -80,8 +80,9 @@ export function InputField(props: Props) {
       <div className="relative">
         <DebounceInput
           style={{
-            backgroundColor: colors.$1,
-            color: colors.$3,
+            backgroundColor: 'transparent',
+            backdropFilter: 'blur(12px)',
+            color: 'rgba(255, 255, 255, 0.95)',
             ...props.style,
           }}
           min={props.min}
@@ -99,8 +100,7 @@ export function InputField(props: Props) {
             `w-full py-2 px-3 rounded-md text-sm disabled:opacity-75 disabled:cursor-not-allowed focus:outline-none focus:ring-0 ${props.className}`,
             {
               border: props.border !== false,
-              'border-[#09090B26] focus:border-black': !reactSettings.dark_mode,
-              'border-[#1f2e41] focus:border-white': reactSettings.dark_mode,
+              'border-white/30 focus:border-white/50': true,
             }
           )}
           placeholder={props.placeholder || ''}

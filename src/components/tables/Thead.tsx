@@ -24,8 +24,8 @@ export function Thead(props: Props) {
     <thead
       className="border-b"
       style={{
-        backgroundColor: backgroundColor || colors.$1,
-        borderColor: colors.$20,
+        backgroundColor: backgroundColor || 'rgba(0, 0, 0, 0.3)',
+        borderColor: 'rgba(255, 255, 255, 0.15)',
         ...props.style,
       }}
     >

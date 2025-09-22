@@ -39,17 +39,18 @@ export function Table(props: Props) {
       >
         <div
           className={classNames(
-            'overflow-hidden',
+            'overflow-hidden backdrop-blur-md bg-black/20 rounded-lg',
             {
-              'border-b': !props.withoutBottomBorder,
-              'border-t': !props.withoutTopBorder,
-              'border-l': !props.withoutLeftBorder,
-              'border-r': !props.withoutRightBorder,
+              'border-b border-white/15': !props.withoutBottomBorder,
+              'border-t border-white/15': !props.withoutTopBorder,
+              'border-l border-white/15': !props.withoutLeftBorder,
+              'border-r border-white/15': !props.withoutRightBorder,
+              'border border-white/15': !props.withoutBorder,
             }
           )}
           style={{
-            color: colors.$3,
-            borderColor: 'rgba(255, 255, 255, 0.1)',
+            color: 'rgba(255, 255, 255, 0.95)',
+            borderColor: 'rgba(255, 255, 255, 0.15)',
           }}
         >
           <div
