@@ -93,11 +93,11 @@ export function SelectField(props: SelectProps) {
       return merge(base, {
         width: 'max-content',
         minWidth: '100%',
-        backgroundColor: colors.$0 === 'dark' ? 'rgba(20, 25, 35, 0.95)' : colors.$1,
+        backgroundColor: colors.$0 === 'dark' ? 'rgba(20, 25, 35, 0.95)' : 'rgba(255, 255, 255, 0.6)',
         backdropFilter: 'blur(12px)',
-        borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.2)' : colors.$4,
+        borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.3)',
         borderRadius: '0.75rem',
-        border: `1px solid ${colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.15)' : colors.$4}`,
+        border: `1px solid ${colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.3)'}`,
         boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)',
         zIndex: 9999,
       });
@@ -110,14 +110,14 @@ export function SelectField(props: SelectProps) {
         color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
         borderColor: colors.$0 === 'dark' 
           ? (isFocused ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)')
-          : (isFocused ? colors.$4 : colors.$4),
+          : (isFocused ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)'),
         cursor: isDisabled ? 'not-allowed' : 'pointer',
         pointerEvents: isDisabled ? 'auto' : 'unset',
         boxShadow: 'none',
         '&:hover': {
           borderColor: colors.$0 === 'dark' 
             ? (isFocused ? 'rgba(255, 255, 255, 0.5)' : 'rgba(255, 255, 255, 0.4)')
-            : colors.$4,
+            : (isFocused ? 'rgba(255, 255, 255, 0.5)' : 'rgba(255, 255, 255, 0.4)'),
         },
         ...controlStyle,
       });
@@ -130,14 +130,14 @@ export function SelectField(props: SelectProps) {
           ? (isSelected ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.9)')
           : colors.$3,
         backgroundColor: isSelected 
-          ? (colors.$0 === 'dark' ? 'rgba(62, 219, 147, 0.2)' : colors.$7)
+          ? (colors.$0 === 'dark' ? 'rgba(62, 219, 147, 0.2)' : 'rgba(17, 109, 244, 0.1)')
           : isFocused 
-            ? (colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.1)' : colors.$7)
+            ? (colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.05)')
             : 'transparent',
         ':hover': {
           backgroundColor: isSelected 
-            ? (colors.$0 === 'dark' ? 'rgba(62, 219, 147, 0.3)' : colors.$8)
-            : (colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.15)' : colors.$7),
+            ? (colors.$0 === 'dark' ? 'rgba(62, 219, 147, 0.3)' : 'rgba(17, 109, 244, 0.15)')
+            : (colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.1)'),
         },
         minHeight: '1.875rem',
         fontWeight: isSelected ? '500' : '400',
@@ -176,8 +176,8 @@ export function SelectField(props: SelectProps) {
           style={{
             backgroundColor: 'transparent',
             backdropFilter: 'blur(12px)',
-            borderColor: 'rgba(255, 255, 255, 0.3)',
-            color: 'rgba(255, 255, 255, 0.95)',
+            borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.3)',
+            color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
             ...props.style,
           }}
           data-cy={props.cypressRef}
@@ -230,7 +230,7 @@ export function SelectField(props: SelectProps) {
                     height: '2.5rem',
                     backgroundColor: 'transparent',
                     borderColor: rest.isFocused ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)',
-                    color: 'rgba(255, 255, 255, 0.95)',
+                    color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
                     ...controlStyle,
                   }}
                   {...rest.innerProps}

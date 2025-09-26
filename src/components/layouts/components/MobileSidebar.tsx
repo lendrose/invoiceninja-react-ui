@@ -17,6 +17,7 @@ import { SidebarItem } from './SidebarItem';
 import { useColorScheme } from '$app/common/colors';
 import { useInjectUserChanges } from '$app/common/hooks/useInjectUserChanges';
 import { HelpSidebarIcons } from '$app/components/HelpSidebarIcons';
+import classNames from 'classnames';
 
 interface Props {
   navigation: NavigationItem[];
@@ -61,8 +62,10 @@ export function MobileSidebar(props: Props) {
           leaveTo="-translate-x-full"
         >
           <div
-            className="relative flex-1 flex flex-col max-w-xs w-full px-3"
-            style={{ backgroundColor: colors.$14 }}
+            className={classNames("relative flex-1 flex flex-col max-w-xs w-full px-3", {
+              "bg-gradient-to-b from-black/25 to-blue-500/20": colors.$0 === 'dark',
+              "bg-gradient-to-b from-green-500/20 to-blue-500/20": colors.$0 === 'light',
+            })}
           >
             <Transition.Child
               as={Fragment}
@@ -80,14 +83,17 @@ export function MobileSidebar(props: Props) {
                   onClick={() => props.setSidebarOpen(false)}
                 >
                   <span className="sr-only">Close sidebar</span>
-                  <X className="text-white" />
+                  <X className={colors.$0 === 'dark' ? 'text-white' : 'text-black'} />
                 </button>
               </div>
             </Transition.Child>
 
             <div
-              className="flex-shrink-0 flex items-center px-0 md:px-4 py-3 border-b h-16 justify-center border-gray-600"
-              style={{ backgroundColor: colors.$14, color: colors.$3 }}
+              className={classNames("flex-shrink-0 flex items-center px-0 md:px-4 py-3 border-b h-16 justify-center", {
+                "border-white/15": colors.$0 === 'dark',
+                "border-white/20": colors.$0 === 'light',
+              })}
+              style={{ color: 'white' }}
             >
               <CompanySwitcher />
             </div>

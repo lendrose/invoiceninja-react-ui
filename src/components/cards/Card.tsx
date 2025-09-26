@@ -81,7 +81,7 @@ export function Card(props: Props) {
           'overflow-y-auto': props.withScrollableBody,
           'h-full': height === 'full',
           'bg-black/20 border border-white/15': colors.$0 === 'dark',
-          'bg-white border border-gray-200': colors.$0 === 'light',
+          'bg-transparent border border-white/20': colors.$0 === 'light',
         }
       )}
       style={{
@@ -100,14 +100,14 @@ export function Card(props: Props) {
                 'backdrop-blur-md sticky top-0': props.withScrollableBody,
                 'backdrop-blur-md': !props.withScrollableBody,
                 'bg-gradient-to-r from-green-500/20 to-green-400/12': colors.$0 === 'dark',
-                'bg-gradient-to-r from-blue-500/10 to-blue-400/5': colors.$0 === 'light',
+                'bg-gradient-to-l from-blue-500/20 to-green-500/20': colors.$0 === 'light',
                 'px-8 sm:px-10 py-6':
                   padding == 'small' && !props.withoutHeaderPadding,
                 'px-8 sm:px-10 py-8':
                   padding == 'regular' && !props.withoutHeaderPadding,
                 'border-b': !props.withoutHeaderBorder,
                 'border-white/15': !props.withoutHeaderBorder && colors.$0 === 'dark',
-                'border-gray-200': !props.withoutHeaderBorder && colors.$0 === 'light',
+                'border-white/15': !props.withoutHeaderBorder && colors.$0 === 'light',
               },
               props.headerClassName
             )}
@@ -125,7 +125,7 @@ export function Card(props: Props) {
             >
               <div>
                 <h3
-                  className={classNames('leading-6 font-bold', {
+                  className={classNames('leading-6 font-bold text-white', {
                     'text-lg': padding == 'regular',
                     'text-md': padding == 'small',
                   })}
@@ -158,6 +158,8 @@ export function Card(props: Props) {
             'py-8 px-8 sm:px-10': padding === 'regular' && !props.withoutBodyPadding,
             'py-6 px-8 sm:px-10': padding === 'small' && !props.withoutBodyPadding,
             'h-full': height === 'full',
+            'bg-white/80': colors.$0 === 'light',
+            'flex-1': !props.withSaveButton && !props.additionalAction,
           })}
         >
           {props.isLoading && <Element leftSide={<Spinner />} />}
@@ -171,7 +173,9 @@ export function Card(props: Props) {
 
         {(props.withSaveButton || props.additionalAction) && (
           <div
-            className="border-t px-4 py-5 sm:p-0"
+            className={classNames("border-t px-4 py-5 sm:p-0", {
+              'bg-white/80': colors.$0 === 'light',
+            })}
             style={{ borderColor: colors.$20 }}
           >
             <dl className="sm:divide-y sm:divide-gray-200">

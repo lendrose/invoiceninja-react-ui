@@ -438,7 +438,7 @@ export function Default(props: Props) {
             "sticky top-0 z-10 flex-shrink-0 flex h-16 border-b shadow backdrop-blur-md",
             {
               "border-white/15 bg-gradient-to-l from-blue-500/35 to-black/25": colors.$0 === 'dark',
-              "border-gray-200 bg-white": colors.$0 === 'light',
+              "border-white/20 bg-gradient-to-l from-blue-500/20 to-green-500/20": colors.$0 === 'light',
             }
           )}
         >
@@ -448,7 +448,7 @@ export function Default(props: Props) {
             onClick={() => setSidebarOpen(true)}
           >
             <span className="sr-only">Open sidebar</span>
-            <MenuIcon color={colors.$3} />
+            <MenuIcon color={colors.$0 === 'dark' ? colors.$3 : 'black'} />
           </button>
 
           <div
@@ -457,7 +457,7 @@ export function Default(props: Props) {
           >
             <div className="flex flex-1 items-center space-x-4">
               <h2
-                style={{ color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3 }}
+                style={{ color: 'rgba(255, 255, 255, 0.95)' }}
                 className="text-sm md:text-lg whitespace-nowrap"
               >
                 {props.title}
@@ -584,7 +584,7 @@ export function Default(props: Props) {
             props.breadcrumbs.length > 0 && (
               <div className={classNames("pt-4 px-4 md:px-6 md:pt-6 flex flex-col lg:flex-row lg:justify-between lg:items-center space-y-4 lg:space-y-0", {
                 "text-white": colors.$0 === 'dark',
-                "text-gray-900": colors.$0 === 'light',
+                "text-gray-800": colors.$0 === 'light',
               })}>
                 <div className="flex items-center w-full">
                   {props.breadcrumbs && (
@@ -601,7 +601,7 @@ export function Default(props: Props) {
           <div
             className={classNames("p-8 2xl:p-12", {
               "text-white": colors.$0 === 'dark',
-              "text-gray-900": colors.$0 === 'light',
+              "text-gray-800": colors.$0 === 'light',
             })}
           >
             {props.children}

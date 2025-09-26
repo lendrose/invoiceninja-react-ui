@@ -62,8 +62,9 @@ export function SidebarItem(props: Props) {
       className={classNames(
         'flex items-center justify-between group px-1.5 text-sm font-medium rounded-md',
         {
-          'text-white border-l-4 border-primary-500 bg-primary-500/20': item.current,
-          'text-gray-300 border-l-4 border-transparent hover:bg-white/10': !item.current,
+          'text-blue-500 border-l-4 border-primary-500 bg-primary-500/20': item.current,
+          'text-gray-300 border-l-4 border-transparent hover:bg-white/10': !item.current && colors.$0 === 'dark',
+          'text-white border-l-4 border-transparent hover:bg-white/20': !item.current && colors.$0 === 'light',
         }
       )}
     >
@@ -78,7 +79,7 @@ export function SidebarItem(props: Props) {
             size="1.275rem"
             color={
               item.current
-                ? 'white'
+                ? '#3B82F6'
                 : (colors.$0 === 'dark' ? '#3edb93' : '#116DF4')
             }
           />
@@ -100,7 +101,7 @@ export function SidebarItem(props: Props) {
             size="1.1rem"
             color={
               item.current
-                ? themeColors.$2 || 'white'
+                ? '#3B82F6'
                 : themeColors.$4 || (colors.$0 === 'dark' ? '#3edb93' : '#116DF4')
             }
           />

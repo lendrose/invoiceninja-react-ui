@@ -22,13 +22,13 @@ export function ActionCard(props: {
   return (
     <div className={classNames("mt-2 backdrop-blur-md rounded-2xl shadow-2xl w-full p-8 my-4", {
       "bg-black/20 border border-white/15": colors.$0 === 'dark',
-      "bg-white border border-gray-200": colors.$0 === 'light',
+      "bg-white/60 border border-white/20": colors.$0 === 'light',
     })}>
       <div className={`flex justify-between items-center`}>
         <section>
           <h2 className={classNames({
             "text-white": colors.$0 === 'dark',
-            "text-gray-900": colors.$0 === 'light',
+            "text-gray-800": colors.$0 === 'light',
           })}>{props.label}</h2>
           {props.help && (
             <span className={classNames("text-xs", {

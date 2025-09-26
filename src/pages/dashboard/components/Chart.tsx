@@ -337,9 +337,9 @@ export function Chart(props: Props) {
           tickFormatter={(value) =>
             formatTooltipValues(value).replace(/ /g, '\u00A0')
           }
-          tick={{ fontSize: 14, fill: 'rgba(255, 255, 255, 0.8)' }}
+          tick={{ fontSize: 14, fill: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.8)' }}
           width={yAxisWidth}
-          stroke="rgba(255, 255, 255, 0.3)"
+          stroke={colors.$0 === 'dark' ? "rgba(255, 255, 255, 0.3)" : "rgba(0, 0, 0, 0.3)"}
         />
       </LineChart>
     </ResponsiveContainer>
