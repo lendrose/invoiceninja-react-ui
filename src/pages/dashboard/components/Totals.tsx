@@ -27,6 +27,7 @@ import {
 import { usePreferences } from '$app/common/hooks/usePreferences';
 import collect from 'collect.js';
 import { useColorScheme } from '$app/common/colors';
+import classNames from 'classnames';
 import { CurrencySelector } from '$app/components/CurrencySelector';
 import { useQuery } from 'react-query';
 import dayjs from 'dayjs';
@@ -263,7 +264,10 @@ export function Totals() {
 
       {/* Quick date, currency & date picker. */}
       <div className="flex items-center justify-end lg:justify-between">
-        <span className="hidden lg:inline-block text-sm text-white/70">
+        <span className={classNames("hidden lg:inline-block text-sm", {
+          "text-white/70": colors.$0 === 'dark',
+          "text-gray-600": colors.$0 === 'light',
+        })}>
           {t('account_login_text')}
         </span>
 
@@ -293,7 +297,10 @@ export function Totals() {
             )}
 
             <div
-              className="flex rounded-lg overflow-hidden backdrop-blur-md bg-black/20 border border-white/15 shadow-2xl"
+              className={classNames("flex rounded-lg overflow-hidden backdrop-blur-md shadow-2xl", {
+                "bg-black/20 border border-white/15": colors.$0 === 'dark',
+                "bg-white border border-gray-200": colors.$0 === 'light',
+              })}
             >
               <ChartScaleBox
                 className="flex items-center px-4 cursor-pointer text-sm"
@@ -302,11 +309,11 @@ export function Totals() {
                 }
                 theme={{
                   backgroundColor: chartScale === 'day' ? '#3edb93' : 'transparent',
-                  hoverBgColor: chartScale === 'day' ? '#3edb93' : 'rgba(255, 255, 255, 0.1)',
+                  hoverBgColor: chartScale === 'day' ? '#3edb93' : (colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.1)' : colors.$7),
                 }}
                 style={{
-                  borderColor: 'rgba(255, 255, 255, 0.1)',
-                  color: chartScale === 'day' ? '#121212' : 'rgba(255, 255, 255, 0.9)',
+                  borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.1)' : colors.$4,
+                  color: chartScale === 'day' ? '#121212' : (colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.9)' : colors.$3),
                 }}
               >
                 {t('day')}
@@ -320,11 +327,11 @@ export function Totals() {
                 theme={{
                   backgroundColor:
                     chartScale === 'week' ? '#3edb93' : 'transparent',
-                  hoverBgColor: chartScale === 'week' ? '#3edb93' : 'rgba(255, 255, 255, 0.1)',
+                  hoverBgColor: chartScale === 'week' ? '#3edb93' : (colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.1)' : colors.$7),
                 }}
                 style={{
-                  borderColor: 'rgba(255, 255, 255, 0.1)',
-                  color: chartScale === 'week' ? '#121212' : 'rgba(255, 255, 255, 0.9)',
+                  borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.1)' : colors.$4,
+                  color: chartScale === 'week' ? '#121212' : (colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.9)' : colors.$3),
                 }}
               >
                 {t('week')}
@@ -338,11 +345,11 @@ export function Totals() {
                 theme={{
                   backgroundColor:
                     chartScale === 'month' ? '#3edb93' : 'transparent',
-                  hoverBgColor: chartScale === 'month' ? '#3edb93' : 'rgba(255, 255, 255, 0.1)',
+                  hoverBgColor: chartScale === 'month' ? '#3edb93' : (colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.1)' : colors.$7),
                 }}
                 style={{
-                  borderColor: 'rgba(255, 255, 255, 0.1)',
-                  color: chartScale === 'month' ? '#121212' : 'rgba(255, 255, 255, 0.9)',
+                  borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.1)' : colors.$4,
+                  color: chartScale === 'month' ? '#121212' : (colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.9)' : colors.$3),
                 }}
               >
                 {t('month')}

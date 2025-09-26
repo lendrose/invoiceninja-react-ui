@@ -434,7 +434,13 @@ export function Default(props: Props) {
         })}
       >
         <div
-          className="sticky top-0 z-10 flex-shrink-0 flex h-16 border-b border-white/15 shadow backdrop-blur-md bg-gradient-to-l from-blue-500/35 to-black/25"
+          className={classNames(
+            "sticky top-0 z-10 flex-shrink-0 flex h-16 border-b shadow backdrop-blur-md",
+            {
+              "border-white/15 bg-gradient-to-l from-blue-500/35 to-black/25": colors.$0 === 'dark',
+              "border-gray-200 bg-white": colors.$0 === 'light',
+            }
+          )}
         >
           <button
             type="button"
@@ -451,7 +457,7 @@ export function Default(props: Props) {
           >
             <div className="flex flex-1 items-center space-x-4">
               <h2
-                style={{ color: 'rgba(255, 255, 255, 0.95)' }}
+                style={{ color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3 }}
                 className="text-sm md:text-lg whitespace-nowrap"
               >
                 {props.title}
@@ -576,7 +582,10 @@ export function Default(props: Props) {
         <main className="flex-1">
           {(props.breadcrumbs || props.topRight || props.afterBreadcrumbs) &&
             props.breadcrumbs.length > 0 && (
-              <div className="pt-4 px-4 md:px-6 md:pt-6 text-white flex flex-col lg:flex-row lg:justify-between lg:items-center space-y-4 lg:space-y-0">
+              <div className={classNames("pt-4 px-4 md:px-6 md:pt-6 flex flex-col lg:flex-row lg:justify-between lg:items-center space-y-4 lg:space-y-0", {
+                "text-white": colors.$0 === 'dark',
+                "text-gray-900": colors.$0 === 'light',
+              })}>
                 <div className="flex items-center w-full">
                   {props.breadcrumbs && (
                     <Breadcrumbs pages={props.breadcrumbs} />
@@ -590,7 +599,10 @@ export function Default(props: Props) {
             )}
 
           <div
-            className="p-8 2xl:p-12 text-white"
+            className={classNames("p-8 2xl:p-12", {
+              "text-white": colors.$0 === 'dark',
+              "text-gray-900": colors.$0 === 'light',
+            })}
           >
             {props.children}
           </div>

@@ -9,19 +9,32 @@
  */
 
 import React from 'react';
+import { useColorScheme } from '$app/common/colors';
+import classNames from 'classnames';
 
 export function ActionCard(props: {
   label: string;
   help?: string;
   children: React.ReactNode;
 }) {
+  const colors = useColorScheme();
+  
   return (
-    <div className="mt-2 backdrop-blur-md bg-black/20 border border-white/15 rounded-2xl shadow-2xl w-full p-8 my-4">
+    <div className={classNames("mt-2 backdrop-blur-md rounded-2xl shadow-2xl w-full p-8 my-4", {
+      "bg-black/20 border border-white/15": colors.$0 === 'dark',
+      "bg-white border border-gray-200": colors.$0 === 'light',
+    })}>
       <div className={`flex justify-between items-center`}>
         <section>
-          <h2 className="text-white">{props.label}</h2>
+          <h2 className={classNames({
+            "text-white": colors.$0 === 'dark',
+            "text-gray-900": colors.$0 === 'light',
+          })}>{props.label}</h2>
           {props.help && (
-            <span className="text-xs text-white/70">{props.help}</span>
+            <span className={classNames("text-xs", {
+              "text-white/70": colors.$0 === 'dark',
+              "text-gray-600": colors.$0 === 'light',
+            })}>{props.help}</span>
           )}
         </section>
         {props.children}

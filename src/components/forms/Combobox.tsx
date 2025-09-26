@@ -419,7 +419,10 @@ export function Combobox<T = any>({
       {isOpen && (
         <ul
           className="border absolute z-10 mt-1 rounded-md text-base shadow-2xl focus:outline-none sm:text-sm"
-          style={{ backgroundColor: 'transparent', borderColor: 'rgba(255, 255, 255, 0.3)' }}
+          style={{ 
+            backgroundColor: 'transparent', 
+            borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.3)' : colors.$4 
+          }}
           tabIndex={-1}
         >
           <div className="flex flex-col overflow-y-auto overflow-x-hidden max-h-60 p-1">
@@ -715,7 +718,10 @@ export function ComboboxStatic<T = any>({
           <HeadlessCombobox.Options
             static
             className="border absolute z-10 mt-1 rounded-md shadow-2xl focus:outline-none sm:text-sm"
-            style={{ backgroundColor: 'transparent', borderColor: 'rgba(255, 255, 255, 0.3)' }}
+            style={{ 
+            backgroundColor: 'transparent', 
+            borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.3)' : colors.$4 
+          }}
           >
             <div className="flex flex-col overflow-y-auto overflow-x-hidden max-h-60 p-1">
               {Boolean(isDataLoading) && (

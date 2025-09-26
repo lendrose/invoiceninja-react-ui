@@ -76,14 +76,16 @@ export function Card(props: Props) {
     <div
       ref={props.innerRef}
       className={classNames(
-        `backdrop-blur-md bg-black/20 border border-white/15 rounded-2xl shadow-2xl overflow-hidden m-2 ${props.className}`,
+        `backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden m-2 ${props.className}`,
         {
           'overflow-y-auto': props.withScrollableBody,
           'h-full': height === 'full',
+          'bg-black/20 border border-white/15': colors.$0 === 'dark',
+          'bg-white border border-gray-200': colors.$0 === 'light',
         }
       )}
       style={{
-        color: 'white',
+        color: colors.$0 === 'dark' ? 'white' : colors.$3,
         ...props.style,
       }}
     >
@@ -95,13 +97,17 @@ export function Card(props: Props) {
           <div
             className={classNames(
               {
-                'backdrop-blur-md bg-gradient-to-r from-green-500/20 to-green-400/12 sticky top-0': props.withScrollableBody,
-                'backdrop-blur-md bg-gradient-to-r from-green-500/20 to-green-400/12': !props.withScrollableBody,
+                'backdrop-blur-md sticky top-0': props.withScrollableBody,
+                'backdrop-blur-md': !props.withScrollableBody,
+                'bg-gradient-to-r from-green-500/20 to-green-400/12': colors.$0 === 'dark',
+                'bg-gradient-to-r from-blue-500/10 to-blue-400/5': colors.$0 === 'light',
                 'px-8 sm:px-10 py-6':
                   padding == 'small' && !props.withoutHeaderPadding,
                 'px-8 sm:px-10 py-8':
                   padding == 'regular' && !props.withoutHeaderPadding,
-                'border-b border-white/15': !props.withoutHeaderBorder,
+                'border-b': !props.withoutHeaderBorder,
+                'border-white/15': !props.withoutHeaderBorder && colors.$0 === 'dark',
+                'border-gray-200': !props.withoutHeaderBorder && colors.$0 === 'light',
               },
               props.headerClassName
             )}

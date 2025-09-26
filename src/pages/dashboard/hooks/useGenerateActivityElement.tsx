@@ -262,24 +262,24 @@ export function useGenerateActivityElement() {
       <div className="flex items-center justify-center">
         <div
           className="p-2 rounded-full"
-          style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+          style={{ backgroundColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.1)' : colors.$2 }}
         >
           <SquareActivityChart
             size="1.3rem"
-            color="rgba(255, 255, 255, 0.7)"
-            filledColor="rgba(255, 255, 255, 0.7)"
+            color={colors.$0 === 'dark' ? "rgba(255, 255, 255, 0.7)" : colors.$16}
+            filledColor={colors.$0 === 'dark' ? "rgba(255, 255, 255, 0.7)" : colors.$16}
           />
         </div>
       </div>
 
       <div className="flex flex-col space-y-0.5 flex-1 min-w-0">
-        <div className="text-sm" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+        <div className="text-sm" style={{ color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.9)' : colors.$3 }}>
           {generate(activity)}
         </div>
 
         <div
           className="flex w-full items-center space-x-1 text-xs truncate"
-          style={{ color: 'rgba(255, 255, 255, 0.6)' }}
+          style={{ color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.6)' : colors.$17 }}
         >
           <span className="whitespace-nowrap">
             {getDateTimeLabel(activity.created_at)}

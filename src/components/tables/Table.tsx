@@ -39,18 +39,34 @@ export function Table(props: Props) {
       >
         <div
           className={classNames(
-            'overflow-hidden backdrop-blur-md bg-black/20 rounded-lg',
+            'overflow-hidden backdrop-blur-md rounded-lg',
             {
-              'border-b border-white/15': !props.withoutBottomBorder,
-              'border-t border-white/15': !props.withoutTopBorder,
-              'border-l border-white/15': !props.withoutLeftBorder,
-              'border-r border-white/15': !props.withoutRightBorder,
-              'border border-white/15': !props.withoutBorder,
+              'bg-black/20': colors.$0 === 'dark',
+              'bg-white': colors.$0 === 'light',
+              'border-b': !props.withoutBottomBorder,
+              'border-t': !props.withoutTopBorder,
+              'border-l': !props.withoutLeftBorder,
+              'border-r': !props.withoutRightBorder,
+              'border': !props.withoutBorder,
+              'border-white/15': (
+                !props.withoutBottomBorder ||
+                !props.withoutTopBorder ||
+                !props.withoutLeftBorder ||
+                !props.withoutRightBorder ||
+                !props.withoutBorder
+              ) && colors.$0 === 'dark',
+              'border-gray-200': (
+                !props.withoutBottomBorder ||
+                !props.withoutTopBorder ||
+                !props.withoutLeftBorder ||
+                !props.withoutRightBorder ||
+                !props.withoutBorder
+              ) && colors.$0 === 'light',
             }
           )}
           style={{
-            color: 'rgba(255, 255, 255, 0.95)',
-            borderColor: 'rgba(255, 255, 255, 0.15)',
+            color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
+            borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.15)' : colors.$4,
           }}
         >
           <div

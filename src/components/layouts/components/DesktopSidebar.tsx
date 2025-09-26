@@ -55,11 +55,18 @@ export function DesktopSidebar(props: Props) {
       )}
     >
       <div
-        className="flex flex-col flex-grow overflow-y-auto backdrop-blur-md bg-gradient-to-b from-black/25 to-blue-500/20 border-r border-white/15 px-3"
+        className={classNames("flex flex-col flex-grow overflow-y-auto backdrop-blur-md border-r px-3", {
+          "bg-gradient-to-b from-black/25 to-blue-500/20 border-white/15": colors.$0 === 'dark',
+          "bg-white border-gray-200": colors.$0 === 'light',
+        })}
       >
         <div
           className={classNames(
-            'flex items-center flex-shrink-0 h-16 border-b border-white/15',
+            'flex items-center flex-shrink-0 h-16 border-b',
+            {
+              'border-white/15': colors.$0 === 'dark',
+              'border-gray-200': colors.$0 === 'light',
+            },
             {
               'py-3': !isMiniSidebar,
               'justify-center': isMiniSidebar,

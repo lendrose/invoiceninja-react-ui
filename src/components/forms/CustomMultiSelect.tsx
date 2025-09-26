@@ -331,9 +331,9 @@ export function CustomMultiSelect(props: Props) {
   const customStyles: StylesConfig<SelectOption, true> = {
     control: (base) => ({
       ...base,
-      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+      backgroundColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.05)' : colors.$1,
       backdropFilter: 'blur(12px)',
-      borderColor: 'rgba(255, 255, 255, 0.15)',
+      borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.15)' : colors.$4,
       borderRadius: '0.375rem',
       padding: '0 6px',
     }),
@@ -350,14 +350,14 @@ export function CustomMultiSelect(props: Props) {
     }),
     dropdownIndicator: (base) => ({
       ...base,
-      color: 'rgba(255, 255, 255, 0.6)',
+      color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.6)' : colors.$17,
       padding: '0 8px',
     }),
     menu: (base) => ({
       ...base,
-      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+      backgroundColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.1)' : colors.$1,
       backdropFilter: 'blur(12px)',
-      border: '1px solid rgba(255, 255, 255, 0.15)',
+      border: `1px solid ${colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.15)' : colors.$4}`,
       borderRadius: '0.75rem',
       zIndex: 10,
       width: '16rem',

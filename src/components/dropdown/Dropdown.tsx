@@ -135,7 +135,8 @@ export function Dropdown(props: Props) {
             className={classNames(
               `border inline-flex items-center space-x-2 px-4 justify-center rounded-md text-sm disabled:cursor-not-allowed disabled:opacity-75 py-2 ${props.className}`,
               {
-                'hover:bg-white/10 hover:border-white/30': !props.cardActions,
+                'hover:bg-white/10 hover:border-white/30': !props.cardActions && colors.$0 === 'dark',
+                'hover:bg-gray-50 hover:border-gray-300': !props.cardActions && colors.$0 === 'light',
                 'hover:opacity-90': props.cardActions,
               }
             )}

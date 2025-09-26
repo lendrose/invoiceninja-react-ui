@@ -318,7 +318,7 @@ export function Chart(props: Props) {
           strokeWidth={2}
         />
 
-        <CartesianGrid strokeDasharray="0" vertical={false} stroke="rgba(255, 255, 255, 0.1)" />
+        <CartesianGrid strokeDasharray="0" vertical={false} stroke={colors.$0 === 'dark' ? "rgba(255, 255, 255, 0.1)" : colors.$4} />
         <Tooltip
           content={<CustomTooltip />}
           wrapperStyle={{ outline: 'none' }}
@@ -327,8 +327,8 @@ export function Chart(props: Props) {
         <XAxis
           dataKey="date"
           tickMargin={8}
-          tick={{ fontSize: 14, fill: 'rgba(255, 255, 255, 0.8)' }}
-          stroke="rgba(255, 255, 255, 0.3)"
+          tick={{ fontSize: 14, fill: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.8)' : colors.$3 }}
+          stroke={colors.$0 === 'dark' ? "rgba(255, 255, 255, 0.3)" : colors.$4}
         />
 
         <YAxis

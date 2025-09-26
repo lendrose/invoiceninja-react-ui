@@ -49,20 +49,20 @@ export function Element(props: Props) {
         }
       )}
       onClick={props.onClick}
-      style={{ color: 'rgba(255, 255, 255, 0.95)', colorScheme: colors.$0, ...style }}
+      style={{ color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3, colorScheme: colors.$0, ...style }}
     >
       <dt
         className={classNames('text-sm flex flex-col', {
           'opacity-75': props.disabledLabels,
           'h-full justify-start': props.textVerticalAlign === 'top',
         })}
-        style={{ color: 'rgba(255, 255, 255, 0.9)', colorScheme: colors.$0 }}
+        style={{ color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.9)' : colors.$22, colorScheme: colors.$0 }}
       >
         <span
           className={classNames('font-medium', {
             'whitespace-nowrap': props.withoutWrappingLeftSide,
           })}
-          style={{ color: 'rgba(255, 255, 255, 0.8)', colorScheme: colors.$0 }}
+          style={{ color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.8)' : colors.$22, colorScheme: colors.$0 }}
         >
           {props.leftSide}
           {props.required && <span className="ml-1 text-red-600">*</span>}
@@ -77,7 +77,7 @@ export function Element(props: Props) {
               // @ts-ignore
               dangerouslySetInnerHTML={{ __html: props.leftSideHelp }}
               style={{
-                color: 'rgba(255, 255, 255, 0.7)',
+                color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.7)' : colors.$22,
                 colorScheme: colors.$0,
                 opacity: 0.8,
               }}
@@ -90,7 +90,7 @@ export function Element(props: Props) {
           'sm:col-span-1': props.twoGridColumns,
           'sm:col-span-2': !props.twoGridColumns,
         })}
-        style={{ color: 'rgba(255, 255, 255, 0.95)', colorScheme: colors.$0 }}
+        style={{ color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3, colorScheme: colors.$0 }}
       >
         {props.children}
       </dd>

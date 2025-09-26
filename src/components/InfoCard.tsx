@@ -28,14 +28,16 @@ export function InfoCard(props: Props) {
   return (
     <div
       className={classNames(
-        'backdrop-blur-md bg-black/20 border border-white/15 rounded-2xl shadow-2xl overflow-auto space-y-2',
+        'backdrop-blur-md rounded-2xl shadow-2xl overflow-auto space-y-2',
         {
           'px-4 py-5 sm:p-6': !props.withoutPadding,
+          'bg-black/20 border border-white/15': colors.$0 === 'dark',
+          'bg-white border border-gray-200': colors.$0 === 'light',
         },
         props.className
       )}
       style={{
-        color: 'white',
+        color: colors.$0 === 'dark' ? 'white' : colors.$3,
         ...props.style,
       }}
     >
