@@ -158,7 +158,7 @@ export function Card(props: Props) {
             'py-8 px-8 sm:px-10': padding === 'regular' && !props.withoutBodyPadding,
             'py-6 px-8 sm:px-10': padding === 'small' && !props.withoutBodyPadding,
             'h-full': height === 'full',
-            'bg-white/75': colors.$0 === 'light',
+            'bg-white/20': colors.$0 === 'light',
             'flex-1': !props.withSaveButton && !props.additionalAction,
           })}
         >
@@ -174,7 +174,7 @@ export function Card(props: Props) {
         {(props.withSaveButton || props.additionalAction) && (
           <div
             className={classNames("border-t px-4 py-5 sm:p-0", {
-              'bg-white/75': colors.$0 === 'light',
+              'bg-white/20': colors.$0 === 'light',
             })}
             style={{ borderColor: colors.$20 }}
           >

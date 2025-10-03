@@ -32,7 +32,7 @@ export function InfoCard(props: Props) {
         {
           'px-4 py-5 sm:p-6': !props.withoutPadding,
           'bg-black/15 border border-white/15': colors.$0 === 'dark',
-          'bg-white/75 border border-white/20': colors.$0 === 'light',
+          'bg-white/20 border border-white/20': colors.$0 === 'light',
         },
         props.className
       )}
