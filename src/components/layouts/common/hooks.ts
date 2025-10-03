@@ -160,12 +160,6 @@ export function useSettingsRoutes() {
       enabled: isAdmin || isOwner || false,
     },
     {
-      name: t('bank_accounts'),
-      href: '/settings/bank_accounts',
-      current: location.pathname.startsWith('/settings/bank_accounts'),
-      enabled: ((isAdmin || isOwner) && isCompanySettingsActive) || false,
-    },
-    {
       name: t('group_settings'),
       href: '/settings/group_settings',
       current: location.pathname.startsWith('/settings/group_settings'),
