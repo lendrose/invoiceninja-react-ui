@@ -89,7 +89,7 @@ export function Login() {
       
       <div className="relative z-20">
         <div className="flex flex-col items-center justify-center min-h-screen py-12">
-          <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl mx-4 max-w-md w-full p-8">
+          <div className="backdrop-blur-md bg-white/15 border border-white/20 rounded-2xl shadow-2xl mx-4 max-w-md w-full p-8">
             {/* Logo at the top of the login card */}
             <div className="flex justify-center mb-6">
               <Link to="/">
@@ -190,7 +190,7 @@ export function Login() {
               <SignInProviders />
             </div>
 
-            <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl mx-4 max-w-md w-full mt-4">
+            <div className="backdrop-blur-md bg-white/15 border border-white/20 rounded-2xl shadow-2xl mx-4 max-w-md w-full mt-4">
               <HostedLinks />
             </div>
           </>

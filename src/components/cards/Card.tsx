@@ -80,7 +80,7 @@ export function Card(props: Props) {
         {
           'overflow-y-auto': props.withScrollableBody,
           'h-full': height === 'full',
-          'bg-black/20 border border-white/15': colors.$0 === 'dark',
+          'bg-black/15 border border-white/15': colors.$0 === 'dark',
           'bg-transparent border border-white/20': colors.$0 === 'light',
         }
       )}
@@ -99,8 +99,8 @@ export function Card(props: Props) {
               {
                 'backdrop-blur-md sticky top-0': props.withScrollableBody,
                 'backdrop-blur-md': !props.withScrollableBody,
-                'bg-gradient-to-r from-green-500/20 to-green-400/12': colors.$0 === 'dark',
-                'bg-gradient-to-l from-blue-500/20 to-green-500/20': colors.$0 === 'light',
+                'bg-gradient-to-r from-green-500/25 to-green-400/15': colors.$0 === 'dark',
+                'bg-gradient-to-l from-blue-500/25 to-green-500/25': colors.$0 === 'light',
                 'px-8 sm:px-10 py-6':
                   padding == 'small' && !props.withoutHeaderPadding,
                 'px-8 sm:px-10 py-8':
@@ -158,7 +158,7 @@ export function Card(props: Props) {
             'py-8 px-8 sm:px-10': padding === 'regular' && !props.withoutBodyPadding,
             'py-6 px-8 sm:px-10': padding === 'small' && !props.withoutBodyPadding,
             'h-full': height === 'full',
-            'bg-white/80': colors.$0 === 'light',
+            'bg-white/75': colors.$0 === 'light',
             'flex-1': !props.withSaveButton && !props.additionalAction,
           })}
         >
@@ -174,7 +174,7 @@ export function Card(props: Props) {
         {(props.withSaveButton || props.additionalAction) && (
           <div
             className={classNames("border-t px-4 py-5 sm:p-0", {
-              'bg-white/80': colors.$0 === 'light',
+              'bg-white/75': colors.$0 === 'light',
             })}
             style={{ borderColor: colors.$20 }}
           >

@@ -298,7 +298,7 @@ export function Totals() {
 
             <div
               className={classNames("flex rounded-lg overflow-hidden backdrop-blur-md shadow-2xl", {
-                "bg-black/20 border border-white/15": colors.$0 === 'dark',
+                "bg-black/15 border border-white/15": colors.$0 === 'dark',
                 "bg-white border border-gray-200": colors.$0 === 'light',
               })}
             >

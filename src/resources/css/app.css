@@ -148,11 +148,11 @@
   }
   
   .glass {
-    @apply backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl shadow-2xl;
+    @apply backdrop-blur-md bg-white/15 border border-white/20 rounded-2xl shadow-2xl;
   }
   
   .glass-dark {
-    @apply backdrop-blur-md bg-black/20 border border-white/10 rounded-2xl shadow-2xl;
+    @apply backdrop-blur-md bg-black/15 border border-white/10 rounded-2xl shadow-2xl;
   }
 
   /* Staggered Animation Utilities */

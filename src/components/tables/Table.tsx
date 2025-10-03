@@ -41,8 +41,7 @@ export function Table(props: Props) {
           className={classNames(
             'overflow-hidden backdrop-blur-md rounded-lg',
             {
-              'bg-black/20': colors.$0 === 'dark',
-              'bg-white': colors.$0 === 'light',
+              'bg-transparent': true,
               'border-b': !props.withoutBottomBorder,
               'border-t': !props.withoutTopBorder,
               'border-l': !props.withoutLeftBorder,

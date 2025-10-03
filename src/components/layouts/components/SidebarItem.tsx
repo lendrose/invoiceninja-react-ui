@@ -26,6 +26,9 @@ const Div = styled.div`
 const LinkStyled = styled(Link)`
   &:hover {
     background-color: ${({ theme }) => theme.hoverColor};
+  }
+  
+  &:hover span {
     color: ${({ theme }) => theme.hoverTextColor || 'inherit'};
   }
 `;
@@ -61,10 +64,10 @@ export function SidebarItem(props: Props) {
       }}
       key={item.name}
       className={classNames(
-        'flex items-center justify-between group px-1.5 text-sm font-medium rounded-md',
+        'flex items-center justify-between group px-1.5 text-sm font-medium rounded-md sidebar-item',
         {
           'border-l-4 border-primary-500 bg-primary-500/20': item.current,
-          'text-gray-300 border-l-4 border-transparent hover:bg-white/10 hover:text-gray-100': !item.current && colors.$0 === 'dark',
+          'text-gray-300 border-l-4 border-transparent hover:bg-white/15 hover:text-gray-100': !item.current && colors.$0 === 'dark',
           'text-white border-l-4 border-transparent hover:bg-white/20': !item.current && colors.$0 === 'light',
         }
       )}
@@ -84,7 +87,7 @@ export function SidebarItem(props: Props) {
         <div
           className="flex justify-start items-center my-2 space-x-3"
           style={{
-            color: item.current ? themeColors.$2 : themeColors.$4,
+            color: item.current ? (colors.$0 === 'light' ? '#241F21' : themeColors.$2) : themeColors.$4,
           }}
         >
           <item.icon
@@ -106,8 +109,11 @@ export function SidebarItem(props: Props) {
             hoverColor: colors.$6,
           }}
           to={item.rightButton.to}
-          className="rounded-sm p-[0.1rem]"
+          className="rounded-sm p-[0.1rem] hover:bg-transparent"
           withoutDefaultStyling
+          onMouseEnter={(e) => {
+            e.stopPropagation();
+          }}
         >
           <item.rightButton.icon
             size="1.1rem"

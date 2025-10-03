@@ -21,8 +21,8 @@ export function ActionCard(props: {
   
   return (
     <div className={classNames("mt-2 backdrop-blur-md rounded-2xl shadow-2xl w-full p-8 my-4", {
-      "bg-black/20 border border-white/15": colors.$0 === 'dark',
-      "bg-white/60 border border-white/20": colors.$0 === 'light',
+      "bg-black/15 border border-white/15": colors.$0 === 'dark',
+      "bg-white/75 border border-white/20": colors.$0 === 'light',
     })}>
       <div className={`flex justify-between items-center`}>
         <section>

@@ -92,7 +92,7 @@ export function Settings(props: Props) {
         <div 
           className={classNames(
             "col-span-12 lg:col-span-3 backdrop-blur-md rounded-2xl shadow-2xl p-6 border",
-            colors.$0 === 'dark' ? 'bg-black/20' : 'bg-white/60'
+            colors.$0 === 'dark' ? 'bg-black/15' : 'bg-white/75'
           )}
           style={{ borderColor: colors.$24 }}
         >

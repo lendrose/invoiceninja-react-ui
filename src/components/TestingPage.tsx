@@ -100,7 +100,7 @@ export function TestingPage() {
         <div className="space-y-6 mt-12">
           <h2 className="text-2xl font-semibold text-white mb-4">Original Testing Components</h2>
           
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+          <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 border border-white/20">
             <ClientCreate
               isModalOpen={isModalOpen}
               setIsModalOpen={setIsModalOpen}
