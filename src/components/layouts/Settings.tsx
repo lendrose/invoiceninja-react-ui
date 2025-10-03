@@ -47,6 +47,7 @@ const LinkStyled = styled(Link)`
   background-color: ${(props) => props.theme.backgroundColor};
   &:hover {
     background-color: ${(props) => props.theme.hoverColor};
+    color: ${(props) => props.theme.hoverTextColor || props.theme.color};
   }
 `;
 
@@ -88,7 +89,13 @@ export function Settings(props: Props) {
       )}
 
       <div className="grid grid-cols-12 lg:gap-6">
-        <div className="col-span-12 lg:col-span-3">
+        <div 
+          className={classNames(
+            "col-span-12 lg:col-span-3 backdrop-blur-md rounded-2xl shadow-2xl p-6 border",
+            colors.$0 === 'dark' ? 'bg-black/20' : 'bg-white/60'
+          )}
+          style={{ borderColor: colors.$24 }}
+        >
           {(isGroupSettingsActive || isClientSettingsActive) && (
             <div
               className="flex items-center justify-between border py-3 space-x-3 px-3 rounded-md shadow-sm"
@@ -164,6 +171,7 @@ export function Settings(props: Props) {
                       backgroundColor: item.current ? colors.$20 : '',
                       color: item.current ? colors.$3 : '',
                       hoverColor: colors.$20,
+                      hoverTextColor: colors.$0 === 'dark' ? colors.$16 : colors.$17,
                     }}
                   >
                     <span className="truncate">{item.name}</span>
@@ -221,6 +229,7 @@ export function Settings(props: Props) {
                       backgroundColor: item.current ? colors.$20 : '',
                       color: item.current ? colors.$3 : '',
                       hoverColor: colors.$20,
+                      hoverTextColor: colors.$0 === 'dark' ? colors.$16 : colors.$17,
                     }}
                   >
                     <span className="truncate">{item.name}</span>
@@ -228,7 +237,10 @@ export function Settings(props: Props) {
                 )}
 
                 {item.children && item.current && (
-                  <div className="bg-gray-100 space-y-4 py-3 rounded-b">
+                  <div className={classNames(
+                    "space-y-4 py-3 rounded-b",
+                    colors.$0 === 'dark' ? 'bg-gray-800' : 'bg-gray-100'
+                  )}>
                     {item.children &&
                       item.children.map((item, index) => (
                         <Link
@@ -236,7 +248,8 @@ export function Settings(props: Props) {
                           to={item.href}
                           className={classNames(
                             item.current ? 'text-gray-900 font-semibold' : '',
-                            'ml-4 px-3 text-sm block text-gray-700 hover:text-gray-900 transition duration-200 ease-in-out'
+                            'ml-4 px-3 text-sm block text-gray-700 hover:text-gray-900 transition duration-200 ease-in-out',
+                            colors.$0 === 'dark' ? 'text-gray-300 hover:text-gray-100' : 'text-gray-700 hover:text-gray-900'
                           )}
                         >
                           {item.name}

@@ -283,6 +283,12 @@ export function App() {
     <>
       <div className="min-h-screen bg-dark-bg relative">
         {/* Fixed Background SVG */}
+        
+        <img 
+          src="/perspective-bg-alt.jpg" 
+          alt="Background" 
+          className="bg-fixed-full-width"
+        />
         <img 
           src="/dark-grey-background.svg" 
           alt="Background" 

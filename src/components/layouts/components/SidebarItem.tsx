@@ -26,6 +26,7 @@ const Div = styled.div`
 const LinkStyled = styled(Link)`
   &:hover {
     background-color: ${({ theme }) => theme.hoverColor};
+    color: ${({ theme }) => theme.hoverTextColor || 'inherit'};
   }
 `;
 
@@ -62,13 +63,24 @@ export function SidebarItem(props: Props) {
       className={classNames(
         'flex items-center justify-between group px-1.5 text-sm font-medium rounded-md',
         {
-          'text-blue-500 border-l-4 border-primary-500 bg-primary-500/20': item.current,
-          'text-gray-300 border-l-4 border-transparent hover:bg-white/10': !item.current && colors.$0 === 'dark',
+          'border-l-4 border-primary-500 bg-primary-500/20': item.current,
+          'text-gray-300 border-l-4 border-transparent hover:bg-white/10 hover:text-gray-100': !item.current && colors.$0 === 'dark',
           'text-white border-l-4 border-transparent hover:bg-white/20': !item.current && colors.$0 === 'light',
         }
       )}
+      style={{
+        color: item.current ? (colors.$0 === 'light' ? '#241F21' : '#3B82F6') : undefined
+      }}
     >
-      <LinkStyled to={item.href} className="w-full" withoutDefaultStyling>
+      <LinkStyled 
+        to={item.href} 
+        className="w-full" 
+        withoutDefaultStyling
+        theme={{
+          hoverColor: colors.$0 === 'light' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.1)',
+          hoverTextColor: colors.$0 === 'light' ? '#241F21' : undefined
+        }}
+      >
         <div
           className="flex justify-start items-center my-2 space-x-3"
           style={{
