@@ -80,12 +80,12 @@ export function Card(props: Props) {
       ref={props.innerRef}
       {...(isDevelopment && { 'data-component': 'ui-card' })}
       className={classNames(
-        `backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden flex flex-col ${props.className}`, // removed m-2
+        `backdrop-blur-md shadow-2xl flex flex-col ${props.className}`, // removed m-2, rounded-2xl, overflow-hidden, border
         {
           'overflow-y-auto': props.withScrollableBody,
           'h-full': height === 'full',
-          'bg-black/15 border border-white/15': colors.$0 === 'dark',
-          'bg-transparent border border-white/20': colors.$0 === 'light',
+          'bg-black/15': colors.$0 === 'dark',
+          'bg-transparent': colors.$0 === 'light',
         }
       )}
       style={{
@@ -107,6 +107,8 @@ export function Card(props: Props) {
               'px-8 sm:px-10 py-8':
                 padding == 'regular' && !props.withoutHeaderPadding,
               'border-b border-white/15': !props.withoutHeaderBorder,
+              'border-t border-l border-r border-white/15 rounded-tl-2xl rounded-tr-2xl': colors.$0 === 'dark',
+              'border-t border-l border-r border-white/20 rounded-tl-2xl rounded-tr-2xl': colors.$0 === 'light',
             },
             props.headerClassName
           )}
@@ -160,6 +162,11 @@ export function Card(props: Props) {
           'h-full': height === 'full',
           'bg-white/75': colors.$0 === 'light',
           'flex-1': true, // Always flex-grow-1 for the body
+          // Border and border-radius based on whether title exists
+          'border-b border-l border-r border-white/15 rounded-bl-2xl rounded-br-2xl': props.title && colors.$0 === 'dark',
+          'border-b border-l border-r border-white/20 rounded-bl-2xl rounded-br-2xl': props.title && colors.$0 === 'light',
+          'border border-white/15 rounded-2xl': !props.title && colors.$0 === 'dark',
+          'border border-white/20 rounded-2xl': !props.title && colors.$0 === 'light',
         })}
       >
         <form
