@@ -686,16 +686,6 @@ function PaymentSchedule() {
     <Card
       title={t('payment_schedule')}
       className="shadow-sm"
-      style={{ 
-        borderColor: colors.$24,
-        backgroundColor: colors.$1,
-        color: colors.$3
-      }}
-      headerStyle={{ 
-        borderColor: colors.$20,
-        backgroundColor: colors.$1,
-        color: colors.$3
-      }}
       withoutBodyPadding
       withScrollableBody
     >

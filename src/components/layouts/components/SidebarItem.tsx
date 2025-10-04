@@ -104,26 +104,26 @@ export function SidebarItem(props: Props) {
       </LinkStyled>
 
       {item.rightButton && !isMiniSidebar && item.rightButton.visible && (
-        <LinkStyled
-          theme={{
-            hoverColor: colors.$6,
-          }}
-          to={item.rightButton.to}
+        <div
           className="rounded-sm p-[0.1rem] hover:bg-transparent"
-          withoutDefaultStyling
           onMouseEnter={(e) => {
             e.stopPropagation();
           }}
         >
-          <item.rightButton.icon
-            size="1.1rem"
-            color={
-              item.current
-                ? '#3B82F6'
-                : themeColors.$4 || (colors.$0 === 'dark' ? '#3edb93' : '#116DF4')
-            }
-          />
-        </LinkStyled>
+          <LinkStyled
+            to={item.rightButton.to}
+            withoutDefaultStyling
+          >
+            <item.rightButton.icon
+              size="1.1rem"
+              color={
+                item.current
+                  ? '#3B82F6'
+                  : themeColors.$4 || (colors.$0 === 'dark' ? '#3edb93' : '#116DF4')
+              }
+            />
+          </LinkStyled>
+        </div>
       )}
     </Div>
   );

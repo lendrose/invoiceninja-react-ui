@@ -122,7 +122,9 @@ export default function Product() {
       afterBreadcrumbs={<PreviousNextNavigation entity="product" />}
     >
       <Container breadcrumbs={[]}>
-        <Tabs tabs={tabs} />
+        <Tabs 
+          darkBackground={true} 
+          tabs={tabs} />
 
         <Outlet
           context={{

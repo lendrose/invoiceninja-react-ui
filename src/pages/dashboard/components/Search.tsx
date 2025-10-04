@@ -307,18 +307,18 @@ export function Search$() {
         onClick={() => setIsModalOpen(true)}
         className="lg:hidden flex justify-end items-end"
       >
-        <Icon element={BiSearch} size={22} style={{ color: colors.$3 }} />
+        <Icon element={BiSearch} size={22} style={{ color: colors.$15 }} />
       </button>
 
       <div
         className="hidden lg:flex items-center border rounded-md p-1.5 space-x-5"
         onClick={() => setIsModalOpen(true)}
-        style={{ height: '2.3rem', borderColor: colors.$5 }}
+        style={{ height: '2.3rem', borderColor: colors.$15 }}
       >
         <div className="flex items-center space-x-1.5 pl-1">
-          <SearchIcon color={colors.$17} />
+          <SearchIcon color={colors.$22} />
 
-          <p className="text-sm" style={{ color: colors.$17 }}>
+          <p className="text-sm" style={{ color: colors.$15 }}>
             {t('search_placeholder')}
           </p>
         </div>
@@ -327,7 +327,7 @@ export function Search$() {
           className="flex items-center border px-1.5 py-0.5"
           style={{ borderColor: colors.$5, borderRadius: '0.25rem' }}
         >
-          <p className="text-sm" style={{ color: colors.$17 }}>
+          <p className="text-sm" style={{ color: colors.$15 }}>
             Ctrl+K
           </p>
         </div>
