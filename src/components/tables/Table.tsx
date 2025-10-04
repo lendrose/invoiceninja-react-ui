@@ -73,7 +73,7 @@ export function Table(props: Props) {
         >
           <div
             className={classNames(`overflow-auto min-w-full rounded-md shadow-sm ${props.className}`, {
-              'bg-white/80': !props.withoutBodyBackground,
+              'bg-white/90': !props.withoutBodyBackground,
             })}
             style={{
               ...props.style,

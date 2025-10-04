@@ -26,7 +26,7 @@ export function Thead(props: Props) {
     <thead
       className={classNames("border-b", {
         'bg-gradient-to-r from-green-500/25 to-green-400/15': !props.withoutBackground && colors.$0 === 'dark',
-        'bg-gradient-to-l from-blue-500/50 to-green-500/50': !props.withoutBackground && colors.$0 === 'light',
+        'bg-gradient-to-l from-blue-500/70 to-green-500/70': !props.withoutBackground && colors.$0 === 'light',
       })}
       style={{
         backgroundColor: backgroundColor || 'rgba(0, 0, 0, 0.3)',
