@@ -297,7 +297,7 @@ export function App() {
           className="bg-fixed-full-width"
         />
         
-        <div className="relative z-20">
+        <div className="relative z-10">
           <div className="App">
             <Toaster position="top-center" />
             {routes}
