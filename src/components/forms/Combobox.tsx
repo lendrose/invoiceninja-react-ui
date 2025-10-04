@@ -374,9 +374,9 @@ export function Combobox<T = any>({
             className="w-full rounded-md py-1.5 pl-3 pr-10 shadow-sm sm:text-sm sm:leading-6 focus:outline-none focus:ring-0"
             ref={inputRef}
             style={{
-              backgroundColor: 'transparent',
-              backdropFilter: 'blur(12px)',
-              color: 'rgba(255, 255, 255, 0.95)',
+              backgroundColor: reactSettings.dark_mode ? 'transparent' : '#ffffff',
+              backdropFilter: reactSettings.dark_mode ? 'blur(12px)' : 'none',
+              color: reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.95)' : '#0f172a',
               border: 'none',
             }}
             data-cy="comboboxInput"

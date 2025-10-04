@@ -115,7 +115,6 @@ export function UpcomingRecurringInvoices() {
           columns={columns}
           endpoint="/api/v1/recurring_invoices?include=client&client_status=active&without_deleted_clients=true&per_page=50&page=1&sort=next_send_date_client|asc"
           withoutActions
-          withoutBackground
           withoutPagination
           withoutPadding
           withoutPerPageAsPreference

@@ -61,14 +61,14 @@ export function Pagination(props: Props) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-3 pb-2">
       {typeof props.totalRecords === 'number' && (
-        <span className="text-sm font-medium">
+        <span className="text-sm font-medium" style={{ color: 'white' }}>
           {t('total_results')}: {props.totalRecords}
         </span>
       )}
 
       <div
         className="flex justify-center space-x-4 items-center"
-        style={{ color: colors.$3 }}
+        style={{ color: 'white' }}
       >
         <div className="flex items-center">
           <PaginationButton
@@ -96,7 +96,7 @@ export function Pagination(props: Props) {
           </PaginationButton>
         </div>
 
-        <span className="text-sm font-medium">
+        <span className="text-sm font-medium" style={{ color: 'white' }}>
           {props.currentPage} / {props.totalPages}
         </span>
 
@@ -128,7 +128,7 @@ export function Pagination(props: Props) {
       </div>
 
       <div className="flex items-center space-x-2">
-        <span className="text-sm font-medium" style={{ color: colors.$3 }}>
+        <span className="text-sm font-medium" style={{ color: 'white' }}>
           {t('rows')}:
         </span>
 

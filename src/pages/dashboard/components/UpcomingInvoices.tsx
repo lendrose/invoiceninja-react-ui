@@ -107,7 +107,6 @@ export function UpcomingInvoices() {
           columns={columns}
           endpoint="/api/v1/invoices?include=client.group_settings&upcoming=true&without_deleted_clients=true&per_page=50&page=1"
           withoutActions
-          withoutBackground
           withoutPagination
           withoutPadding
           withoutPerPageAsPreference

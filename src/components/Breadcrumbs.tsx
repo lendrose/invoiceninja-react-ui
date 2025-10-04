@@ -28,14 +28,14 @@ export function Breadcrumbs(props: { pages: Page[] }) {
       <ol role="list" className="flex items-center space-x-4">
         <li>
           <Link to="/dashboard" withoutDefaultStyling>
-            <House size="1.3rem" color={colors.$22} />
+            <House size="1.3rem" color="rgba(255, 255, 255, 0.7)" />
           </Link>
         </li>
 
         {props.pages.map((page) => (
           <li key={page.name}>
             <div className="flex items-center">
-              <span style={{ color: colors.$22 }}>/</span>
+              <span style={{ color: 'rgba(255, 255, 255, 0.7)' }}>/</span>
 
               <div
                 className={classNames('flex items-center', {
@@ -45,7 +45,7 @@ export function Breadcrumbs(props: { pages: Page[] }) {
                 <Link
                   to={page.href}
                   className="ml-4 text-sm font-medium"
-                  style={{ color: colors.$22 }}
+                  style={{ color: 'rgba(255, 255, 255, 0.7)' }}
                   disableHoverUnderline
                 >
                   {page.name}

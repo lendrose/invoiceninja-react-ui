@@ -96,7 +96,6 @@ export function ExpiredQuotes() {
           columns={columns}
           endpoint="/api/v1/quotes?include=client&client_status=expired&without_deleted_clients=true&per_page=50&page=1&sort=id|desc"
           withoutActions
-          withoutBackground
           withoutPagination
           withoutPadding
           withoutPerPageAsPreference

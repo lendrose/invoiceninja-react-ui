@@ -74,20 +74,20 @@ export function Badge(props: Props) {
             props.variant === 'generic',
           'bg-white border bg-opacity-15 text-gray-500':
             props.variant === 'white',
-          'bg-yellow-500 bg-opacity-15 text-yellow-500':
+          'bg-yellow-500 bg-opacity-15 text-yellow-700 border border-yellow-500':
             props.variant === 'yellow',
-          'bg-red-500 bg-opacity-15 text-red-500': props.variant === 'red',
-          'bg-blue-300 bg-opacity-15 text-blue-300':
+          'bg-red-500 bg-opacity-15 text-red-500 border border-red-500': props.variant === 'red',
+          'bg-blue-300 bg-opacity-15 text-blue-500 border border-blue-300':
             props.variant === 'light-blue',
           'bg-blue-400 bg-opacity-15 text-blue-400': props.variant === 'blue',
           'bg-blue-700 bg-opacity-15 text-blue-700':
             props.variant === 'dark-blue',
-          'bg-orange-500 bg-opacity-15 text-orange-500':
+          'bg-orange-500 bg-opacity-15 text-orange-500 border border-orange-500':
             props.variant === 'orange',
-          'bg-green-500 bg-opacity-15 text-green-500':
+          'bg-green-500 bg-opacity-15 text-green-500 border border-green-500':
             props.variant === 'green',
           'bg-black bg-opacity-15 text-black': props.variant === 'black',
-          'bg-purple-500 bg-opacity-15 text-purple-500':
+          'bg-purple-500 bg-opacity-15 text-purple-500 border border-purple-500':
             props.variant === 'purple',
         },
         props.className

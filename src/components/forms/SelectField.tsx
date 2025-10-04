@@ -80,47 +80,60 @@ export function SelectField(props: SelectProps) {
 
   const customStyles: StylesConfig<SelectOption, false> = {
     input: (styles) => {
-      return merge(styles, {
+      return {
+        ...styles,
         color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
-      });
+      };
     },
     singleValue: (styles) => {
-      return merge(styles, {
+      return {
+        ...styles,
         color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
-      });
+      };
     },
     menu: (base) => {
-      return merge(base, {
+      return {
+        ...base,
         width: 'max-content',
         minWidth: '100%',
-        backgroundColor: colors.$0 === 'dark' ? 'rgba(20, 25, 35, 0.95)' : 'rgba(255, 255, 255, 0.6)',
-        backdropFilter: 'blur(12px)',
-        borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.3)',
+        backgroundColor: colors.$0 === 'dark' ? 'rgba(20, 25, 35, 0.95)' : colors.$1,
+        backdropFilter: colors.$0 === 'dark' ? 'blur(12px)' : 'none',
+        borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.2)' : colors.$4,
         borderRadius: '0.75rem',
-        border: `1px solid ${colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.3)'}`,
-        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)',
+        border: `1px solid ${colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.15)' : colors.$4}`,
+        boxShadow: colors.$0 === 'dark' 
+          ? '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)'
+          : '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         zIndex: 9999,
-      });
+      };
     },
     control: (base, { isDisabled, isFocused }) => {
-      return merge(base, {
+      const controlStyles = {
+        ...base,
         borderRadius: '0.375rem',
-        backgroundColor: 'transparent',
-        backdropFilter: 'blur(12px)',
+        backgroundColor: colors.$0 === 'dark' ? 'transparent' : colors.$1,
+        backdropFilter: colors.$0 === 'dark' ? 'blur(12px)' : 'none',
         color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
         borderColor: colors.$0 === 'dark' 
           ? (isFocused ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)')
-          : (isFocused ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)'),
+          : colors.$4,
         cursor: isDisabled ? 'not-allowed' : 'pointer',
-        pointerEvents: isDisabled ? 'auto' : 'unset',
         boxShadow: 'none',
         '&:hover': {
           borderColor: colors.$0 === 'dark' 
             ? (isFocused ? 'rgba(255, 255, 255, 0.5)' : 'rgba(255, 255, 255, 0.4)')
-            : (isFocused ? 'rgba(255, 255, 255, 0.5)' : 'rgba(255, 255, 255, 0.4)'),
+            : colors.$4,
         },
+        // Force styles with CSS custom properties
+        '--react-select-background': colors.$0 === 'dark' ? 'transparent' : colors.$1,
+        '--react-select-color': colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
+        '--react-select-border': colors.$0 === 'dark' 
+          ? (isFocused ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)')
+          : colors.$4,
         ...controlStyle,
-      });
+      };
+      
+      return controlStyles;
     },
     option: (base, { isSelected, isFocused }) => {
       return merge(base, {
@@ -174,9 +187,9 @@ export function SelectField(props: SelectProps) {
           ref={props.innerRef}
           disabled={props.disabled}
           style={{
-            backgroundColor: 'transparent',
-            backdropFilter: 'blur(12px)',
-            borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.3)',
+            backgroundColor: colors.$0 === 'dark' ? 'transparent' : colors.$1,
+            backdropFilter: colors.$0 === 'dark' ? 'blur(12px)' : 'none',
+            borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.3)' : colors.$4,
             color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
             ...props.style,
           }}
@@ -228,8 +241,10 @@ export function SelectField(props: SelectProps) {
                   )}
                   style={{
                     height: '2.5rem',
-                    backgroundColor: 'transparent',
-                    borderColor: rest.isFocused ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)',
+                    backgroundColor: colors.$0 === 'dark' ? 'transparent' : colors.$1,
+                    borderColor: colors.$0 === 'dark' 
+                      ? (rest.isFocused ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)')
+                      : colors.$4,
                     color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
                     ...controlStyle,
                   }}
