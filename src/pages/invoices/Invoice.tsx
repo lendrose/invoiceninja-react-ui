@@ -199,6 +199,7 @@ export default function Invoice() {
 
             <div className="space-y-4">
               <Tabs
+                darkBackground={true}
                 tabs={tabs}
                 rightSide={
                   invoice && (

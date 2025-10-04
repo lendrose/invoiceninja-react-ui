@@ -72,7 +72,7 @@ export function Checkbox(props: Props) {
           theme={{
             backgroundColor: colors.$1,
             checkedBorderColor: colors.$3,
-            borderColor: colors.$5,
+            borderColor: colors.$4,
           }}
           onChange={(event) => {
             props.onChange && props.onChange(event);

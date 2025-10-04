@@ -79,7 +79,7 @@ export function Th$(props: Props) {
     <th
       ref={thRef}
       style={{
-        color: props.textColor || 'rgba(255, 255, 255, 0.9)',
+        color: props.textColor || colors.$3,
         borderColor: 'rgba(255, 255, 255, 0.15)',
         width: currentWidth,
         ...props.style,
@@ -139,7 +139,7 @@ export function Th$(props: Props) {
                         <ChevronUp
                           size="0.7rem"
                           strokeWidth="3"
-                          color={order === 'asc' ? colors.$3 : colors.$17}
+                          color={order === 'asc' ? colors.$3 : (props.textColor || colors.$3)}
                         />
                       </div>
 
@@ -147,7 +147,7 @@ export function Th$(props: Props) {
                         <ChevronDown
                           size="0.7rem"
                           strokeWidth="3"
-                          color={order === 'desc' ? colors.$3 : colors.$17}
+                          color={order === 'desc' ? colors.$3 : (props.textColor || colors.$3)}
                         />
                       </div>
                     </div>
@@ -156,7 +156,7 @@ export function Th$(props: Props) {
                       <div>
                         <ChevronUp
                           size="0.7rem"
-                          color={colors.$17}
+                          color={props.textColor || colors.$3}
                           strokeWidth="3"
                         />
                       </div>
@@ -164,7 +164,7 @@ export function Th$(props: Props) {
                       <div>
                         <ChevronDown
                           size="0.7rem"
-                          color={colors.$17}
+                          color={props.textColor || colors.$3}
                           strokeWidth="3"
                         />
                       </div>

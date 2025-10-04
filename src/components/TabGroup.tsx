@@ -35,6 +35,7 @@ interface Props {
   horizontalPaddingWidth?: string;
   fullRightPadding?: boolean;
   style?: CSSProperties;
+  darkBackground?: boolean;
 }
 
 const StyledButton = styled.button`
@@ -48,6 +49,7 @@ const StyledButton = styled.button`
 
 export function TabGroup(props: Props) {
   const colors = useColorScheme();
+  const isDevelopment = import.meta.env.DEV || import.meta.env.MODE === 'development';
 
   const {
     withoutVerticalMargin,
@@ -55,7 +57,14 @@ export function TabGroup(props: Props) {
     horizontalPaddingWidth = '7rem',
     fullRightPadding = false,
     style,
+    darkBackground,
   } = props;
+
+  // Debug logging
+  if (isDevelopment) {
+    console.log('TabGroup darkBackground:', darkBackground);
+    console.log('TabGroup colors.$9:', colors.$9);
+  }
 
   const [currentIndex, setCurrentIndex] = useState(props.defaultTabIndex || 0);
 
@@ -71,11 +80,13 @@ export function TabGroup(props: Props) {
 
   return (
     <div
+      {...(isDevelopment && { 'data-component': 'tab-group' })}
       className={classNames(props.className, {
         'w-full': props.width === 'full',
       })}
       data-cy="tabs"
       style={style}
+      data-dark-background={darkBackground ? 'true' : 'false'}
     >
       <div className="flex justify-between relative">
         <div className="flex flex-1 overflow-x-auto relative">
@@ -106,13 +117,17 @@ export function TabGroup(props: Props) {
                 type="button"
                 onClick={() => handleTabChange(index)}
                 theme={{
-                  textColor: currentIndex === index ? colors.$3 : colors.$17,
-                  hoverTextColor: colors.$3,
+                  textColor: darkBackground 
+                    ? (currentIndex === index ? colors.$9 : colors.$13)
+                    : currentIndex === index 
+                      ? colors.$3 
+                      : colors.$17,
+                  hoverTextColor: darkBackground ? colors.$9 : colors.$3,
                 }}
                 style={{
                   borderBottom:
                     currentIndex === index
-                      ? `1px solid ${colors.$3}`
+                      ? `1px solid ${colors.$18}`
                       : `1px solid ${colors.$20}`,
                 }}
               >

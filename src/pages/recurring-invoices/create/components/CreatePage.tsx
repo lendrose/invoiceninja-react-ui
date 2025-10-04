@@ -78,6 +78,7 @@ export default function CreatePage() {
 
         <div className="col-span-12">
           <TabGroup
+            darkBackground={true}
             tabs={[t('products'), t('tasks')]}
             defaultTabIndex={searchParams.get('table') === 'tasks' ? 1 : 0}
             formatTabLabel={(index) => {

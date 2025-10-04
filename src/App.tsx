@@ -295,6 +295,7 @@ export function App() {
           src="/dark-grey-background.svg" 
           alt="Background" 
           className="bg-fixed-full-width"
+          style={{opacity: 0.5}}
         />
         
         <div className="relative z-10">

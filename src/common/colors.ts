@@ -73,12 +73,12 @@ export const lightColorScheme = {
   $14: '#ffffff', // Navigation bar background color
   $15: '#f1f5f9', // Light gray background
   $16: '#64748b', // Dark gray icon
-  $17: '#64748b', // Placeholder text, table header text color
+  $17: '#555555', // Placeholder text, table header text color
   $18: '#116DF4', // Button background color
   $19: '#e2e8f0', // Light border color
   $20: '#f1f5f9', // Dropdown element hover background color
   $21: '#e2e8f0', // Divider color
-  $22: '#64748b', // Label color
+  $22: '#555555', // Label color
   $23: '#ffffff', // Content background color
   $24: '#e2e8f0', // Border color
   $25: '#f1f5f9', // Hover element background color

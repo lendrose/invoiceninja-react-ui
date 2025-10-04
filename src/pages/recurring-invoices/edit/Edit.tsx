@@ -98,6 +98,7 @@ export default function Edit() {
 
         <div className="col-span-12">
           <TabGroup
+            darkBackground
             tabs={[t('products'), t('tasks')]}
             defaultTabIndex={searchParams.get('table') === 'tasks' ? 1 : 0}
             formatTabLabel={(index) => {

@@ -80,7 +80,7 @@ export function Card(props: Props) {
       ref={props.innerRef}
       {...(isDevelopment && { 'data-component': 'ui-card' })}
       className={classNames(
-        `backdrop-blur-md shadow-2xl flex flex-col ${props.className}`, // removed m-2, rounded-2xl, overflow-hidden, border
+        `shadow-2xl flex flex-col ${props.className}`, // removed m-2, rounded-2xl, overflow-hidden, border
         {
           'overflow-y-auto': props.withScrollableBody,
           'h-full': height === 'full',
@@ -155,6 +155,7 @@ export function Card(props: Props) {
       <div
         {...(isDevelopment && { 'data-component': 'card-body' })}
         className={classNames(props.childrenClassName, {
+          'backdrop-blur-md': true,
           hidden: isCollapsed,
           'py-0': props.withoutBodyPadding,
           'py-8 px-8 sm:px-10': padding === 'regular' && !props.withoutBodyPadding,

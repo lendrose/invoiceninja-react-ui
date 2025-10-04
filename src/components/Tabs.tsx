@@ -36,6 +36,7 @@ interface Props {
   fullRightPadding?: boolean;
   withHorizontalPaddingOnSmallScreen?: boolean;
   paddingTabsHeight?: string;
+  darkBackground?: boolean;
 }
 
 export type Tab = {
@@ -66,6 +67,7 @@ export function Tabs(props: Props) {
     horizontalPaddingWidth = '1.5rem',
     fullRightPadding,
     paddingTabsHeight = '2.8rem',
+    darkBackground,
   } = props;
 
   const params = useParams();
@@ -175,14 +177,18 @@ export function Tabs(props: Props) {
                     to={tab.href}
                     onClick={(event) => handleScroll(event)}
                     theme={{
-                      textColor: isActive(tab) ? colors.$3 : colors.$17,
-                      hoverTextColor: colors.$3,
+                      textColor: darkBackground 
+                        ? (isActive(tab) ? colors.$9 : colors.$13)
+                        : isActive(tab) 
+                          ? colors.$3 
+                          : colors.$17,
+                      hoverTextColor: darkBackground ? colors.$9 : colors.$3,
                     }}
                     className="whitespace-nowrap font-medium text-sm px-4 py-3"
                     aria-current={isActive(tab) ? 'page' : undefined}
                     style={{
                       borderBottom: isActive(tab)
-                        ? `1px solid ${colors.$3}`
+                        ? `1px solid ${colors.$18}`
                         : `1px solid ${colors.$20}`,
                     }}
                   >
