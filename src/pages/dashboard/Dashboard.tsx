@@ -23,6 +23,7 @@ import { ModuleBitmask } from '../settings';
 import { UpcomingRecurringInvoices } from './components/UpcomingRecurringInvoices';
 import { useSocketEvent } from '$app/common/queries/sockets';
 import { $refetch } from '$app/common/hooks/useRefetch';
+import { getComponentAttributes } from '$app/common/helpers/componentAttributes';
 
 export default function Dashboard() {
   const [t] = useTranslation();
@@ -36,7 +37,7 @@ export default function Dashboard() {
   });
 
   return (
-    <Default title={t('dashboard')} breadcrumbs={[]}>
+    <Default {...getComponentAttributes('Dashboard')} title={t('dashboard')} breadcrumbs={[]}>
       <Totals />
 
       <div className="grid grid-cols-12 gap-8 2xl:gap-12 my-8">

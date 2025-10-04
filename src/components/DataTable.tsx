@@ -62,6 +62,7 @@ import { useReactSettings } from '$app/common/hooks/useReactSettings';
 import { useColorScheme } from '$app/common/colors';
 import { useDebounce } from 'react-use';
 import { isEqual } from 'lodash';
+import { getComponentAttributes } from '$app/common/helpers/componentAttributes';
 
 export interface DateRangeColumn {
   column: string;
@@ -614,7 +615,7 @@ export function DataTable<T extends object>(props: Props<T>) {
   }, []);
 
   return (
-    <div data-cy="dataTable">
+    <div data-cy="dataTable" {...getComponentAttributes('DataTable')}>
       {!props.withoutActions && (
         <Actions
           filter={filter}

@@ -43,6 +43,7 @@ import CardsCustomizationModal, {
   ClientShowCard,
 } from './components/CardsCustomizationModal';
 import { useReactSettings } from '$app/common/hooks/useReactSettings';
+import { getComponentAttributes } from '$app/common/helpers/componentAttributes';
 
 export default function Client() {
   const { documentTitle, setDocumentTitle } = useTitle('view_client');
@@ -151,6 +152,7 @@ export default function Client() {
 
   return (
     <Default
+      {...getComponentAttributes('Client')}
       title={documentTitle}
       breadcrumbs={pages}
       navigationTopRight={

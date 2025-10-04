@@ -45,6 +45,7 @@ import { useWebSessionTimeout } from './common/hooks/useWebSessionTimeout';
 import { isPasswordRequiredAtom } from './common/atoms/password-confirmation';
 import { useSystemFonts } from './common/hooks/useSystemFonts';
 import { useReactSettings } from './common/hooks/useReactSettings';
+import { getComponentAttributes } from './common/helpers/componentAttributes';
 
 interface RefreshEntityData {
   entity: 'invoices' | 'recurring_invoices';
@@ -280,7 +281,7 @@ export function App() {
   });
 
   return (
-    <>
+    <div {...getComponentAttributes('App')}>
       <div className="min-h-screen bg-dark-bg relative">
         {/* Fixed Background SVG */}
         
@@ -310,6 +311,6 @@ export function App() {
       />
 
       <PreventNavigationModal />
-    </>
+    </div>
   );
 }

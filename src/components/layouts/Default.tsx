@@ -84,6 +84,7 @@ interface Props extends CommonProps {
   additionalSaveOptions?: SaveOption[];
   aboveMainContainer?: ReactNode;
   afterBreadcrumbs?: ReactNode;
+  'data-component'?: string;
 }
 
 export function Default(props: Props) {
@@ -411,7 +412,7 @@ export function Default(props: Props) {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div {...(props['data-component'] ? { 'data-component': props['data-component'] } : {})}>
       <div className="fixed bottom-4 right-4 z-50 flex items-end flex-col-reverse space-y-4 space-y-reverse">
         <ActivateCompany />
         <VerifyEmail />
