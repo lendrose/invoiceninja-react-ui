@@ -109,11 +109,11 @@ export function Modal(props: Props) {
           >
             <div
               style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                backgroundColor: colors.$1,
                 backdropFilter: 'blur(20px)',
-                color: 'rgba(255, 255, 255, 0.95)',
+                color: colors.$3,
                 colorScheme: colors.$0,
-                border: '1px solid rgba(255, 255, 255, 0.2)',
+                border: `1px solid ${colors.$4}`,
               }}
               className={classNames(
                 'inline-block align-bottom rounded-lg text-left shadow-2xl transform transition-all sm:my-8 sm:align-middle w-full',
@@ -146,9 +146,9 @@ export function Modal(props: Props) {
                   )}
                   style={{
                     backgroundColor: 'transparent',
-                    color: 'rgba(255, 255, 255, 0.95)',
+                    color: colors.$3,
                     colorScheme: colors.$0,
-                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    borderColor: colors.$4,
                   }}
                 >
                   <div className="flex w-full justify-between isolate">
@@ -157,7 +157,7 @@ export function Modal(props: Props) {
                       className="text-lg leading-6 font-semibold"
                       style={{
                         backgroundColor: 'transparent',
-                        color: 'rgba(255, 255, 255, 0.95)',
+                        color: colors.$3,
                         colorScheme: colors.$0,
                       }}
                     >
@@ -170,7 +170,7 @@ export function Modal(props: Props) {
                         onClick={() => props.onClose(false)}
                         data-cy={props.closeButtonCypressRef}
                       >
-                        <XMark color="rgba(255, 255, 255, 0.8)" size="1rem" />
+                        <XMark color={colors.$3} size="1rem" />
                       </div>
                     )}
                   </div>
@@ -180,7 +180,7 @@ export function Modal(props: Props) {
                       <p
                         style={{
                           backgroundColor: 'transparent',
-                          color: 'rgba(255, 255, 255, 0.9)',
+                          color: colors.$3,
                           colorScheme: colors.$0,
                         }}
                         className="text-sm"
@@ -196,7 +196,7 @@ export function Modal(props: Props) {
                 <div
                   style={{
                     backgroundColor: 'transparent',
-                    color: 'rgba(255, 255, 255, 0.95)',
+                    color: colors.$3,
                     colorScheme: colors.$0,
                   }}
                   className={classNames('text-sm flex flex-col space-y-4', {

@@ -164,8 +164,8 @@ export function usePreferences() {
               className="flex items-center justify-center p-2 cursor-pointer border rounded-md shadow-sm"
               onClick={() => setIsVisible(true)}
               style={{
-                backgroundColor: 'transparent',
-                borderColor: 'rgba(255, 255, 255, 0.3)',
+                backgroundColor: colors.$1,
+                borderColor: colors.$4,
               }}
             >
               <Gear color={colors.$3} />
