@@ -109,7 +109,7 @@ export function UpcomingRecurringInvoices() {
       withoutBodyPadding
       withoutHeaderPadding
     >
-      <div className="px-4 pt-4">
+      <div className="px-4 pt-4 pb-4">
         <DataTable
           resource="recurring_invoice"
           columns={columns}

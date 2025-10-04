@@ -537,6 +537,7 @@ export function Totals() {
             headerClassName="px-3 sm:px-4 py-3 sm:py-4"
             childrenClassName="px-4"
             withoutHeaderPadding
+            padding="small"
           >
             <Chart
               chartSensitivity={chartScale}

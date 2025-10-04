@@ -276,7 +276,7 @@ export function Chart(props: Props) {
   };
 
   return (
-    <ResponsiveContainer width="100%" height={330}>
+    <ResponsiveContainer width="100%" height={330} className="bg-white/75 py-4 px-1">
       <LineChart height={200} data={chartData} margin={{ top: 17, left: 5 }}>
         <Line
           id="invoices"
