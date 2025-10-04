@@ -493,12 +493,12 @@ span *, a *, button *, input *, textarea *, select *, label * {
   color: white;
 }
 
-/* Toast icon styling */
-.react-hot-toast > div > div:first-child {
-  margin-right: 0.75rem;
-}
+  /* Toast icon styling */
+  .react-hot-toast > div > div:first-child {
+    margin-right: 0.75rem;
+  }
 
-.react-hot-toast > div > div:first-child > svg {
-  width: 1.25rem;
-  height: 1.25rem;
-}
+  .react-hot-toast > div > div:first-child > svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }

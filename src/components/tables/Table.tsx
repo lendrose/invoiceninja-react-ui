@@ -21,6 +21,7 @@ interface Props extends CommonProps {
   isDataLoading?: boolean;
   resizable?: string;
   withoutBorder?: boolean;
+  withBlur?: boolean;
 }
 
 export function Table(props: Props) {
@@ -39,8 +40,9 @@ export function Table(props: Props) {
       >
         <div
           className={classNames(
-            'overflow-hidden backdrop-blur-md rounded-lg',
+            'overflow-hidden rounded-lg',
             {
+              'backdrop-blur-md' : props.withBlur,
               'bg-transparent': true,
               'border-b': !props.withoutBottomBorder,
               'border-t': !props.withoutTopBorder,

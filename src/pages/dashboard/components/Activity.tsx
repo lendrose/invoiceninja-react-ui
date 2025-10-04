@@ -36,11 +36,12 @@ export function Activity() {
   return (
     <Card
       title={<span className="uppercase font-heading text-lg">{t('recent_activity')}</span>}
-      className="h-96 relative shadow-sm"
+      className="min-h-96 relative shadow-sm"
       withoutBodyPadding
       headerClassName="px-3 sm:px-4 py-3 sm:py-4"
       childrenClassName="px-0"
       withoutHeaderPadding
+      height="full"
     >
       {isLoading && (
         <NonClickableElement>

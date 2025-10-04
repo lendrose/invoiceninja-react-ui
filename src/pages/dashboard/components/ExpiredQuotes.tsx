@@ -85,7 +85,7 @@ export function ExpiredQuotes() {
           <span className="uppercase font-heading text-lg">{t('expired_quotes')}</span>
         </div>
       }
-      className="h-96 relative shadow-sm"
+      className="min-h-96 relative shadow-sm"
       headerClassName="px-3 sm:px-4 py-3 sm:py-4"
       withoutBodyPadding
       withoutHeaderPadding

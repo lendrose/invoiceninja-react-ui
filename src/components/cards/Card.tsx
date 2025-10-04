@@ -72,11 +72,15 @@ export function Card(props: Props) {
 
   const colors = useColorScheme();
 
+  // Only add data-component attributes in development
+  const isDevelopment = import.meta.env.DEV || import.meta.env.MODE === 'development';
+
   return (
     <div
       ref={props.innerRef}
+      {...(isDevelopment && { 'data-component': 'ui-card' })}
       className={classNames(
-        `backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden m-2 ${props.className}`,
+        `backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden flex flex-col ${props.className}`, // removed m-2
         {
           'overflow-y-auto': props.withScrollableBody,
           'h-full': height === 'full',
@@ -89,78 +93,78 @@ export function Card(props: Props) {
         ...props.style,
       }}
     >
-      <form
-        onSubmit={props.onFormSubmit}
-        className={classNames({ 'h-full': height === 'full' })}
-      >
-        {props.title && (
+      {props.title && (
+        <div
+          {...(isDevelopment && { 'data-component': 'card-heading' })}
+          className={classNames(
+            {
+              'backdrop-blur-md sticky top-0': props.withScrollableBody,
+              'backdrop-blur-md': !props.withScrollableBody,
+              'bg-gradient-to-r from-green-500/25 to-green-400/15': colors.$0 === 'dark',
+              'bg-gradient-to-l from-blue-500/25 to-green-500/25': colors.$0 === 'light',
+              'px-8 sm:px-10 py-6':
+                padding == 'small' && !props.withoutHeaderPadding,
+              'px-8 sm:px-10 py-8':
+                padding == 'regular' && !props.withoutHeaderPadding,
+              'border-b border-white/15': !props.withoutHeaderBorder,
+            },
+            props.headerClassName
+          )}
+          onClick={() =>
+            typeof props.collapsed !== 'undefined' &&
+            setIsCollpased(!isCollapsed)
+          }
+          style={{ ...props.headerStyle }}
+        >
           <div
-            className={classNames(
-              {
-                'backdrop-blur-md sticky top-0': props.withScrollableBody,
-                'backdrop-blur-md': !props.withScrollableBody,
-                'bg-gradient-to-r from-green-500/25 to-green-400/15': colors.$0 === 'dark',
-                'bg-gradient-to-l from-blue-500/25 to-green-500/25': colors.$0 === 'light',
-                'px-8 sm:px-10 py-6':
-                  padding == 'small' && !props.withoutHeaderPadding,
-                'px-8 sm:px-10 py-8':
-                  padding == 'regular' && !props.withoutHeaderPadding,
-                'border-b': !props.withoutHeaderBorder,
-                'border-white/15': !props.withoutHeaderBorder && colors.$0 === 'dark',
-                'border-white/15': !props.withoutHeaderBorder && colors.$0 === 'light',
-              },
-              props.headerClassName
-            )}
-            onClick={() =>
-              typeof props.collapsed !== 'undefined' &&
-              setIsCollpased(!isCollapsed)
-            }
-            style={{ ...props.headerStyle }}
+            className={classNames('flex items-center justify-between', {
+              'cursor-pointer select-none':
+                typeof props.collapsed !== 'undefined',
+            })}
           >
-            <div
-              className={classNames('flex items-center justify-between', {
-                'cursor-pointer select-none':
-                  typeof props.collapsed !== 'undefined',
-              })}
-            >
-              <div>
-                <h3
-                  className={classNames('leading-6 font-bold text-white', {
-                    'text-lg': padding == 'regular',
-                    'text-md': padding == 'small',
-                  })}
-                >
-                  {props.title}
-                </h3>
+            <div>
+              <h3
+                className={classNames('leading-6 font-bold text-white', {
+                  'text-lg': padding == 'regular',
+                  'text-md': padding == 'small',
+                })}
+              >
+                {props.title}
+              </h3>
 
-                {props.description && (
-                  <p className="mt-1 max-w-2xl text-sm">{props.description}</p>
-                )}
-              </div>
-
-              {props.topRight}
-
-              {typeof props.collapsed !== 'undefined' && isCollapsed && (
-                <ChevronDown />
-              )}
-
-              {typeof props.collapsed !== 'undefined' && !isCollapsed && (
-                <ChevronUp />
+              {props.description && (
+                <p className="mt-1 max-w-2xl text-sm">{props.description}</p>
               )}
             </div>
-          </div>
-        )}
 
-        <div
-          className={classNames(props.childrenClassName, {
-            hidden: isCollapsed,
-            'py-0': props.withoutBodyPadding,
-            'py-8 px-8 sm:px-10': padding === 'regular' && !props.withoutBodyPadding,
-            'py-6 px-8 sm:px-10': padding === 'small' && !props.withoutBodyPadding,
-            'h-full': height === 'full',
-            'bg-white/20': colors.$0 === 'light',
-            'flex-1': !props.withSaveButton && !props.additionalAction,
-          })}
+            {props.topRight}
+
+            {typeof props.collapsed !== 'undefined' && isCollapsed && (
+              <ChevronDown />
+            )}
+
+            {typeof props.collapsed !== 'undefined' && !isCollapsed && (
+              <ChevronUp />
+            )}
+          </div>
+        </div>
+      )}
+
+      <div
+        {...(isDevelopment && { 'data-component': 'card-body' })}
+        className={classNames(props.childrenClassName, {
+          hidden: isCollapsed,
+          'py-0': props.withoutBodyPadding,
+          'py-8 px-8 sm:px-10': padding === 'regular' && !props.withoutBodyPadding,
+          'py-6 px-8 sm:px-10': padding === 'small' && !props.withoutBodyPadding,
+          'h-full': height === 'full',
+          'bg-white/75': colors.$0 === 'light',
+          'flex-1': true, // Always flex-grow-1 for the body
+        })}
+      >
+        <form
+          onSubmit={props.onFormSubmit}
+          className={classNames({ 'h-full': height === 'full' })}
         >
           {props.isLoading && <Element leftSide={<Spinner />} />}
 
@@ -169,64 +173,65 @@ export function Card(props: Props) {
           ) : (
             props.children
           )}
-        </div>
+        </form>
+      </div>
 
-        {(props.withSaveButton || props.additionalAction) && (
-          <div
-            className={classNames("border-t px-4 py-5 sm:p-0", {
-              'bg-white/20': colors.$0 === 'light',
-            })}
-            style={{ borderColor: colors.$20 }}
-          >
-            <dl className="sm:divide-y sm:divide-gray-200">
-              <div className="sm:py-5 sm:px-6 flex justify-end space-x-4">
-                {props.additionalAction}
+      {(props.withSaveButton || props.additionalAction) && (
+        <div
+          {...(isDevelopment && { 'data-component': 'card-footer' })}
+          className={classNames("border-t px-4 py-5 sm:p-0", {
+            'bg-white/20': colors.$0 === 'light',
+          })}
+          style={{ borderColor: colors.$20 }}
+        >
+          <dl className="sm:divide-y sm:divide-gray-200">
+            <div className="sm:py-5 sm:px-6 flex justify-end space-x-4">
+              {props.additionalAction}
 
-                {props.withSaveButton && !props.additionalSaveOptions && (
+              {props.withSaveButton && !props.additionalSaveOptions && (
+                <Button
+                  onClick={props.onSaveClick}
+                  disabled={props.disableSubmitButton}
+                  disableWithoutIcon={props.disableWithoutIcon}
+                >
+                  {props.saveButtonLabel ?? t('save')}
+                </Button>
+              )}
+
+              {props.withSaveButton && props.additionalSaveOptions && (
+                <div className="flex">
                   <Button
+                    className="rounded-br-none rounded-tr-none px-3"
                     onClick={props.onSaveClick}
                     disabled={props.disableSubmitButton}
                     disableWithoutIcon={props.disableWithoutIcon}
                   >
                     {props.saveButtonLabel ?? t('save')}
                   </Button>
-                )}
 
-                {props.withSaveButton && props.additionalSaveOptions && (
-                  <div className="flex">
-                    <Button
-                      className="rounded-br-none rounded-tr-none px-3"
-                      onClick={props.onSaveClick}
-                      disabled={props.disableSubmitButton}
-                      disableWithoutIcon={props.disableWithoutIcon}
-                    >
-                      {props.saveButtonLabel ?? t('save')}
-                    </Button>
-
-                    <Dropdown
-                      className="rounded-bl-none rounded-tl-none h-full px-1 border-l-1 border-y-0 border-r-0"
-                      disabled={props.disableSubmitButton}
-                      cardActions
-                      labelButtonBorderColor={colors.$1}
-                    >
-                      {props.additionalSaveOptions.map((action, i) => (
-                        <DropdownElement
-                          key={i}
-                          icon={action.icon}
-                          disabled={props.disableSubmitButton}
-                          onClick={action.onClick}
-                        >
-                          {action.text}
-                        </DropdownElement>
-                      ))}
-                    </Dropdown>
-                  </div>
-                )}
-              </div>
-            </dl>
-          </div>
-        )}
-      </form>
+                  <Dropdown
+                    className="rounded-bl-none rounded-tl-none h-full px-1 border-l-1 border-y-0 border-r-0"
+                    disabled={props.disableSubmitButton}
+                    cardActions
+                    labelButtonBorderColor={colors.$1}
+                  >
+                    {props.additionalSaveOptions.map((action, i) => (
+                      <DropdownElement
+                        key={i}
+                        icon={action.icon}
+                        disabled={props.disableSubmitButton}
+                        onClick={action.onClick}
+                      >
+                        {action.text}
+                      </DropdownElement>
+                    ))}
+                  </Dropdown>
+                </div>
+              )}
+            </div>
+          </dl>
+        </div>
+      )}
     </div>
   );
 }

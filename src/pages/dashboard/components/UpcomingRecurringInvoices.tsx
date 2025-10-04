@@ -104,7 +104,7 @@ export function UpcomingRecurringInvoices() {
           <span className="uppercase font-heading text-lg">{t('upcoming_recurring_invoices')}</span>
         </div>
       }
-      className="h-96 relative shadow-sm"
+      className="min-h-96 relative shadow-sm"
       headerClassName="px-3 sm:px-4 py-3 sm:py-4"
       withoutBodyPadding
       withoutHeaderPadding

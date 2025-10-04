@@ -288,6 +288,7 @@ export function App() {
           src="/perspective-bg-alt.jpg" 
           alt="Background" 
           className="bg-fixed-full-width"
+          style={{opacity: 0.15}}
         />
         <img 
           src="/dark-grey-background.svg" 
