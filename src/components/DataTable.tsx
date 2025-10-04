@@ -152,6 +152,8 @@ interface Props<T> extends CommonProps {
   methodType?: 'GET' | 'POST';
   showArchive?: (resource: T) => boolean;
   showDelete?: (resource: T) => boolean;
+  withoutBackground?: boolean;
+  withoutBodyBackground?: boolean;
   withoutDefaultBulkActions?: boolean;
   withoutStatusFilter?: boolean;
   queryIdentificator?: string;
@@ -728,6 +730,7 @@ export function DataTable<T extends object>(props: Props<T>) {
 
       <Table
         className={props.className}
+        withoutBodyBackground={props.withoutBodyBackground}
         withoutPadding={props.withoutPadding}
         withoutBottomBorder={styleOptions?.withoutBottomBorder}
         withoutTopBorder={styleOptions?.withoutTopBorder}
@@ -736,10 +739,12 @@ export function DataTable<T extends object>(props: Props<T>) {
         isDataLoading={isLoading}
         style={props.style}
         resizable={apiEndpoint.pathname}
+        data-testid="dataTable"
       >
         <Thead
           backgroundColor={styleOptions?.headerBackgroundColor}
           style={styleOptions?.thStyle}
+          withoutBackground={props.withoutBackground}
         >
           {!props.withoutActions && !hideEditableOptions && (
             <Th
@@ -798,6 +803,7 @@ export function DataTable<T extends object>(props: Props<T>) {
         </Thead>
 
         <Tbody
+          
           style={{
             ...styleOptions?.tBodyStyle,
             opacity: areRowsRendered || !currentData.length ? 1 : 0.5,
@@ -806,6 +812,8 @@ export function DataTable<T extends object>(props: Props<T>) {
             cursor:
               areRowsRendered || !currentData.length ? 'default' : 'progress',
           }}
+          withoutBackground={props.withoutBackground}
+          withoutBodyBackground
         >
           {(isLoading || !isEqual(currentData, data?.data?.data)) && (
             <MemoizedTr

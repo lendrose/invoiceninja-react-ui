@@ -94,9 +94,9 @@ export function ExpiredQuotes() {
         <DataTable
           resource="quote"
           columns={columns}
-          className="pr-4"
           endpoint="/api/v1/quotes?include=client&client_status=expired&without_deleted_clients=true&per_page=50&page=1&sort=id|desc"
           withoutActions
+          withoutBackground
           withoutPagination
           withoutPadding
           withoutPerPageAsPreference

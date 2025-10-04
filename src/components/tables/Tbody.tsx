@@ -12,17 +12,22 @@ import { Spinner } from '$app/components/Spinner';
 import { useTranslation } from 'react-i18next';
 import { Td, Tr } from '.';
 import CommonProps from '../../common/interfaces/common-props.interface';
+import classNames from 'classnames';
 
 interface Props extends CommonProps {
   data?: any;
   showHelperPlaceholders?: boolean;
+  withoutBackground?: boolean;
+  withoutBodyBackground?: boolean;
 }
 
 export function Tbody(props: Props) {
   const [t] = useTranslation();
 
   return (
-    <tbody style={props.style} ref={props.innerRef}>
+    <tbody style={props.style} ref={props.innerRef} className={classNames({
+      'bg-white/80': !props.withoutBackground && !props.withoutBodyBackground,
+    })}>
       {!props.data && props.showHelperPlaceholders && (
         <Tr>
           <Td colSpan={20}>

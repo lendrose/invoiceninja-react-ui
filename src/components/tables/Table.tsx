@@ -22,6 +22,7 @@ interface Props extends CommonProps {
   resizable?: string;
   withoutBorder?: boolean;
   withBlur?: boolean;
+  withoutBodyBackground?: boolean;
 }
 
 export function Table(props: Props) {
@@ -71,7 +72,9 @@ export function Table(props: Props) {
           }}
         >
           <div
-            className={`overflow-auto min-w-full rounded-md shadow-sm ${props.className}`}
+            className={classNames(`overflow-auto min-w-full rounded-md shadow-sm ${props.className}`, {
+              'bg-white/80': !props.withoutBodyBackground,
+            })}
             style={{
               ...props.style,
               height: props.style?.height || 'auto',

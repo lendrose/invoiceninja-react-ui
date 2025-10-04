@@ -116,7 +116,6 @@ export function RecentPayments() {
         <DataTable
           resource="payment"
           columns={columns}
-          className="pr-4"
           endpoint="/api/v1/payments?include=client,invoices&sort=date|desc&per_page=50&without_deleted_clients=true&page=1"
           withoutActions
           withoutPagination

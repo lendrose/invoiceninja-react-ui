@@ -94,9 +94,9 @@ export function UpcomingQuotes() {
         <DataTable
           resource="quote"
           columns={columns}
-          className="pr-4"
           endpoint="/api/v1/quotes?include=client&client_status=upcoming&without_deleted_clients=true&per_page=50&page=1"
           withoutActions
+          withoutBackground
           withoutPagination
           withoutPadding
           withoutPerPageAsPreference
