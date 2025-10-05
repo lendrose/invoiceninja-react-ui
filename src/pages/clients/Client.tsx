@@ -165,7 +165,7 @@ export default function Client() {
       {isLoading && <Spinner />}
 
       {client && (
-        <div className="space-y-4 test-dark">
+        <div className="space-y-4">
           <Tabs 
             darkBackground={true} 
             tabs={tabs} />
