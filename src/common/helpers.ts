@@ -29,6 +29,12 @@ export function apiEndpoint(): string {
     return 'https://invoicing.co';
   }
 
+  // For production builds, always use window.location.origin
+  if (isProduction()) {
+    return window.location.origin;
+  }
+
+  // For development, use VITE_API_URL if available, otherwise fall back to window.location.origin
   return (
     import.meta.env.VITE_API_URL ||
     window.location.origin ||
