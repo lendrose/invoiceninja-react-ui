@@ -262,7 +262,7 @@ export function Settings(props: Props) {
           </nav>
         </div>
 
-        <div className="col-span-12 lg:col-start-4 space-y-6 mt-4">
+        <div className="col-span-12 lg:col-start-4 space-y-6">
           {errors && <ValidationAlert errors={errors} />}
 
           {props.children}

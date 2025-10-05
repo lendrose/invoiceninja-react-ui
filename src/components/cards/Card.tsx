@@ -103,9 +103,7 @@ export function Card(props: Props) {
               'bg-gradient-to-r from-green-500/25 to-green-400/15': colors.$0 === 'dark',
               'bg-gradient-to-l from-blue-500/25 to-green-500/25': colors.$0 === 'light',
               'px-8 sm:px-10 py-6':
-                padding == 'small' && !props.withoutHeaderPadding,
-              'px-8 sm:px-10 py-8':
-                padding == 'regular' && !props.withoutHeaderPadding,
+                (padding == 'small' || padding == 'regular') && !props.withoutHeaderPadding, // changed regular from px-8 sm:px-10 py-8
               'border-b border-white/15': !props.withoutHeaderBorder,
               'border-t border-l border-r border-white/15 rounded-tl-2xl rounded-tr-2xl': colors.$0 === 'dark',
               'border-t border-l border-r border-white/20 rounded-tl-2xl rounded-tr-2xl': colors.$0 === 'light',

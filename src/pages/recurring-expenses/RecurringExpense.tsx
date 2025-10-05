@@ -138,7 +138,7 @@ export default function RecurringExpense() {
     >
       {recurringExpense ? (
         <div className="space-y-4">
-          <Tabs tabs={tabs} />
+          <Tabs darkBackground tabs={tabs} />
 
           <Outlet
             context={{

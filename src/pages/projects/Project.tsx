@@ -139,7 +139,7 @@ export default function Project() {
       afterBreadcrumbs={<PreviousNextNavigation entity="project" />}
     >
       <Container breadcrumbs={[]}>
-        <Tabs tabs={tabs} />
+        <Tabs darkBackground tabs={tabs} />
 
         <Outlet
           context={{

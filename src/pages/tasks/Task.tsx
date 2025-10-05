@@ -108,7 +108,7 @@ export default function Task() {
     >
       {task ? (
         <div className="space-y-4">
-          <Tabs tabs={tabs} />
+          <Tabs darkBackground tabs={tabs} />
 
           <Outlet
             context={{

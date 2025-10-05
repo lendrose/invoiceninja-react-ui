@@ -114,7 +114,7 @@ export default function CustomDesign() {
 
   return (
     <>
-      <Tabs tabs={tabs} />
+      <Tabs darkBackground tabs={tabs} />
 
       <PanelGroup>
         <Panel>

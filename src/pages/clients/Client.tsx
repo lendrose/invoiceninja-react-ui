@@ -166,7 +166,9 @@ export default function Client() {
 
       {client && (
         <div className="space-y-4">
-          <Tabs tabs={tabs} />
+          <Tabs 
+            darkBackground={true} 
+            tabs={tabs} />
 
           <Outlet
             context={{
