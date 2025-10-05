@@ -185,7 +185,7 @@ export default function Client() {
               .map((card) => displayCard(card))}
           </div>
 
-          <Tabs tabs={tabs} className="mt-6" />
+          <Tabs darkBackground tabs={tabs} className="mt-6" />
 
           <div className="my-4">
             <Outlet

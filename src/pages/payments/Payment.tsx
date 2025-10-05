@@ -114,7 +114,7 @@ export default function Payment() {
       afterBreadcrumbs={<PreviousNextNavigation entity="payment" />}
     >
       <Container breadcrumbs={[]}>
-        <Tabs tabs={tabs} disableBackupNavigation />
+        <Tabs darkBackground tabs={tabs} disableBackupNavigation />
 
         <Outlet
           context={{

@@ -292,7 +292,7 @@ export default function Vendor() {
         </InfoCard>
       </div>
 
-      <Tabs tabs={tabs} className="my-6" />
+      <Tabs darkBackground tabs={tabs} className="my-6" />
 
       <Outlet context={{ displayName: vendor?.name || '' }} />
     </Default>
