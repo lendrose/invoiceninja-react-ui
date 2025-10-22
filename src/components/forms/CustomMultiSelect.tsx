@@ -18,6 +18,7 @@ import Select, {
   ValueContainerProps,
 } from 'react-select';
 import { useColorScheme } from '$app/common/colors';
+import { useReactSettings } from '$app/common/hooks/useReactSettings';
 import classNames from 'classnames';
 import { Checkbox } from '$app/components/forms';
 import { ChevronDown } from '$app/components/icons/ChevronDown';
@@ -305,6 +306,7 @@ interface Props {
 
 export function CustomMultiSelect(props: Props) {
   const colors = useColorScheme();
+  const reactSettings = useReactSettings();
   const {
     id,
     defaultValue,
@@ -331,9 +333,9 @@ export function CustomMultiSelect(props: Props) {
   const customStyles: StylesConfig<SelectOption, true> = {
     control: (base) => ({
       ...base,
-      backgroundColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.6)',
-      backdropFilter: 'blur(12px)',
-      borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.3)',
+      backgroundColor: reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.05)' : colors.$1,
+      backdropFilter: reactSettings.dark_mode ? 'blur(12px)' : 'none',
+      borderColor: reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.15)' : colors.$4,
       borderRadius: '0.375rem',
       padding: '0 6px',
     }),
@@ -350,14 +352,14 @@ export function CustomMultiSelect(props: Props) {
     }),
     dropdownIndicator: (base) => ({
       ...base,
-      color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.6)' : colors.$17,
+      color: reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.6)' : colors.$17,
       padding: '0 8px',
     }),
     menu: (base) => ({
       ...base,
-      backgroundColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.6)',
-      backdropFilter: 'blur(12px)',
-      border: `1px solid ${colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.3)'}`,
+      backgroundColor: reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.1)' : colors.$1,
+      backdropFilter: reactSettings.dark_mode ? 'blur(12px)' : 'none',
+      border: `1px solid ${reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.15)' : colors.$4}`,
       borderRadius: '0.75rem',
       zIndex: 10,
       width: '16rem',

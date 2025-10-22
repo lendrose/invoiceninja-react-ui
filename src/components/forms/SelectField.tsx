@@ -12,6 +12,7 @@ import classNames from 'classnames';
 import { InputLabel } from '.';
 import CommonProps from '../../common/interfaces/common-props.interface';
 import { useColorScheme } from '$app/common/colors';
+import { useReactSettings } from '$app/common/hooks/useReactSettings';
 import React, { CSSProperties, ReactNode, isValidElement } from 'react';
 import { SelectOption } from '../datatables/Actions';
 import Select, { StylesConfig } from 'react-select';
@@ -40,6 +41,7 @@ export interface SelectProps extends CommonProps {
 
 export function SelectField(props: SelectProps) {
   const colors = useColorScheme();
+  const reactSettings = useReactSettings();
 
   const {
     blankOptionValue,
@@ -82,13 +84,13 @@ export function SelectField(props: SelectProps) {
     input: (styles) => {
       return {
         ...styles,
-        color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
+        color: reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
       };
     },
     singleValue: (styles) => {
       return {
         ...styles,
-        color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
+        color: reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
       };
     },
     menu: (base) => {
@@ -96,12 +98,12 @@ export function SelectField(props: SelectProps) {
         ...base,
         width: 'max-content',
         minWidth: '100%',
-        backgroundColor: colors.$0 === 'dark' ? 'rgba(20, 25, 35, 0.95)' : colors.$1,
-        backdropFilter: colors.$0 === 'dark' ? 'blur(12px)' : 'none',
-        borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.2)' : colors.$4,
+        backgroundColor: reactSettings.dark_mode ? 'rgba(20, 25, 35, 0.95)' : colors.$1,
+        backdropFilter: reactSettings.dark_mode ? 'blur(12px)' : 'none',
+        borderColor: reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.2)' : colors.$4,
         borderRadius: '0.75rem',
-        border: `1px solid ${colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.15)' : colors.$4}`,
-        boxShadow: colors.$0 === 'dark' 
+        border: `1px solid ${reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.15)' : colors.$4}`,
+        boxShadow: reactSettings.dark_mode 
           ? '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)'
           : '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         zIndex: 9999,
@@ -113,7 +115,7 @@ export function SelectField(props: SelectProps) {
         borderRadius: '0.375rem',
         backgroundColor: colors.$0 === 'dark' ? 'transparent' : colors.$1,
         backdropFilter: colors.$0 === 'dark' ? 'blur(12px)' : 'none',
-        color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
+        color: reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
         borderColor: colors.$0 === 'dark' 
           ? (isFocused ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)')
           : colors.$4,
@@ -190,7 +192,7 @@ export function SelectField(props: SelectProps) {
             backgroundColor: colors.$0 === 'dark' ? 'transparent' : colors.$1,
             backdropFilter: colors.$0 === 'dark' ? 'blur(12px)' : 'none',
             borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.3)' : colors.$4,
-            color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
+            color: reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
             ...props.style,
           }}
           data-cy={props.cypressRef}
@@ -245,7 +247,7 @@ export function SelectField(props: SelectProps) {
                     borderColor: colors.$0 === 'dark' 
                       ? (rest.isFocused ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)')
                       : colors.$4,
-                    color: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
+                    color: reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.95)' : colors.$3,
                     ...controlStyle,
                   }}
                   {...rest.innerProps}

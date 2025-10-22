@@ -77,12 +77,16 @@ export interface ComboboxStaticProps<T = any> {
 export type Nullable<T> = T | null;
 
 const HeadlessOptionStyled = styled(HeadlessCombobox.Option)`
+  background-color: ${(props) => props.theme.backgroundColor};
+  
   &:hover {
     background-color: ${(props) => props.theme.hoverColor};
   }
 `;
 
 const ActionButtonStyled = styled.button`
+  background-color: ${(props) => props.theme.backgroundColor};
+  
   &:hover {
     background-color: ${(props) => props.theme.hoverColor};
   }
@@ -420,8 +424,8 @@ export function Combobox<T = any>({
         <ul
           className="border absolute z-10 mt-1 rounded-md text-base shadow-2xl focus:outline-none sm:text-sm"
           style={{ 
-            backgroundColor: 'transparent', 
-            borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.3)' : colors.$4 
+            backgroundColor: reactSettings.dark_mode ? 'transparent' : colors.$1, 
+            borderColor: reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.3)' : colors.$4 
           }}
           tabIndex={-1}
         >
@@ -429,7 +433,7 @@ export function Combobox<T = any>({
             {filteredOptions.map((option, index) => (
               <LiStyled
                 theme={{
-                  backgroundColor: 'transparent',
+                  backgroundColor: reactSettings.dark_mode ? 'transparent' : colors.$1,
                   hoverColor: colors.$20,
                 }}
                 key={option.id}
@@ -465,6 +469,7 @@ export function Combobox<T = any>({
             >
               <ActionButtonStyled
                 theme={{
+                  backgroundColor: reactSettings.dark_mode ? 'transparent' : colors.$1,
                   hoverColor: colors.$20,
                 }}
                 data-testid="combobox-action-button"
@@ -719,8 +724,9 @@ export function ComboboxStatic<T = any>({
             static
             className="border absolute z-10 mt-1 rounded-md shadow-2xl focus:outline-none sm:text-sm"
             style={{ 
-            backgroundColor: 'transparent', 
-            borderColor: colors.$0 === 'dark' ? 'rgba(255, 255, 255, 0.3)' : colors.$4 
+            backgroundColor: reactSettings.dark_mode ? 'transparent' : colors.$1, 
+            borderColor: reactSettings.dark_mode ? 'rgba(255, 255, 255, 0.3)' : colors.$4,
+            backdropFilter: reactSettings.dark_mode ? 'blur(12px)' : 'none'
           }}
           >
             <div className="flex flex-col overflow-y-auto overflow-x-hidden max-h-60 p-1">
@@ -739,6 +745,7 @@ export function ComboboxStatic<T = any>({
               {nullable && query.length > 0 && !isDataLoading && (
                 <HeadlessOptionStyled
                   theme={{
+                    backgroundColor: reactSettings.dark_mode ? 'transparent' : colors.$1,
                     hoverColor: colors.$20,
                   }}
                   key="combobox-not-found"
@@ -765,6 +772,7 @@ export function ComboboxStatic<T = any>({
                 filteredValues.map((entry) => (
                   <HeadlessOptionStyled
                     theme={{
+                      backgroundColor: reactSettings.dark_mode ? 'transparent' : colors.$1,
                       hoverColor: colors.$20,
                     }}
                     key={entry.id}
@@ -806,6 +814,7 @@ export function ComboboxStatic<T = any>({
               >
                 <ActionButtonStyled
                   theme={{
+                    backgroundColor: reactSettings.dark_mode ? 'transparent' : colors.$1,
                     hoverColor: colors.$20,
                   }}
                   data-testid="combobox-action-button"
