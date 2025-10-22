@@ -19,17 +19,18 @@ import { Link } from '$app/components/forms';
 const Div = styled.div`
   background-color: ${(props) => props.theme.color};
   &:hover {
-    background-color: ${(props) => props.theme.hoverColor};
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
   }
 `;
 
 const LinkStyled = styled(Link)`
   &:hover {
-    background-color: ${({ theme }) => theme.hoverColor};
+    background-color: transparent;
   }
   
   &:hover span {
-    color: ${({ theme }) => theme.hoverTextColor || 'inherit'};
+    color: inherit;
   }
 `;
 
@@ -57,45 +58,37 @@ export function SidebarItem(props: Props) {
   return (
     <Div
       theme={{
-        color: item.current
-          ? themeColors.$1 || colors.$8
-          : themeColors.$3 || 'transparent',
-        hoverColor: themeColors.$1 || colors.$8,
+        color: 'transparent',
       }}
       key={item.name}
       className={classNames(
         'flex items-center justify-between group px-1.5 text-sm font-medium rounded-md sidebar-item',
         {
-          'border-l-4 border-primary-500 bg-primary-500/20': item.current,
-          'text-gray-300 border-l-4 border-transparent hover:bg-white/15 hover:text-gray-100': !item.current && colors.$0 === 'dark',
-          'text-white border-l-4 border-transparent hover:bg-white/20': !item.current && colors.$0 === 'light',
+          'border border-white bg-transparent text-gray-300': item.current && colors.$0 === 'dark',
+          'border border-white bg-transparent text-white': item.current && colors.$0 === 'light',
+          'text-gray-300 border border-transparent hover:border-white/50': !item.current && colors.$0 === 'dark',
+          'text-white border border-transparent hover:border-white/50': !item.current && colors.$0 === 'light',
         }
       )}
       style={{
-        color: item.current ? (colors.$0 === 'light' ? '#241F21' : '#3B82F6') : undefined
+        color: undefined
       }}
     >
       <LinkStyled 
         to={item.href} 
         className="w-full" 
         withoutDefaultStyling
-        theme={{
-          hoverColor: colors.$0 === 'light' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.1)',
-          hoverTextColor: colors.$0 === 'light' ? '#241F21' : undefined
-        }}
       >
         <div
           className="flex justify-start items-center my-2 space-x-3"
           style={{
-            color: item.current ? (colors.$0 === 'light' ? '#241F21' : themeColors.$2) : themeColors.$4,
+            color: themeColors.$4,
           }}
         >
           <item.icon
             size="1.275rem"
             color={
-              item.current
-                ? '#3B82F6'
-                : (colors.$0 === 'dark' ? '#3edb93' : '#116DF4')
+              colors.$0 === 'dark' ? '#3edb93' : '#116DF4'
             }
           />
 
@@ -117,9 +110,7 @@ export function SidebarItem(props: Props) {
             <item.rightButton.icon
               size="1.1rem"
               color={
-                item.current
-                  ? '#3B82F6'
-                  : themeColors.$4 || (colors.$0 === 'dark' ? '#3edb93' : '#116DF4')
+                themeColors.$4 || (colors.$0 === 'dark' ? '#3edb93' : '#116DF4')
               }
             />
           </LinkStyled>
