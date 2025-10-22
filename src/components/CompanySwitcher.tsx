@@ -183,9 +183,9 @@ export function CompanySwitcher() {
             <div className="border-b" style={{ borderColor: colors.$4 }}>
               <Menu.Item>
                 <div className="px-3 pb-1.5 pt-2">
-                  <p className="text-xs text-gray-500">{t('signed_in_as')}</p>
+                  <p className="text-xs text-black">{t('signed_in_as')}</p>
 
-                  <p className="font-medium truncate text-sm">
+                  <p className="font-medium truncate text-sm text-black">
                     {currentUser?.email}
                   </p>
                 </div>
@@ -230,14 +230,14 @@ export function CompanySwitcher() {
                             }}
                           />
 
-                          <div className="w-36 truncate text-sm">
+                          <div className="w-36 truncate text-sm text-black">
                             {record.company.settings.name ||
                               t('untitled_company')}
                           </div>
                         </div>
 
                         {state.currentIndex === index && (
-                          <Check color={colors.$3} />
+                          <Check color="#3b82f6" />
                         )}
                       </SwitcherDiv>
                     </div>
@@ -254,9 +254,9 @@ export function CompanySwitcher() {
                       theme={{ hoverColor: colors.$5 }}
                       onClick={() => setIsCompanyCreateModalOpened(true)}
                     >
-                      <Plus />
+                      <Plus color="#3b82f6" />
 
-                      <span className="text-sm">{t('add_company')}</span>
+                      <span className="text-sm text-black">{t('add_company')}</span>
                     </SwitcherDiv>
                   </div>
                 </Menu.Item>
@@ -274,9 +274,9 @@ export function CompanySwitcher() {
                         })
                       }
                     >
-                      <Person />
+                      <Person color="#3b82f6" fill="#3b82f6" />
 
-                      <span className="text-sm">{t('account_management')}</span>
+                      <span className="text-sm text-black">{t('account_management')}</span>
                     </SwitcherDiv>
                   </div>
                 </Menu.Item>
@@ -293,9 +293,9 @@ export function CompanySwitcher() {
                       })
                     }
                   >
-                    <Exit />
+                    <Exit color="#3b82f6" />
 
-                    <span className="text-sm">{t('logout')}</span>
+                    <span className="text-sm text-black">{t('logout')}</span>
                   </SwitcherDiv>
                 </div>
               </Menu.Item>
