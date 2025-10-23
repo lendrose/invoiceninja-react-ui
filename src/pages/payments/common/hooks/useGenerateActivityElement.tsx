@@ -20,7 +20,7 @@ export function useGenerateActivityElement() {
   const [t] = useTranslation();
 
   return (activity: PaymentActivity) => {
-    let text = trans(`activity_${activity.activity_type_id}`, {});
+    let text: React.ReactNode = trans(`activity_${activity.activity_type_id}`, {});
 
     const replacements = {
       client: (
@@ -60,11 +60,12 @@ export function useGenerateActivityElement() {
       ),
     };
     for (const [variable, value] of Object.entries(replacements)) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      text = reactStringReplace(text, `:${variable}`, (match, i) => 
-        React.cloneElement(value, { key: `${variable}-${i}` })
-      );
+      text = reactStringReplace(text as string, `:${variable}`, (match, i) => {
+        if (React.isValidElement(value)) {
+          return React.cloneElement(value, { key: `${variable}-${i}` });
+        }
+        return value;
+      }) as React.ReactNode;
     }
 
     return text;

@@ -10,6 +10,7 @@
 
 export * from './Settings';
 export * from './company/CompanyDetails';
+export { modules } from './company/components/EnabledModules';
 export * from './user';
 export * from './localization';
 export * from './online-payments/OnlinePayments';
