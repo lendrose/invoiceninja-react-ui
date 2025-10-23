@@ -12,4 +12,5 @@ export * from './Defaults';
 export * from './Details';
 export * from './Documents';
 export * from './Logo';
+export * from './EnabledModules';
 export { CustomFields as CompanyDetailsCustomFields } from './CustomFields';

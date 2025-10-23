@@ -20,7 +20,7 @@ import { useCurrentCompany } from '../useCurrentCompany';
 import { useAdmin, useHasPermission } from '../permissions/useHasPermission';
 import { proPlan } from '$app/common/guards/guards/pro-plan';
 import { useEnabled } from '$app/common/guards/guards/enabled';
-import { ModuleBitmask } from '$app/pages/settings/account-management/component';
+import { ModuleBitmask } from '$app/pages/settings/company/components';
 
 interface EntityAction {
   key: string;

@@ -7,7 +7,6 @@
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
-export * from './EnabledModules';
 export * from './Integrations';
 export * from './Licence';
 export { Overview as AccountManagementOverview } from './Overview';

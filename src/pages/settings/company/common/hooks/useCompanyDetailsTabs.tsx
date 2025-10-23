@@ -36,6 +36,10 @@ export function useCompanyDetailsTabs() {
       href: '/settings/company_details/defaults',
     },
     {
+      name: t('enabled_modules'),
+      href: '/settings/company_details/enabled_modules',
+    },
+    {
       name: t('documents'),
       href: '/settings/company_details/documents',
       formatName: () => (

@@ -19,10 +19,6 @@ export function useAccountManagementTabs() {
     { name: t('plan'), href: '/settings/account_management' },
     { name: t('overview'), href: '/settings/account_management/overview' },
     {
-      name: t('enabled_modules'),
-      href: '/settings/account_management/enabled_modules',
-    },
-    {
       name: t('integrations'),
       href: '/settings/account_management/integrations',
     },

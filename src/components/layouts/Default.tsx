@@ -18,7 +18,7 @@ import { Breadcrumbs, Page } from '$app/components/Breadcrumbs';
 import { DesktopSidebar, NavigationItem } from './components/DesktopSidebar';
 import { MobileSidebar } from './components/MobileSidebar';
 import { useHasPermission } from '$app/common/hooks/permissions/useHasPermission';
-import { ModuleBitmask } from '$app/pages/settings/account-management/component';
+import { ModuleBitmask } from '$app/pages/settings/company/components';
 import { QuickCreatePopover } from '$app/components/QuickCreatePopover';
 import { isDemo, isHosted, isSelfHosted, trans } from '$app/common/helpers';
 import { useUnlockButtonForHosted } from '$app/common/hooks/useUnlockButtonForHosted';

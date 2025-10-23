@@ -15,7 +15,7 @@ import { permission } from '$app/common/guards/guards/permission';
 import { Navigate, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import { enabled } from '$app/common/guards/guards/enabled';
-import { ModuleBitmask } from '$app/pages/settings/account-management/component';
+import { ModuleBitmask } from '$app/pages/settings/company/components';
 
 const Transactions = lazy(
   () => import('$app/pages/transactions/index/Transactions')

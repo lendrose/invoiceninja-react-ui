@@ -40,6 +40,7 @@ export const settingsRoutes = (
         <Route path="address" element={<Settings.Address />} />
         <Route path="logo" element={<Settings.Logo />} />
         <Route path="defaults" element={<Settings.Defaults />} />
+        <Route path="enabled_modules" element={<Settings.EnabledModules />} />
         <Route path="documents" element={<Settings.CompanyDocuments />} />
         <Route
           path="custom_fields"
@@ -78,7 +79,6 @@ export const settingsRoutes = (
           path="overview"
           element={<Settings.AccountManagementOverview />}
         />
-        <Route path="enabled_modules" element={<Settings.EnabledModules />} />
         <Route path="integrations" element={<Settings.Integrations />} />
         <Route
           path="security_settings"

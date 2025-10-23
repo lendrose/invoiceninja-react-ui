@@ -10,7 +10,7 @@
 
 import { useCurrentCompany } from '$app/common/hooks/useCurrentCompany';
 import { store } from '$app/common/stores/store';
-import { ModuleBitmask } from '$app/pages/settings/account-management/component';
+import { ModuleBitmask } from '$app/pages/settings/company/components';
 import { Guard } from '../Guard';
 
 export function enabled(module: ModuleBitmask): Guard {
