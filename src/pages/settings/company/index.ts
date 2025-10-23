@@ -14,5 +14,6 @@ export {
   Defaults,
   Logo,
   Details,
+  EnabledModules,
   CompanyDetailsCustomFields,
 } from './components';

@@ -58,7 +58,8 @@ export const settingsRoutes = (
       <Route path="expense_settings" element={<Settings.ExpenseSettings />} />
       <Route path="workflow_settings" element={<Settings.WorkflowSettings />} />
       <Route path="import_export" element={<Settings.ImportExport />} />
-      <Route path="account_management" element={<Settings.AccountManagement />}>
+      {/* Account Management routes disabled - keeping files for future use */}
+      {/* <Route path="account_management" element={<Settings.AccountManagement />}>
         <Route
           path=""
           element={
@@ -88,7 +89,7 @@ export const settingsRoutes = (
         {!isDemo() && (
           <Route path="danger_zone" element={<Settings.DangerZone />} />
         )}
-      </Route>
+      </Route> */}
       <Route path="backup_restore" element={<Settings.CompanyBackupRestore />}>
         <Route path="" element={<Settings.CompanyBackup />} />
         <Route path="restore" element={<Settings.CompanyRestore />} />

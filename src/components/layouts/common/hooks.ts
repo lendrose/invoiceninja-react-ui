@@ -94,12 +94,13 @@ export function useSettingsRoutes() {
       current: location.pathname.startsWith('/settings/workflow_settings'),
       enabled: isAdmin || isOwner || false,
     },
-    {
-      name: t('account_management'),
-      href: '/settings/account_management',
-      current: location.pathname.startsWith('/settings/account_management'),
-      enabled: ((isAdmin || isOwner) && isCompanySettingsActive) || false,
-    },
+    // Account Management disabled - keeping for future use
+    // {
+    //   name: t('account_management'),
+    //   href: '/settings/account_management',
+    //   current: location.pathname.startsWith('/settings/account_management'),
+    //   enabled: ((isAdmin || isOwner) && isCompanySettingsActive) || false,
+    // },
     {
       name: t('backup_restore'),
       href: '/settings/backup_restore',
