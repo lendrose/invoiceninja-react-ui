@@ -11,9 +11,11 @@
 import { SelectField } from '$app/components/forms';
 import { useStaticsQuery } from '$app/common/queries/statics';
 import { GenericSelectorProps } from '$app/components/CountrySelector';
+import { useTranslation } from 'react-i18next';
 
 export function PaymentTypeSelector(props: GenericSelectorProps) {
   const statics = useStaticsQuery();
+  const [t] = useTranslation();
 
   return (
     <SelectField
@@ -24,10 +26,10 @@ export function PaymentTypeSelector(props: GenericSelectorProps) {
       customSelector
     >
       {statics.data?.payment_types
-        .sort((a, b) => a.name.localeCompare(b.name))
+        .sort((a, b) => t(a.name).localeCompare(t(b.name)))
         .map((type, index) => (
           <option key={index} value={type.id}>
-            {type.name}
+            {t(type.name)}
           </option>
         ))}
     </SelectField>

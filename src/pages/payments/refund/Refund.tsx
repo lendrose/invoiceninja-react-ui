@@ -30,6 +30,7 @@ import { useFormatMoney } from '$app/common/hooks/money/useFormatMoney';
 import { useSaveBtn } from '$app/components/layouts/common/hooks';
 import { $refetch } from '$app/common/hooks/useRefetch';
 import { NumberInputField } from '$app/components/forms/NumberInputField';
+import { CurrencyInputField } from '$app/components/forms/CurrencyInputField';
 import { useColorScheme } from '$app/common/colors';
 import { CircleXMark } from '$app/components/icons/CircleXMark';
 import { ErrorMessage } from '$app/components/ErrorMessage';
@@ -248,10 +249,10 @@ export default function Refund() {
                 <div key={index} className="flex flex-col">
                   <Element leftSide={`${t('invoice')}: ${invoiceItem?.number}`}>
                     <div className="flex items-center space-x-2">
-                      <NumberInputField
+                      <CurrencyInputField
                         value={
                           (formik.values.invoices[index] as Invoice).amount ||
-                          ''
+                          0
                         }
                         onValueChange={(value) =>
                           formik.setFieldValue(

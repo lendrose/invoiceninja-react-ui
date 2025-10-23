@@ -23,7 +23,6 @@ import { ValidationBag } from '$app/common/interfaces/validation-bag';
 import { useBlankPaymentQuery } from '$app/common/queries/payments';
 import { Divider } from '$app/components/cards/Divider';
 import { Container } from '$app/components/Container';
-import { ConvertCurrency } from '$app/components/ConvertCurrency';
 import { CustomField } from '$app/components/CustomField';
 
 import Toggle from '$app/components/forms/Toggle';
@@ -40,12 +39,13 @@ import { ComboboxAsync } from '$app/components/forms/Combobox';
 import { endpoint } from '$app/common/helpers';
 import { useAtom } from 'jotai';
 import { paymentAtom } from '../common/atoms';
-import { usePaymentTypes } from '$app/common/hooks/usePaymentTypes';
 import { NumberInputField } from '$app/components/forms/NumberInputField';
+import { CurrencyInputField } from '$app/components/forms/CurrencyInputField';
 import { Banner } from '$app/components/Banner';
 import { useColorScheme } from '$app/common/colors';
 import { CircleXMark } from '$app/components/icons/CircleXMark';
 import { ErrorMessage } from '$app/components/ErrorMessage';
+import { PaymentTypeSelector } from '$app/components/payment-types/PaymentTypeSelector';
 
 export interface PaymentOnCreation
   extends Omit<Payment, 'invoices' | 'credits'> {
@@ -82,7 +82,6 @@ export default function Create() {
   const invoiceResolver = useInvoiceResolver();
 
   const formatMoney = useFormatMoney();
-  const paymentTypes = usePaymentTypes();
 
   const [payment, setPayment] = useAtom(paymentAtom);
   const [errors, setErrors] = useState<ValidationBag>();
@@ -90,7 +89,6 @@ export default function Create() {
   const [sendEmail, setSendEmail] = useState(
     company?.settings?.client_manual_payment_notification
   );
-  const [convertCurrency, setConvertCurrency] = useState(false);
 
   const { data: blankPayment } = useBlankPaymentQuery();
 
@@ -258,8 +256,8 @@ export default function Create() {
             leftSide={t('amount_received')}
             leftSideHelp={t('amount_received_help')}
           >
-            <NumberInputField
-              value={payment?.amount || ''}
+            <CurrencyInputField
+              value={payment?.amount || 0}
               onValueChange={(value) =>
                 handleChange(
                   'amount',
@@ -320,9 +318,9 @@ export default function Create() {
                         .toArray()}
                     />
 
-                    <NumberInputField
+                    <CurrencyInputField
                       label={t('amount_received')}
-                      value={invoice.amount || ''}
+                      value={invoice.amount || 0}
                       onValueChange={(value) =>
                         handleInvoiceInputChange(
                           index,
@@ -444,7 +442,7 @@ export default function Create() {
                         .toArray()}
                     />
 
-                    <NumberInputField
+                    <CurrencyInputField
                       label={t('amount')}
                       onValueChange={(value) =>
                         handleCreditInputChange(
@@ -453,7 +451,7 @@ export default function Create() {
                         )
                       }
                       className="w-full"
-                      value={credit.amount || ''}
+                      value={credit.amount || 0}
                       withoutLabelWrapping
                     />
 
@@ -535,19 +533,11 @@ export default function Create() {
           </Element>
 
           <Element leftSide={t('payment_type')}>
-            <SelectField
-              value={payment?.type_id}
-              onValueChange={(value) => handleChange('type_id', value)}
+            <PaymentTypeSelector
+              value={payment?.type_id || ''}
+              onChange={(value) => handleChange('type_id', value)}
               errorMessage={errors?.errors.type_id}
-              withBlank
-              customSelector
-            >
-              {paymentTypes.map(([key, value], index) => (
-                <option value={key} key={index}>
-                  {value}
-                </option>
-              ))}
-            </SelectField>
+            />
           </Element>
 
           <Element leftSide={t('transaction_reference')}>
@@ -616,39 +606,6 @@ export default function Create() {
           <Element leftSide={t('send_email')}>
             <Toggle checked={sendEmail} onChange={setSendEmail} />
           </Element>
-
-          <Element leftSide={t('convert_currency')}>
-            <Toggle
-              checked={Boolean(payment?.exchange_currency_id)}
-              onChange={(value) => {
-                setConvertCurrency(value);
-
-                if (!value) handleChange('exchange_currency_id', '');
-                else handleChange('exchange_currency_id', '1');
-
-                handleChange('exchange_rate', 1);
-              }}
-            />
-          </Element>
-
-          {convertCurrency && payment && (
-            <ConvertCurrency
-              exchangeRate={payment.exchange_rate.toString() || '1'}
-              exchangeCurrencyId={payment.exchange_currency_id}
-              currencyId={payment.currency_id || '1'}
-              amount={
-                (collect(payment?.invoices).sum('amount') as number) +
-                (payment?.amount ?? 0)
-              }
-              onChange={(exchangeRate, exchangeCurrencyId) => {
-                handleChange('exchange_rate', exchangeRate);
-                handleChange('exchange_currency_id', exchangeCurrencyId);
-              }}
-              onExchangeRateChange={(value) =>
-                handleChange('exchange_rate', value)
-              }
-            />
-          )}
         </Card>
       </Container>
     </Default>

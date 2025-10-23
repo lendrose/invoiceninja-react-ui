@@ -30,6 +30,7 @@ import { ComboboxAsync } from '$app/components/forms/Combobox';
 import { toast } from '$app/common/helpers/toast/toast';
 import { $refetch } from '$app/common/hooks/useRefetch';
 import { NumberInputField } from '$app/components/forms/NumberInputField';
+import { CurrencyInputField } from '$app/components/forms/CurrencyInputField';
 import { useColorScheme } from '$app/common/colors';
 import { CircleXMark } from '$app/components/icons/CircleXMark';
 import { ErrorMessage } from '$app/components/ErrorMessage';
@@ -241,9 +242,9 @@ export default function Apply() {
                 label={t('invoice_number')}
                 value={record.number}
               />
-              <NumberInputField
+              <CurrencyInputField
                 label={t('amount_received')}
-                value={record.amount || ''}
+                value={record.amount || 0}
                 onValueChange={(value) =>
                   formik.setFieldValue(
                     `invoices.${index}.amount`,

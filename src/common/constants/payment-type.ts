@@ -23,7 +23,7 @@ export default {
   //[PaymentType.CASH_APP]: 'payment_type_Cash App',
   [PaymentType.CHECK]: 'payment_type_Check',
   [PaymentType.CREDIT]: 'payment_type_Credit',
-  [PaymentType.CREDIT_CARD_OTHER]: 'payment_type_Credit Card Other',
+  [PaymentType.CREDIT_CARD]: 'payment_type_Credit Card',
   [PaymentType.CRYPTO]: 'payment_type_Crypto',
   [PaymentType.DINERS]: 'payment_type_Diners Card',
   [PaymentType.DIRECT_DEBIT]: 'payment_type_direct_debit',

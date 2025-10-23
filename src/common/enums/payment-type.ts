@@ -20,7 +20,7 @@ export const enum PaymentType {
   DINERS = '9',
   EUROCARD = '10',
   NOVA = '11',
-  CREDIT_CARD_OTHER = '12',
+  CREDIT_CARD = '12',
   PAYPAL = '13',
   CHECK = '15',
   CARTE_BLANCHE = '16',

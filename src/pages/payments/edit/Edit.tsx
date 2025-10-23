@@ -23,7 +23,7 @@ import { PaymentOverview } from './PaymentOverview';
 import { ClientCard } from '$app/pages/clients/show/components/ClientCard';
 import { ValidationBag } from '$app/common/interfaces/validation-bag';
 import { useColorScheme } from '$app/common/colors';
-import { usePaymentTypes } from '$app/common/hooks/usePaymentTypes';
+import { PaymentTypeSelector } from '$app/components/payment-types/PaymentTypeSelector';
 
 interface Context {
   errors: ValidationBag | undefined;
@@ -35,8 +35,6 @@ interface Context {
 export default function Edit() {
   const { documentTitle } = useTitle('edit_payment');
   const [t] = useTranslation();
-
-  const paymentTypes = usePaymentTypes();
 
   const context = useOutletContext<Context>();
 
@@ -96,20 +94,11 @@ export default function Edit() {
       </Element>
 
       <Element leftSide={t('payment_type')}>
-        <SelectField
-          value={payment?.type_id}
-          onValueChange={(value) => handleChange('type_id', value)}
+        <PaymentTypeSelector
+          value={payment?.type_id || ''}
+          onChange={(value) => handleChange('type_id', value)}
           errorMessage={errors?.errors.type_id}
-          withBlank
-          customSelector
-          style={{ color: colors.$3, colorScheme: colors.$0 }}
-        >
-          {paymentTypes.map(([key, value], index) => (
-            <option value={key} key={index}>
-              {value}
-            </option>
-          ))}
-        </SelectField>
+        />
       </Element>
 
       <Element leftSide={t('transaction_reference')}>
