@@ -181,20 +181,10 @@ export function Settings(props: Props) {
           </nav>
 
           {advanced.filter((route) => route.enabled).length > 0 && (
-            <div className="flex items-center mb-3 mt-8 px-0 lg:px-3 text-sm font-medium truncate space-x-2">
+            <div className="flex items-center mb-3 mt-8 px-0 lg:px-3 text-sm font-medium truncate">
               <span style={{ color: colors.$17 }}>
                 {t('advanced_settings')}
               </span>
-
-              <div className="flex space-x-0.5 items-center text-xs py-1 px-2 bg-[#2176FF26] rounded">
-                <div>
-                  <Sparkle size="1rem" color="#2176FF" />
-                </div>
-
-                <span className="font-medium" style={{ color: '#2176FF' }}>
-                  {t('pro')}
-                </span>
-              </div>
             </div>
           )}
 
