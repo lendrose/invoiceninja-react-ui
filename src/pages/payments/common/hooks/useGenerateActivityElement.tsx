@@ -8,6 +8,7 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from '$app/components/forms';
 import { route } from '$app/common/helpers/route';
@@ -61,7 +62,9 @@ export function useGenerateActivityElement() {
     for (const [variable, value] of Object.entries(replacements)) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      text = reactStringReplace(text, `:${variable}`, () => value);
+      text = reactStringReplace(text, `:${variable}`, (match, i) => 
+        React.cloneElement(value, { key: `${variable}-${i}` })
+      );
     }
 
     return text;
