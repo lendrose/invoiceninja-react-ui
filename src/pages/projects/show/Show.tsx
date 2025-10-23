@@ -42,7 +42,7 @@ import { permission } from '$app/common/guards/guards/permission';
 import { Task } from '$app/common/interfaces/task';
 import { useShowEditOption } from '$app/pages/tasks/common/hooks/useShowEditOption';
 import { useEnabled } from '$app/common/guards/guards/enabled';
-import { ModuleBitmask } from '$app/pages/settings';
+import { ModuleBitmask } from '$app/pages/settings/company/components';
 import { EntityStatus } from '$app/components/EntityStatus';
 import { useColorScheme } from '$app/common/colors';
 import { useHasPermission } from '$app/common/hooks/permissions/useHasPermission';

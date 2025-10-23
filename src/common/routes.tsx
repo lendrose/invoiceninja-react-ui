@@ -32,6 +32,7 @@ import { Index } from '$app/pages/Index';
 import { TestingRoute } from '$app/components/TestingRoute';
 import { TestingPage } from '$app/components/TestingPage';
 import { activityRoutes } from '$app/pages/activities/routes';
+import { paymentLinkRoutes } from '$app/pages/payment-links/routes';
 import { Guard } from './guards/Guard';
 import { permission } from './guards/guards/permission';
 
@@ -67,6 +68,7 @@ export const routes = (
       {recurringExpenseRoutes}
       {reportRoutes}
       {transactionRoutes}
+      {paymentLinkRoutes}
       {settingsRoutes}
       {activityRoutes}
       <Route element={<TestingRoute />}>

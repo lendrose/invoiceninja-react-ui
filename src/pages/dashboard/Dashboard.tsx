@@ -19,7 +19,7 @@ import { Default } from '../../components/layouts/Default';
 import { ExpiredQuotes } from './components/ExpiredQuotes';
 import { UpcomingQuotes } from './components/UpcomingQuotes';
 import { useEnabled } from '$app/common/guards/guards/enabled';
-import { ModuleBitmask } from '../settings';
+import { ModuleBitmask } from '../settings/company/components';
 import { UpcomingRecurringInvoices } from './components/UpcomingRecurringInvoices';
 import { useSocketEvent } from '$app/common/queries/sockets';
 import { $refetch } from '$app/common/hooks/useRefetch';

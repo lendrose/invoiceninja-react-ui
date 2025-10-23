@@ -360,6 +360,19 @@ export function Default(props: Props) {
       visible: hasPermission('view_reports'),
     },
     {
+      name: t('payment_links'),
+      href: '/payment_links',
+      icon: CreditCard,
+      current: location.pathname.startsWith('/payment_links'),
+      visible: (companyUser?.is_admin || companyUser?.is_owner) && Boolean(company),
+      rightButton: {
+        icon: Plus,
+        to: '/payment_links/create',
+        label: t('new_payment_link'),
+        visible: (companyUser?.is_admin || companyUser?.is_owner) && Boolean(company),
+      },
+    },
+    {
       name: t('settings'),
       href:
         companyUser?.is_admin || companyUser?.is_owner

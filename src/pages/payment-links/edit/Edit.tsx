@@ -18,14 +18,14 @@ import { Product } from '$app/common/interfaces/product';
 import { Subscription } from '$app/common/interfaces/subscription';
 import { ValidationBag } from '$app/common/interfaces/validation-bag';
 import { useProductsQuery } from '$app/common/queries/products';
-import { Settings } from '$app/components/layouts/Settings';
+import { Default } from '$app/components/layouts/Default';
 import { TabGroup } from '$app/components/TabGroup';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { Overview } from '../common/components/Overview';
 import { Settings as SubscriptionSettings } from '../common/components/Settings';
-import { Webhook } from '../common/components/Webhook';
+// import { Webhook } from '../common/components/Webhook'; // Disabled - keeping for potential reactivation
 import { useHandleChange } from '../common/hooks/useHandleChange';
 import { useSubscriptionQuery } from '$app/common/queries/subscriptions';
 import { useTitle } from '$app/common/hooks/useTitle';
@@ -48,17 +48,16 @@ export function Edit() {
   const { data: productsData } = useProductsQuery({ status: ['active'] });
 
   const pages = [
-    { name: t('settings'), href: '/settings' },
-    { name: t('payment_links'), href: '/settings/subscriptions' },
+    { name: t('payment_links'), href: '/payment_links' },
     {
       name: t('edit_payment_link'),
-      href: route('/settings/subscriptions/:id/edit', { id }),
+      href: route('/payment_links/:id/edit', { id }),
     },
   ];
 
   const showPlanAlert = useShouldDisableAdvanceSettings();
 
-  const tabs = [t('overview'), t('settings'), t('webhook'), t('steps')];
+  const tabs = [t('overview'), t('settings'), t('steps')];
 
   const [products, setProducts] = useState<Product[]>();
   const [subscription, setSubscription] = useState<Subscription>();
@@ -131,7 +130,7 @@ export function Edit() {
   };
 
   return (
-    <Settings
+    <Default
       title={documentTitle}
       breadcrumbs={pages}
       navigationTopRight={
@@ -181,6 +180,7 @@ export function Edit() {
             )}
           </div>
 
+          {/* Webhook tab disabled - keeping for potential reactivation
           <div>
             {subscription && (
               <Webhook
@@ -190,6 +190,7 @@ export function Edit() {
               />
             )}
           </div>
+          */}
 
           <div>
             {subscription && (
@@ -202,6 +203,6 @@ export function Edit() {
           </div>
         </TabGroup>
       </Card>
-    </Settings>
+    </Default>
   );
 }

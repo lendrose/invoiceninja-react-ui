@@ -18,14 +18,14 @@ import { Product } from '$app/common/interfaces/product';
 import { Subscription } from '$app/common/interfaces/subscription';
 import { ValidationBag } from '$app/common/interfaces/validation-bag';
 import { useProductsQuery } from '$app/common/queries/products';
-import { Settings } from '$app/components/layouts/Settings';
+import { Default } from '$app/components/layouts/Default';
 import { TabGroup } from '$app/components/TabGroup';
 import { FormEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Overview } from '../common/components/Overview';
 import { Settings as SubscriptionSettings } from '../common/components/Settings';
-import { Webhook } from '../common/components/Webhook';
+// import { Webhook } from '../common/components/Webhook'; // Disabled - keeping for potential reactivation
 import { useHandleChange } from '../common/hooks/useHandleChange';
 import { Frequency } from '$app/common/enums/frequency';
 import { useShouldDisableAdvanceSettings } from '$app/common/hooks/useShouldDisableAdvanceSettings';
@@ -55,12 +55,11 @@ export function Create() {
   const showPlanAlert = useShouldDisableAdvanceSettings();
 
   const pages = [
-    { name: t('settings'), href: '/settings' },
-    { name: t('payment_links'), href: '/settings/subscriptions' },
-    { name: t('new_payment_link'), href: '/settings/subscriptions/create' },
+    { name: t('payment_links'), href: '/payment_links' },
+    { name: t('new_payment_link'), href: '/payment_links/create' },
   ];
 
-  const tabs = [t('overview'), t('settings'), t('webhook'), t('steps')];
+  const tabs = [t('overview'), t('settings'), t('steps')];
 
   const [errors, setErrors] = useState<ValidationBag>();
   const [products, setProducts] = useState<Product[]>();
@@ -115,7 +114,7 @@ export function Create() {
         $refetch(['subscriptions']);
 
         navigate(
-          route('/settings/subscriptions/:id/edit', {
+          route('/payment_links/:id/edit', {
             id: response.data.data.id,
           })
         );
@@ -130,7 +129,7 @@ export function Create() {
   };
 
   return (
-    <Settings
+    <Default
       title={documentTitle}
       breadcrumbs={pages}
       onSaveClick={handleSave}
@@ -175,6 +174,7 @@ export function Create() {
             )}
           </div>
 
+          {/* Webhook tab disabled - keeping for potential reactivation
           <div>
             {subscription && (
               <Webhook
@@ -184,6 +184,7 @@ export function Create() {
               />
             )}
           </div>
+          */}
 
           <div>
             {subscription && (
@@ -196,6 +197,6 @@ export function Create() {
           </div>
         </TabGroup>
       </Card>
-    </Settings>
+    </Default>
   );
 }

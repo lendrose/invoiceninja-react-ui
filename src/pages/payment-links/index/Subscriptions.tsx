@@ -10,7 +10,7 @@
 
 import { useTitle } from '$app/common/hooks/useTitle';
 import { DataTable } from '$app/components/DataTable';
-import { Settings } from '$app/components/layouts/Settings';
+import { Default } from '$app/components/layouts/Default';
 import { useTranslation } from 'react-i18next';
 import { useSubscriptionColumns } from '../common/hooks/useSubscriptionColumns';
 import { AdvancedSettingsPlanAlert } from '$app/components/AdvancedSettingsPlanAlert';
@@ -23,14 +23,12 @@ export function Subscriptions() {
   const columns = useSubscriptionColumns();
 
   const pages = [
-    { name: t('settings'), href: '/settings' },
-    { name: t('payment_links'), href: '/settings/subscriptions' },
+    { name: t('payment_links'), href: '/payment_links' },
   ];
 
   return (
-    <Settings
+    <Default
       title={documentTitle}
-      docsLink="en/advanced-settings/#subscriptions"
       breadcrumbs={pages}
     >
       <AdvancedSettingsPlanAlert />
@@ -40,11 +38,11 @@ export function Subscriptions() {
         endpoint="/api/v1/subscriptions?sort=id|desc"
         bulkRoute="/api/v1/subscriptions/bulk"
         columns={columns}
-        linkToCreate="/settings/subscriptions/create"
-        linkToEdit="/settings/subscriptions/:id/edit"
+        linkToCreate="/payment_links/create"
+        linkToEdit="/payment_links/:id/edit"
         withResourcefulActions
         enableSavingFilterPreference
       />
-    </Settings>
+    </Default>
   );
 }

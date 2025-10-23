@@ -146,6 +146,7 @@ export function Settings(props: SubscriptionProps) {
         />
       </Element>
 
+      {/* Return URL field disabled - keeping for potential reactivation
       <Element leftSide={t('return_url')}>
         <InputField
           value={subscription.webhook_configuration.return_url}
@@ -158,6 +159,7 @@ export function Settings(props: SubscriptionProps) {
           errorMessage={errors?.errors['webhook_configuration.return_url']}
         />
       </Element>
+      */}
 
       <Element leftSide={t('allow_query_overrides')}>
         <Toggle

@@ -167,12 +167,6 @@ export function useSettingsRoutes() {
       enabled: ((isAdmin || isOwner) && isCompanySettingsActive) || false,
     },
     {
-      name: t('payment_links'),
-      href: '/settings/subscriptions',
-      current: location.pathname.startsWith('/settings/subscriptions'),
-      enabled: ((isAdmin || isOwner) && isCompanySettingsActive) || false,
-    },
-    {
       name: t('schedules'),
       href: '/settings/schedules',
       current: location.pathname.startsWith('/settings/schedules'),

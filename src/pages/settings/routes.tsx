@@ -168,11 +168,6 @@ export const settingsRoutes = (
         <Route path="create" element={<Settings.CreateGroupSettings />} />
         <Route path=":id/edit" element={<Settings.EditGroupSettings />} />
       </Route>
-      <Route path="subscriptions">
-        <Route path="" element={<Settings.Subscriptions />} />
-        <Route path="create" element={<Settings.CreateSubscription />} />
-        <Route path=":id/edit" element={<Settings.EditSubscription />} />
-      </Route>
       <Route path="schedules">
         <Route path="" element={<Settings.Schedules />} />
         <Route path="create" element={<Settings.CreateSchedule />} />
