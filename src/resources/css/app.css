@@ -35,17 +35,15 @@
 /* Integral CF Font Faces */
 @font-face {
   font-family: 'integral-cf';
-  src: url('../../assets/fonts/integral-cf/integralcf-regular.woff2') format('woff2'),
-       url('../../assets/fonts/integral-cf/integralcf-regular.woff') format('woff'),
-       url('../../assets/fonts/integral-cf/integralcf-regular.otf') format('opentype');
+  src: url('../../assets/fonts/integral-cf/Integral-Regular.woff2') format('woff2'),
+       url('../../assets/fonts/integral-cf/Integral-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'integral-cf';
-  src: url('../../assets/fonts/integral-cf/integralcf-regularoblique.woff2') format('woff2'),
-       url('../../assets/fonts/integral-cf/integralcf-regularoblique.woff') format('woff'),
-       url('../../assets/fonts/integral-cf/integralcf-regularoblique.otf') format('opentype');
+  src: url('../../assets/fonts/integral-cf/Integral-Bold.woff2') format('woff2'),
+       url('../../assets/fonts/integral-cf/Integral-Bold.woff') format('woff');
   font-weight: normal;
   font-style: italic;
 }

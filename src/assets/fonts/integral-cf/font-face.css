@@ -1,16 +1,13 @@
 @font-face {
   font-family: 'integral-cf';
-  src: url('integralcf-regular.woff2') format('woff2'),
-       url('integralcf-regular.woff') format('woff'),
-       url('integralcf-regular.otf') format('opentype');
+  src: url('Integral-Regular.woff2') format('woff2'),
+       url('Integral-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'integral-cf';
-  src: url('integralcf-regularoblique.woff2') format('woff2'),
-       url('integralcf-regularoblique.woff') format('woff'),
-       url('integralcf-regularoblique.otf') format('opentype');
-  font-weight: normal;
-  font-style: italic;
+  src: url('Integral-Bold.woff2') format('woff2'),
+       url('Integral-Bold.woff') format('woff');
+  font-weight: 700;
 }

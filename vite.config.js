@@ -19,11 +19,17 @@ export default defineConfig(({ command, mode }) => {
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
-              return id
-                .toString()
-                .split('node_modules/')[1]
-                .split('/')[0]
-                .toString()
+              return 'vendor';
+            }
+            // Group application code into fewer chunks
+            if (id.includes('/src/pages/')) {
+              return 'pages';
+            }
+            if (id.includes('/src/components/')) {
+              return 'components';
+            }
+            if (id.includes('/src/hooks/') || id.includes('/src/utils/')) {
+              return 'utils';
             }
           },
         },
