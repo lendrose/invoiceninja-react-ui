@@ -49,15 +49,16 @@ export function useSettingsRoutes() {
       current: location.pathname.startsWith('/settings/localization'),
       enabled: isAdmin || isOwner || false,
     },
-    {
-      name: t('payment_settings'),
-      href: '/settings/online_payments',
-      current:
-        location.pathname.startsWith('/settings/online_payments') ||
-        location.pathname.startsWith('/settings/gateways') ||
-        location.pathname.startsWith('/settings/payment_terms'),
-      enabled: isAdmin || isOwner || false,
-    },
+    // Online Payments disabled - keeping for future use
+    // {
+    //   name: t('payment_settings'),
+    //   href: '/settings/online_payments',
+    //   current:
+    //     location.pathname.startsWith('/settings/online_payments') ||
+    //     location.pathname.startsWith('/settings/gateways') ||
+    //     location.pathname.startsWith('/settings/payment_terms'),
+    //   enabled: isAdmin || isOwner || false,
+    // },
     {
       name: t('tax_settings'),
       href: '/settings/tax_settings',
@@ -122,30 +123,33 @@ export function useSettingsRoutes() {
       current: location.pathname.endsWith('/settings/invoice_design'),
       enabled: isAdmin || isOwner || false,
     },
-    {
-      name: t('custom_fields'),
-      href: '/settings/custom_fields',
-      current: location.pathname.startsWith('/settings/custom_fields'),
-      enabled: ((isAdmin || isOwner) && isCompanySettingsActive) || false,
-    },
-    {
-      name: t('generated_numbers'),
-      href: '/settings/generated_numbers',
-      current: location.pathname.startsWith('/settings/generated_numbers'),
-      enabled: isAdmin || isOwner || false,
-    },
+    // Custom Fields disabled - keeping for future use
+    // {
+    //   name: t('custom_fields'),
+    //   href: '/settings/custom_fields',
+    //   current: location.pathname.startsWith('/settings/custom_fields'),
+    //   enabled: ((isAdmin || isOwner) && isCompanySettingsActive) || false,
+    // },
+    // Generated Numbers disabled - keeping for future use
+    // {
+    //   name: t('generated_numbers'),
+    //   href: '/settings/generated_numbers',
+    //   current: location.pathname.startsWith('/settings/generated_numbers'),
+    //   enabled: isAdmin || isOwner || false,
+    // },
     {
       name: t('client_portal'),
       href: '/settings/client_portal',
       current: location.pathname.startsWith('/settings/client_portal'),
       enabled: isAdmin || isOwner || false,
     },
-    {
-      name: t('e_invoicing'),
-      href: '/settings/e_invoice',
-      current: location.pathname.startsWith('/settings/e_invoice'),
-      enabled: isAdmin || isOwner || false,
-    },
+    // E-Invoicing disabled - keeping for future use
+    // {
+    //   name: t('e_invoicing'),
+    //   href: '/settings/e_invoice',
+    //   current: location.pathname.startsWith('/settings/e_invoice'),
+    //   enabled: isAdmin || isOwner || false,
+    // },
     {
       name: t('email_settings'),
       href: '/settings/email_settings',
@@ -166,24 +170,26 @@ export function useSettingsRoutes() {
       current: location.pathname.startsWith('/settings/group_settings'),
       enabled: ((isAdmin || isOwner) && isCompanySettingsActive) || false,
     },
-    {
-      name: t('schedules'),
-      href: '/settings/schedules',
-      current: location.pathname.startsWith('/settings/schedules'),
-      enabled: ((isAdmin || isOwner) && isCompanySettingsActive) || false,
-    },
+    // Schedules disabled - keeping for future use
+    // {
+    //   name: t('schedules'),
+    //   href: '/settings/schedules',
+    //   current: location.pathname.startsWith('/settings/schedules'),
+    //   enabled: ((isAdmin || isOwner) && isCompanySettingsActive) || false,
+    // },
     {
       name: t('user_management'),
       href: '/settings/users',
       current: location.pathname.startsWith('/settings/users'),
       enabled: ((isAdmin || isOwner) && isCompanySettingsActive) || false,
     },
-    {
-      name: t('system_logs'),
-      href: '/settings/system_logs',
-      current: location.pathname.startsWith('/settings/system_logs'),
-      enabled: ((isAdmin || isOwner) && isCompanySettingsActive) || false,
-    },
+    // System Logs disabled - keeping for future use
+    // {
+    //   name: t('system_logs'),
+    //   href: '/settings/system_logs',
+    //   current: location.pathname.startsWith('/settings/system_logs'),
+    //   enabled: ((isAdmin || isOwner) && isCompanySettingsActive) || false,
+    // },
   ];
 
   return { basic, advanced };

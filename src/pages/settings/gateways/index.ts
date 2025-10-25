@@ -7,5 +7,6 @@
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
+export { Gateways } from './index/Gateways';
 export { Create as CreateGateway } from './create/Create';
 export { Edit as EditGateway } from './edit/Edit';

@@ -51,7 +51,8 @@ export const settingsRoutes = (
         <Route path="" element={<Settings.LocalizationSettings />} />
         <Route path="custom_labels" element={<Settings.CustomLabels />} />
       </Route>
-      <Route path="online_payments" element={<Settings.OnlinePayments />} />
+      {/* Online Payments disabled - keeping for future use */}
+      {/* <Route path="online_payments" element={<Settings.OnlinePayments />} /> */}
       <Route path="tax_settings" element={<Settings.TaxSettings />} />
       <Route path="product_settings" element={<Settings.ProductSettings />} />
       <Route path="task_settings" element={<Settings.TaskSettings />} />
@@ -94,7 +95,8 @@ export const settingsRoutes = (
         <Route path="" element={<Settings.CompanyBackup />} />
         <Route path="restore" element={<Settings.CompanyRestore />} />
       </Route>
-      <Route path="custom_fields" element={<Settings.CustomFields />}>
+      {/* Custom Fields disabled - keeping for future use */}
+      {/* <Route path="custom_fields" element={<Settings.CustomFields />}>
         <Route path="company" element={<Settings.CompanyCustomFields />} />
         <Route path="clients" element={<Settings.ClientsCustomFields />} />
         <Route path="products" element={<Settings.ProductsCustomFields />} />
@@ -105,10 +107,11 @@ export const settingsRoutes = (
         <Route path="vendors" element={<Settings.VendorsCustomFields />} />
         <Route path="expenses" element={<Settings.ExpensesCustomFields />} />
         <Route path="users" element={<Settings.UsersCustomFields />} />
-        {/* <Route path="quotes" element={<Settings.QuotesCustomFields />} /> */}
-        {/* <Route path="credits" element={<Settings.CreditCustomFields />} /> */}
-      </Route>
-      <Route path="generated_numbers" element={<Settings.GeneratedNumbers />}>
+        <Route path="quotes" element={<Settings.QuotesCustomFields />} />
+        <Route path="credits" element={<Settings.CreditCustomFields />} />
+      </Route> */}
+      {/* Generated Numbers disabled - keeping for future use */}
+      {/* <Route path="generated_numbers" element={<Settings.GeneratedNumbers />}>
         <Route path="" element={<Settings.GeneratedNumbersSettings />} />
         <Route path="clients" element={<Settings.ClientsGeneratedNumbers />} />
         <Route
@@ -143,7 +146,7 @@ export const settingsRoutes = (
           path="recurring_expenses"
           element={<Settings.RecurringExpensesGeneratedNumbers />}
         />
-      </Route>
+      </Route> */}
       <Route path="client_portal" element={<Settings.ClientPortal />}>
         <Route path="" element={<Settings.ClientPortalSettings />} />
         <Route path="authorization" element={<Settings.Authorization />} />
@@ -151,7 +154,8 @@ export const settingsRoutes = (
         <Route path="messages" element={<Settings.Messages />} />
         <Route path="customize" element={<Settings.Customize />} />
       </Route>
-      <Route path="e_invoice" element={<Settings.EInvoice />} />
+      {/* E-Invoicing disabled - keeping for future use */}
+      {/* <Route path="e_invoice" element={<Settings.EInvoice />} /> */}
       <Route path="email_settings" element={<Settings.EmailSettings />} />
       <Route
         path="templates_and_reminders"
@@ -168,11 +172,12 @@ export const settingsRoutes = (
         <Route path="create" element={<Settings.CreateGroupSettings />} />
         <Route path=":id/edit" element={<Settings.EditGroupSettings />} />
       </Route>
-      <Route path="schedules">
+      {/* Schedules disabled - keeping for future use */}
+      {/* <Route path="schedules">
         <Route path="" element={<Settings.Schedules />} />
         <Route path="create" element={<Settings.CreateSchedule />} />
         <Route path=":id/edit" element={<Settings.EditSchedule />} />
-      </Route>
+      </Route> */}
       <Route path="users">
         <Route path="" element={<Settings.Users />} />
         <Route path="create" element={<Settings.CreateUser />} />
@@ -186,9 +191,10 @@ export const settingsRoutes = (
           }
         />
       </Route>
-      <Route path="/settings/system_logs">
+      {/* System Logs disabled - keeping for future use */}
+      {/* <Route path="/settings/system_logs">
         <Route path="" element={<Settings.SystemLog />} />
-      </Route>
+      </Route> */}
       <Route path="payment_terms">
         <Route path="" element={<Settings.PaymentTerms />} />
         <Route path=":id/edit" element={<Settings.EditPaymentTerm />} />
@@ -244,6 +250,7 @@ export const settingsRoutes = (
         <Route path="analytics" element={<Settings.Analytics />} />
       </Route>
       <Route path="gateways">
+        <Route path="" element={<Settings.Gateways />} />
         <Route path="create" element={<Settings.CreateGateway />} />
         <Route path=":id/edit" element={<Settings.EditGateway />} />
       </Route>

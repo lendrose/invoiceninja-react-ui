@@ -10,16 +10,33 @@
 
 import { useCurrentSettingsLevel } from '$app/common/hooks/useCurrentSettingsLevel';
 import { GatewaysTable } from '../common/components/GatewaysTable';
+import { useTitle } from '$app/common/hooks/useTitle';
+import { Settings } from '$app/components/layouts/Settings';
+import { useTranslation } from 'react-i18next';
 
 export const STRIPE_CONNECT = 'd14dd26a47cecc30fdd65700bfb67b34';
 export function Gateways() {
   const { isGroupSettingsActive, isClientSettingsActive } =
     useCurrentSettingsLevel();
 
+  useTitle('gateways');
+  const [t] = useTranslation();
+
+  const pages = [
+    { name: t('settings'), href: '/settings' },
+    { name: t('gateways'), href: '/settings/gateways' },
+  ];
+
   return (
-    <GatewaysTable
-      includeRemoveAction={isGroupSettingsActive || isClientSettingsActive}
-      includeResetAction={isGroupSettingsActive || isClientSettingsActive}
-    />
+    <Settings
+      title={t('gateways')}
+      breadcrumbs={pages}
+      docsLink="/docs/advanced-settings/#gateways"
+    >
+      <GatewaysTable
+        includeRemoveAction={isGroupSettingsActive || isClientSettingsActive}
+        includeResetAction={isGroupSettingsActive || isClientSettingsActive}
+      />
+    </Settings>
   );
 }

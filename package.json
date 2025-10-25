@@ -78,7 +78,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "clean": "node -e \"const fs=require('fs');const dir='../invoiceninja/public/react';if(fs.existsSync(dir)){fs.rmSync(dir,{recursive:true,force:true});}\"",
+    "build": "npm run clean && tsc && vite build",
     "format": "prettier --write src/",
     "lint": "eslint src --max-warnings=0",
     "test": "jest",
