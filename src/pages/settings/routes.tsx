@@ -51,8 +51,7 @@ export const settingsRoutes = (
         <Route path="" element={<Settings.LocalizationSettings />} />
         <Route path="custom_labels" element={<Settings.CustomLabels />} />
       </Route>
-      {/* Online Payments disabled - keeping for future use */}
-      {/* <Route path="online_payments" element={<Settings.OnlinePayments />} /> */}
+      <Route path="online_payments" element={<Settings.OnlinePayments />} />
       <Route path="tax_settings" element={<Settings.TaxSettings />} />
       <Route path="product_settings" element={<Settings.ProductSettings />} />
       <Route path="task_settings" element={<Settings.TaskSettings />} />
